@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>markdown语法使用 | 店小二不二的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概诉 Markdown是一种书写的格式，语法比较简单，用它编写的 纯文本可以转换成有效的XHTML文档，非常适合用来记录笔记、博客。熟练掌握它即可以让页面美观，也能大大提高编写效率。但在编写过程中需要注意大部分有符号的地方必需要空格才能生效。  段落和换行 段落的前后必须是空行,空行指的是行内什么都没有，或者只有空白符（空格或制表符），如果相邻2行文本中间没有空行就会被显示在一行内。 如果需要在段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown语法使用">
+<meta property="og:url" content="http://yongjian.space/2017/04/04/markdown/index.html">
+<meta property="og:site_name" content="店小二不二的博客">
+<meta property="og:description" content="概诉 Markdown是一种书写的格式，语法比较简单，用它编写的 纯文本可以转换成有效的XHTML文档，非常适合用来记录笔记、博客。熟练掌握它即可以让页面美观，也能大大提高编写效率。但在编写过程中需要注意大部分有符号的地方必需要空格才能生效。  段落和换行 段落的前后必须是空行,空行指的是行内什么都没有，或者只有空白符（空格或制表符），如果相邻2行文本中间没有空行就会被显示在一行内。 如果需要在段">
+<meta property="og:image" content="http://yongjian.space/image/css-flex/flex-result.png">
+<meta property="og:image" content="http://yongjian.space/image/css-flex/flex-result.png">
+<meta property="og:updated_time" content="2017-04-05T11:39:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="markdown语法使用">
+<meta name="twitter:description" content="概诉 Markdown是一种书写的格式，语法比较简单，用它编写的 纯文本可以转换成有效的XHTML文档，非常适合用来记录笔记、博客。熟练掌握它即可以让页面美观，也能大大提高编写效率。但在编写过程中需要注意大部分有符号的地方必需要空格才能生效。  段落和换行 段落的前后必须是空行,空行指的是行内什么都没有，或者只有空白符（空格或制表符），如果相邻2行文本中间没有空行就会被显示在一行内。 如果需要在段">
+<meta name="twitter:image" content="http://yongjian.space/image/css-flex/flex-result.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.JPG" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">店小二不二</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/categories/html">html</a></li>
+                        
+                            <li><a href="/categories/css">css</a></li>
+                        
+                            <li><a href="/categories/javascript">javascript</a></li>
+                        
+                            <li><a href="/categories/build">构建工具</a></li>
+                        
+                            <li><a href="/categories/versioncontrol">版本控制器</a></li>
+                        
+                            <li><a href="/categories/regexp">正则表达式</a></li>
+                        
+                            <li><a href="/categories/other">其他</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/867269369@qq.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/mcfly001" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zyj.github.io/">http://zyj.github.io/</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">爱旅行、喜欢琢磨点有趣的小玩意</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">店小二不二</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.JPG" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">店小二不二</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/categories/html">html</a></li>
+                
+                    <li><a href="/categories/css">css</a></li>
+                
+                    <li><a href="/categories/javascript">javascript</a></li>
+                
+                    <li><a href="/categories/build">构建工具</a></li>
+                
+                    <li><a href="/categories/versioncontrol">版本控制器</a></li>
+                
+                    <li><a href="/categories/regexp">正则表达式</a></li>
+                
+                    <li><a href="/categories/other">其他</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail"  href="/867269369@qq.com" title="mail">mail</a>
+                    
+                        <a class="github"  href="https://github.com/mcfly001" title="github">github</a>
+                    
+                        <a class="zhihu"  href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo"  href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
+                    
+                        <a class="google"  href="#" title="google">google</a>
+                    
+                        <a class="twitter"  href="#" title="twitter">twitter</a>
+                    
+                        <a class="linkedin"  href="#" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/markdown/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      markdown语法使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/other/">other</a>
+    </div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+    
+      
+          
+        <h3 id="概诉"><a href="#概诉" class="headerlink" title="概诉"></a>概诉</h3><ul>
+<li>Markdown是一种书写的格式，语法比较简单，用它编写的 纯文本可以转换成有效的XHTML文档，非常适合用来记录笔记、博客。熟练掌握它即可以让页面美观，也能大大提高编写效率。但在编写过程中需要注意大部分有符号的地方必需要空格才能生效。</li>
+</ul>
+<h3 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h3><ol>
+<li>段落的前后必须是空行,空行指的是行内什么都没有，或者只有空白符（空格或制表符），如果相邻2行文本中间没有空行就会被显示在一行内。</li>
+<li>如果需要在段落内换行，可以在前一行的末尾加入2个空格，然后换行编写其他内容</li>
+<li>Markdown多数区块都需要在2个空行之间。</li>
+</ol>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
+<li>Markdown支持2中形式的标题语法</li>
+<li>第一种：通过=(最高阶标题) -(第二阶标题)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">this is an H1</div><div class="line">=============</div><div class="line">this is an H2</div><div class="line">-------------</div></pre></td></tr></table></figure>
+<ul>
+<li>效果如下：</li>
+</ul>
+<h1 id="this-is-an-H1"><a href="#this-is-an-H1" class="headerlink" title="this is an H1"></a>this is an H1</h1><h2 id="this-is-an-H2"><a href="#this-is-an-H2" class="headerlink" title="this is an H2"></a>this is an H2</h2><ul>
+<li>第二种：通过输入1-6个#，对应的就是H1-H6,在标题后面可以添加#，也可以不添加#</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># this is an H1</div><div class="line">## this is an H2</div></pre></td></tr></table></figure>
+<ul>
+<li>效果如下</li>
+</ul>
+<h1 id="this-is-an-H1-1"><a href="#this-is-an-H1-1" class="headerlink" title="this is an H1"></a>this is an H1</h1><h2 id="this-is-an-H2-1"><a href="#this-is-an-H2-1" class="headerlink" title="this is an H2"></a>this is an H2</h2><h3 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h3><ul>
+<li>每行前面加上&gt;，段落的第一行前面可以添加&gt;,区块引用可以嵌套，也可以引用标题、列表、代码区块等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 这个是区块的测试</div><div class="line">&gt; ## 这是一个标题。</div></pre></td></tr></table></figure>
+<ul>
+<li>效果如下</li>
+</ul>
+<blockquote>
+<p>这个是区块的测试</p>
+<h2 id="这是一个标题。"><a href="#这是一个标题。" class="headerlink" title="这是一个标题。"></a>这是一个标题。</h2></blockquote>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li>支持无序列表和有序列表，无序列表前面加*或者+或者-,有序列表是一个数字加上一个英文句点，有序列表前面的数字随便添加都会输入相同的结果都是从1开始。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1 . 一级</div><div class="line">  * 二级</div></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<p>1 . 一级  </p>
+<ul>
+<li>1.1</li>
+</ul>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><ul>
+<li>建立代码区块很简单，代码块前后至少有一个空行，并且每行前面缩紧4个空格或者1个tab就可以</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个普通段落：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<pre><code>&lt;div&gt;
+  &lt;p&gt;这是一个普通段落：&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><h3 id="代码高亮显示"><a href="#代码高亮显示" class="headerlink" title="代码高亮显示"></a>代码高亮显示</h3><ul>
+<li>多行代码需要用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">window.addEventListener(&quot;load&quot;,function()&#123;</div><div class="line">  alert(&apos;1&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
+</ul>
+<p>效果<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="string">'1'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><ul>
+<li>可以写3个以上的* - _ 来建立一个分隔线，中间可以添加空格，但是不能添加其他内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">****</div></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<hr>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
+<li>分为行内式和参考式2种形式，但是不管哪一种链接的文字都是用[]来标记的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这是行内式一个链接 [google](https://www.google.com &quot;google&quot;)</div><div class="line">这个是参考式一个链接  [Google]: http://www.google.com/ &quot;Google&quot;</div><div class="line">使用&lt;&gt;包括的URI或者邮箱地址 &lt;https://www.google.com&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>这是行内式一个链接 <a href="https://www.google.com" title="google" target="_blank" rel="external">google</a></li>
+</ul>
+<ul>
+<li>这个是参考式一个链接  [Google]: <a href="http://www.google.com/" target="_blank" rel="external">http://www.google.com/</a> “Google”</li>
+</ul>
+<ul>
+<li><a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></li>
+</ul>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>用*或者_作为强调词字的符号，被包围的词字会被转换为<em>标签包围<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">** 这个是被强调的内容 **</div><div class="line">__ 这个是被强调的内容 __</div></pre></td></tr></table></figure></em></p>
+<p><strong> 这个是被强调的内容 </strong><br><strong> 这个是被强调的内容 </strong></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片和链接很相似，就是在前面多了一个！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">行内式 ![测试图片](http://yongjian.space/image/css-flex/flex-result.png)</div><div class="line">参考式 ![测试图片]: http://yongjian.space/image/css-flex/flex-result.png</div><div class="line">可以用img制定大小 &lt;img src=&quot;http://yongjian.space/image/css-flex/flex-result.png&quot; width=&quot;50&quot; height=50 /&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>效果</li>
+</ul>
+<p>行内式 <img src="http://yongjian.space/image/css-flex/flex-result.png" alt="测试图片"></p>
+<p>参考式 ![测试图片]: <a href="http://yongjian.space/image/css-flex/flex-result.png">http://yongjian.space/image/css-flex/flex-result.png</a></p>
+<p><img src="http://yongjian.space/image/css-flex/flex-result.png" width="50" height="50"></p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~删除线~~</div></pre></td></tr></table></figure>
+<ul>
+<li><del>删除线</del></li>
+</ul>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">| name | age |</div><div class="line">| :---: | :---: |</div><div class="line">| lerarnShare  | 12 |</div><div class="line">| Mike | 32 |</div></pre></td></tr></table></figure>
+<ul>
+<li>效果</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">lerarnShare</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">Mike</td>
+<td style="text-align:center">32</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://xianbai.me/learn-md/article/extension/table.html" target="_blank" rel="external">http://xianbai.me/learn-md/article/extension/table.html</a></p>
+<hr>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.JPG" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.JPG" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.JPG");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/04/markdown/">markdown语法使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
+        <p><span>发布时间:</span>2017年04月04日 - 10时53分</p>
+        <p><span>最后更新:</span>2017年04月05日 - 19时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/04/markdown/" title="markdown语法使用">http://yongjian.space/2017/04/04/markdown/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yongjian.space/2017/04/04/markdown/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/04/04/line-height和vertical-align的关系/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          line-height和vertical-align的关系
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/04/flex布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">flex布局</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概诉"><span class="toc-number">1.</span> <span class="toc-text">概诉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#段落和换行"><span class="toc-number">2.</span> <span class="toc-text">段落和换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标题"><span class="toc-number">3.</span> <span class="toc-text">标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#this-is-an-H1"><span class="toc-number"></span> <span class="toc-text">this is an H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this-is-an-H2"><span class="toc-number"></span> <span class="toc-text">this is an H2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#this-is-an-H1-1"><span class="toc-number"></span> <span class="toc-text">this is an H1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this-is-an-H2-1"><span class="toc-number"></span> <span class="toc-text">this is an H2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区块引用"><span class="toc-number">1.</span> <span class="toc-text">区块引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#这是一个标题。"><span class="toc-number"></span> <span class="toc-text">这是一个标题。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表"><span class="toc-number">1.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码区块"><span class="toc-number">2.</span> <span class="toc-text">代码区块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码高亮显示"><span class="toc-number">3.</span> <span class="toc-text">代码高亮显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分隔线"><span class="toc-number">4.</span> <span class="toc-text">分隔线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">5.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强调"><span class="toc-number">6.</span> <span class="toc-text">强调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片"><span class="toc-number">7.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除线"><span class="toc-number">8.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">9.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">10.</span> <span class="toc-text">参考链接</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/04/04/markdown/" data-title="markdown语法使用" data-url="http://yongjian.space/2017/04/04/markdown/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/04/line-height和vertical-align的关系/" title="上一篇: line-height和vertical-align的关系">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/04/04/flex布局/" title="下一篇: flex布局">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/react坑点/">react坑点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react用例/">react用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 店小二不二
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg.jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  </div>
+</body>
+</html>
