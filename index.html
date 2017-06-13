@@ -315,132 +315,6 @@
 
 
   
-    <article id="post-react坑点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/12/react坑点/" class="article-date">
-      <time datetime="2017-04-12T03:46:24.000Z" itemprop="datePublished">2017-04-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/react坑点/">react坑点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="render里面如果是用html标签就不需要用-lt-gt-包围"><a href="#render里面如果是用html标签就不需要用-lt-gt-包围" class="headerlink" title="render里面如果是用html标签就不需要用&lt; /&gt;包围"></a>render里面如果是用html标签就不需要用&lt; /&gt;包围</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let myDivElement = &lt;div className=&quot;foo&quot; /&gt;;</div><div class="line">render(&lt;myDivElement/&gt;, document.getElementById(&apos;mountNode&apos;));//错误方式</div><div class="line">render(myDivElement, document.getElementById(&apos;mountNode&apos;));//正确方式</div></pre></td></tr></table></figure>
-<h3 id="在原生事件上用document绑定事件，然后想要在合成事件中解除冒泡事件"><a href="#在原生事件上用document绑定事件，然后想要在合成事件中解除冒泡事件" class="headerlink" title="在原生事件上用document绑定事件，然后想要在合成事件中解除冒泡事件"></a>在原生事件上用document绑定事件，然后想要在合成事件中解除冒泡事件</h3><p>所谓原生事件就是在钩子中使用了addEventListen事件，合成事件就是在html用onClick事件绑定，这时候通过e.stopPropagation()是不起效果的，应该用e.nativeEvent.stopImmediatePropagation()</p>
-<h3 id="ReactDom-createElement的参数超过3个"><a href="#ReactDom-createElement的参数超过3个" class="headerlink" title="ReactDom.createElement的参数超过3个"></a>ReactDom.createElement的参数超过3个</h3><p>超过3个的参数，从第四个开始就是和第三个一起变成一个数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">React.createElement(&apos;div&apos;, null, &quot;Hello &quot;, this.props.name)</div><div class="line">本质：React.createElement(&apos;div&apos;, null, [&quot;Hello &quot;, this.props.name])</div></pre></td></tr></table></figure></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-react用例" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/11/react用例/" class="article-date">
-      <time datetime="2017-04-11T02:05:28.000Z" itemprop="datePublished">2017-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/react用例/">react用例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="ReactDom-render-渲染时候第一个参数的几种方式"><a href="#ReactDom-render-渲染时候第一个参数的几种方式" class="headerlink" title="ReactDom.render 渲染时候第一个参数的几种方式"></a>ReactDom.render 渲染时候第一个参数的几种方式</h3><p>&emsp; 第一个参数首先会检查他的合法性，然后再用React.createElement去变成React能识别的标签<br>&emsp; 1.1 遇到&lt;开始的就用html去解析它<br>&emsp; 1.2 遇到{开始的就用js去解析它<br>&emsp; 1.3 遇到组件为头的就用组件的方式去解析它</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">输入：&lt;div&gt;浙江&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'red'</span>&gt;</div><div class="line">结果：React.createElement(<span class="string">'div'</span>,&#123;<span class="attr">className</span>:red&#125;,<span class="string">"浙江"</span>)</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1.</span>类型一</div><div class="line"></div><div class="line"><span class="keyword">let</span> myComponent = React.createElement(</div><div class="line">                    <span class="string">'div'</span>,</div><div class="line">                    <span class="literal">null</span>,</div><div class="line">                    React.createElement(</div><div class="line">                        <span class="string">'div'</span>,</div><div class="line">                        <span class="literal">null</span>,</div><div class="line">                        React.createElement(</div><div class="line">                        <span class="string">'div'</span>,</div><div class="line">                        <span class="literal">null</span>,</div><div class="line">                        <span class="string">"content"</span></div><div class="line">                        )</div><div class="line">                    )</div><div class="line">                )</div><div class="line"></div><div class="line">ReactDom.render(</div><div class="line">    myComponent,</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>),</div><div class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">"完成啦"</span>)</div><div class="line">    &#125;</div><div class="line">)</div><div class="line"></div><div class="line"><span class="number">2.</span>类型二</div><div class="line"></div><div class="line"><span class="keyword">let</span> cli = React.createClass(&#123;</div><div class="line">      render()&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123; this.props.text &#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">let</span> root = React.createElement(cli,&#123;<span class="attr">text</span>:<span class="string">"张三"</span>&#125;)</div><div class="line"></div><div class="line">ReactDom.render(</div><div class="line">    root,</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="number">3.</span> 类型三</div><div class="line"></div><div class="line">ReactDom.render(</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-name</span>=<span class="string">"张三"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>,</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="number">4.</span>类型四</div><div class="line"><span class="keyword">var</span> APP = React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">b</span>&gt;</span>bold<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">APP</span> /&gt;</span>, document.body)</span></div></pre></td></tr></table></figure>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-react基本用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -786,6 +660,74 @@
 
 
   
+    <article id="post-vue-Api" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/07/vue-Api/" class="article-date">
+      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/vue-Api/">vue重要Api整理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p><font color="blank">silent</font>：禁用Vue.js的所有日志和警告<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.config.silent=<span class="literal">true</span>;</div></pre></td></tr></table></figure></p>
+<p>optionMergeStrategies:为选项定义自定义的合并策略，maxin<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option=<span class="function"><span class="keyword">function</span>(<span class="params">parent,child,vm</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> child+<span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile=Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>:<span class="number">1</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="全局Api"><a href="#全局Api" class="headerlink" title="全局Api"></a>全局Api</h3><p>extend:创建基础vue构造器的子类，使用时候data必需为函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Profile=Vue.extend(&#123;</div><div class="line">    <span class="attr">template</span>:<span class="string">"&lt;div&gt;test&lt;/div&gt;"</span>,</div><div class="line">    <span class="attr">data</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">firstname</span>:<span class="string">"张三"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">"#app"</span>);</div></pre></td></tr></table></figure>
+<p>nextTick:将回调推迟到下次dom更新循环之后执行，等修改完数组之后立刻执行这个方法，等待dom更新<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=<span class="keyword">new</span> Vue(&#123;</div><div class="line">        data()&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">name</span>:<span class="string">"王五"</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">Vue.name=<span class="string">"李四"</span>;</div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.name=<span class="string">"张三"</span>;</div><div class="line"><span class="keyword">this</span>.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>Vue.set:设置对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">"张三"</span>&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">Vue.set(vm.obj,<span class="string">"age"</span>,<span class="number">23</span>)<span class="comment">//全局方式 最后obj=&#123;name:"张三","age":23&#125;</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.obj,<span class="string">'sale'</span>,<span class="string">"man"</span>)<span class="comment">//局部方式obj=&#123;name:"张三","sale":"man"&#125;</span></div></pre></td></tr></table></figure></p>
+<p>Vue.delete:删除对象属性</p>
+<h3 id="选项数据"><a href="#选项数据" class="headerlink" title="选项数据"></a>选项数据</h3><p>propsData:在创建实例等过程传递props，主要作用是方便测试</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -849,11 +791,11 @@
 
 
   
-    <article id="post-vue-Api" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/07/vue-Api/" class="article-date">
-      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
+      <a href="/2017/04/04/flex布局/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
 </a>
     </div>
   
@@ -866,7 +808,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/vue-Api/">vue重要Api整理</a>
+      <a class="article-title" href="/2017/04/04/flex布局/">flex布局</a>
     </h1>
   
 
@@ -878,14 +820,37 @@
     
       
           
-        <h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p><font color="blank">silent</font>：禁用Vue.js的所有日志和警告<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.config.silent=<span class="literal">true</span>;</div></pre></td></tr></table></figure></p>
-<p>optionMergeStrategies:为选项定义自定义的合并策略，maxin<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option=<span class="function"><span class="keyword">function</span>(<span class="params">parent,child,vm</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> child+<span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile=Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>:<span class="number">1</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="全局Api"><a href="#全局Api" class="headerlink" title="全局Api"></a>全局Api</h3><p>extend:创建基础vue构造器的子类，使用时候data必需为函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Profile=Vue.extend(&#123;</div><div class="line">    <span class="attr">template</span>:<span class="string">"&lt;div&gt;test&lt;/div&gt;"</span>,</div><div class="line">    <span class="attr">data</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">firstname</span>:<span class="string">"张三"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">"#app"</span>);</div></pre></td></tr></table></figure>
-<p>nextTick:将回调推迟到下次dom更新循环之后执行，等修改完数组之后立刻执行这个方法，等待dom更新<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=<span class="keyword">new</span> Vue(&#123;</div><div class="line">        data()&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">name</span>:<span class="string">"王五"</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">Vue.name=<span class="string">"李四"</span>;</div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.name=<span class="string">"张三"</span>;</div><div class="line"><span class="keyword">this</span>.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>Vue.set:设置对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">"张三"</span>&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">Vue.set(vm.obj,<span class="string">"age"</span>,<span class="number">23</span>)<span class="comment">//全局方式 最后obj=&#123;name:"张三","age":23&#125;</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.obj,<span class="string">'sale'</span>,<span class="string">"man"</span>)<span class="comment">//局部方式obj=&#123;name:"张三","sale":"man"&#125;</span></div></pre></td></tr></table></figure></p>
-<p>Vue.delete:删除对象属性</p>
-<h3 id="选项数据"><a href="#选项数据" class="headerlink" title="选项数据"></a>选项数据</h3><p>propsData:在创建实例等过程传递props，主要作用是方便测试</p>
+        <p>&emsp;&emsp;相比较传统布局，flex在处理元素垂直居中上会简单很多，而且在兼容性方面现在基本主流浏览器都已经兼容。所以如果你还在用float或者position布局，那么建议你尝试用一下flex，你会发现布局原来是那么简单的一件事情。</p>
+<p>&emsp;&emsp;flex其实就是一个容器，在其里面所有的子元素会自动生成为flex项目，下面就介绍一下flex容器的6个属性以及其子元素flex项目的6大属性</p>
+<h3 id="一：flex容器的6大属性"><a href="#一：flex容器的6大属性" class="headerlink" title="一：flex容器的6大属性"></a>一：flex容器的6大属性</h3><h4 id="flex-direction-row-row-reverse-column-column-reverse"><a href="#flex-direction-row-row-reverse-column-column-reverse" class="headerlink" title="flex-direction:row | row-reverse | column | column-reverse"></a>flex-direction:row | row-reverse | column | column-reverse</h4><font color="#ccc" size="2.5" face="黑体">该属性表示flex项目的主轴式横向还是纵向的，一共有4个属性值 </font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . row：主轴是水平方向，起点在左端。</font>
+
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . row-reverse：主轴为水平方向，起点在右端。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . column：主轴为垂直方向，起点在上沿。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 . column-reverse：主轴为垂直方向，起点在下沿。</font></p>
+<h4 id="flex-wrap-nowrap-wrap-wrap-reverse"><a href="#flex-wrap-nowrap-wrap-wrap-reverse" class="headerlink" title="flex-wrap:nowrap | wrap | wrap-reverse"></a>flex-wrap:nowrap | wrap | wrap-reverse</h4><font color="#ccc" size="2.5" face="黑体">这个属性用于定义flex项目是否在统一轴线上</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . nowrap:(默认)不换行</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . wrap：换行，第一行在上面</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . wrap-reverse：换行，第一行在最下面</font>
+
+<h4 id="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"><a href="#flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和" class="headerlink" title="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"></a>flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和</h4><h4 id="justify-content：flex-start-flex-end-center-space-between-space-around"><a href="#justify-content：flex-start-flex-end-center-space-between-space-around" class="headerlink" title="justify-content：flex-start | flex-end | center | space-between | space-around"></a>justify-content：flex-start | flex-end | center | space-between | space-around</h4><font color="#ccc" size="2.5" face="黑体">定义项目在主轴上对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:(默认)左对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：右对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：居中</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：两端对齐，项目之间的间隔相等</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体">space-around：每个项目两侧间隔相等，所以，项目之间的间隔比项目和边框的间隔大一倍</font>
+
+<h4 id="align-items：flex-start-flex-end-center-stretch-baseline"><a href="#align-items：flex-start-flex-end-center-stretch-baseline" class="headerlink" title="align-items：flex-start | flex-end | center | stretch | baseline"></a>align-items：flex-start | flex-end | center | stretch | baseline</h4><font color="#ccc" size="2.5" face="黑体">定义入股交叉轴只有一条的情况下，交叉轴的对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .baseline：项目第一行文字的基线对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h4 id="align-content：flex-start-flex-end-center-space-between-space-around-stretch"><a href="#align-content：flex-start-flex-end-center-space-between-space-around-stretch" class="headerlink" title="align-content：flex-start | flex-end | center | space-between | space-around | stretch"></a>align-content：flex-start | flex-end | center | space-between | space-around | stretch</h4><font color="#ccc" size="2.5" face="黑体">定义多根轴线的对齐方式，如果轴线只有一条该属性就无效</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：和交叉轴两端对齐，轴线之间的间距平均分布</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .space-around：每根轴线2侧的间距都相等，所以轴线之间的间距比轴线和边框的间距大一倍</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 6 .stretch：占满整个容器的高度</font>
+
+<h3 id="二：flex项目的6大属性"><a href="#二：flex项目的6大属性" class="headerlink" title="二：flex项目的6大属性"></a>二：flex项目的6大属性</h3><h4 id="order：0"><a href="#order：0" class="headerlink" title="order：0"></a>order：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的排列顺序，默认为0</font>
+
+<h4 id="flex-grow：0"><a href="#flex-grow：0" class="headerlink" title="flex-grow：0"></a>flex-grow：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的放大比例，默认为0，即如果存在剩余空间也不放大，如果1则表示等比例放大，如果有一个为2，则该项目占据剩余空间的大小是其他的2倍</font>
+
+<h4 id="flex-shrink：1"><a href="#flex-shrink：1" class="headerlink" title="flex-shrink：1"></a>flex-shrink：1</h4><font color="#ccc" size="2.5" face="黑体">定义项目的缩小比例，如果空间不足，该项目就会缩小</font>
+
+<h4 id="flex-basis："><a href="#flex-basis：" class="headerlink" title="flex-basis："></a>flex-basis：<length></length></h4><font color="#ccc" size="2.5" face="黑体">定义在分配多余空间之前，计算主轴是否有多余的剩余空间，也就是固定项目的大小了</font>
+
+<h4 id="flex：auto（1-1-auto）-none"><a href="#flex：auto（1-1-auto）-none" class="headerlink" title="flex：auto（1 1 auto） |  none"></a>flex：auto（1 1 auto） |  none</h4><font color="#ccc" size="2.5" face="黑体">flex-grow、flex-strink、flex-basis3个的总和。默认有2个快捷写法</font>
+
+<h4 id="align-self：auto-flex-start-flex-end-center-baseline-stretch"><a href="#align-self：auto-flex-start-flex-end-center-baseline-stretch" class="headerlink" title="align-self：auto | flex-start | flex-end | center | baseline | stretch"></a>align-self：auto | flex-start | flex-end | center | baseline | stretch</h4><font color="#ccc" size="2.5" face="黑体">允许单个项目和其他项目不一样的对齐方式，可以覆盖flex容器中的align-items属性。</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h3 id="三：实战布局"><a href="#三：实战布局" class="headerlink" title="三：实战布局"></a>三：实战布局</h3><h4 id="1-圣杯布局"><a href="#1-圣杯布局" class="headerlink" title="1:圣杯布局"></a>1:圣杯布局</h4><p>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">   <span class="attribute">padding</span>:<span class="number">0</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: column;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.header</span>&#123;</div><div class="line">   <span class="attribute">background</span>:red;</div><div class="line">   <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.main</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:yellow;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: row;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#2D93CA</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:black;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-flow</span>:row nowrap;</div><div class="line">   <span class="attribute">justify-content</span>: space-around;</div><div class="line">   <span class="attribute">align-items</span>:flex-start;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&gt;<span class="selector-tag">div</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#ddd</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.footer</span>&#123;</div><div class="line">   <span class="attribute">background</span>:blue;</div><div class="line">   <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>结果:<br><img src="http://yongjian.space/image/css-flex/flex-result.png" alt="result"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>语法篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>实战篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</a><br>css兼容性查询：<a href="http://caniuse.com/#search=f%20le" target="_blank" rel="external">http://caniuse.com/#search=f%20le</a></p>
 
       
       
@@ -895,7 +860,80 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/git/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/git/">git日常使用命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <p>&emsp;&emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。</p>
+<h3 id="情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。"><a href="#情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。" class="headerlink" title="情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。"></a>情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。</h3><p>报错：Permission denied(publickey)<br>原因：是因为新生成的key不能添加到ssh上导致连接不上<br>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-agent</div><div class="line">ssh-add ~/.ssh/id_rsa</div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<h3 id="情景二-本地新建一个仓库，与远程关联，并且新建一份新分支"><a href="#情景二-本地新建一个仓库，与远程关联，并且新建一份新分支" class="headerlink" title="情景二:本地新建一个仓库，与远程关联，并且新建一份新分支"></a>情景二:本地新建一个仓库，与远程关联，并且新建一份新分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init //本地新建一个仓库</div><div class="line">git remote add origin git@github.com:mcfly001/test.git //本地和远程关联</div><div class="line">git branch bugs //新建分支</div><div class="line">git push origin bugs //推送该分支到远程仓库</div></pre></td></tr></table></figure>
+<h3 id="日常工作内容"><a href="#日常工作内容" class="headerlink" title="日常工作内容"></a>日常工作内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1 . 修改内容 git add .</div><div class="line">2 . git commit -m &quot;本次修改的内容&quot;</div><div class="line">3 . git checkout master //切换到主支(切换的时候一定要把所有内容都commit或者stash起来)</div><div class="line">4 . git merge bugs //合并bugs分支到主支,然后解决冲突（如果有冲突的话）</div><div class="line">5 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">6 . git pull origin master //从远端获取新代码，然后解决冲突（如果有冲突的话）</div><div class="line">7 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">8 . git push origin master //将本地的内容推送到远程主支</div></pre></td></tr></table></figure>
+<h3 id="情景四：想要返回之前的版本怎么办？"><a href="#情景四：想要返回之前的版本怎么办？" class="headerlink" title="情景四：想要返回之前的版本怎么办？"></a>情景四：想要返回之前的版本怎么办？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1 . 首先查看commit的版本 git log 然后选择想要返回的版本号。</div><div class="line">2 . 然后git reset --hard 上一步选择的版本号就恢复了</div><div class="line">3 当恢复到之前的版本了，但是这时候有想到最新的版本就可以用git reflog就能查看所有commit的记录，然后选择commit id，然后git reset --hard 相应的commit id</div></pre></td></tr></table></figure>
+<h3 id="情景五：如果想要删除本次修改的内容怎么办？"><a href="#情景五：如果想要删除本次修改的内容怎么办？" class="headerlink" title="情景五：如果想要删除本次修改的内容怎么办？"></a>情景五：如果想要删除本次修改的内容怎么办？</h3><p>1.本次修改还没git add 这时候可以用git checkout –file就可以了<br>2.本次已经add或者commit但是没有推送到远程 这时候可以返回之前的版本</p>
+<ul>
+<li>2.1如果是add没有commit，这时候git reflow 选择最新的版本的commit Id 然后git reset –hard xx</li>
+<li>2.2如果commit但是没有推送到远程，这时候可以用也是和上一个方法一样，但是选择的commit id应该是上一个的，而不是最新的</li>
+</ul>
+<h3 id="情景六：-git-pull的时候refusing-to-merge-unrelated-histories"><a href="#情景六：-git-pull的时候refusing-to-merge-unrelated-histories" class="headerlink" title="情景六： git pull的时候refusing to merge unrelated histories"></a>情景六： git pull的时候refusing to merge unrelated histories</h3><pre><code>git pull origin master --allow-unrelated-histories
+</code></pre><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>1 . 在使用git log的时候如果想要输出的结果在一行，可以添加后缀–pretty=oneline。命令为 git log –pretty=oneline<br>2 . git status 可以查看当前有没有内容需要还没有add，有没有内容还没commit，建议经常用<br>3 . git diff比较工作区和暂存区之间的差别也就是说没有add和add之后的区别，也可以用来比较2个分支之间的差别，假如当前分支为master，如果想要比较和bugs上的区别，可以用git diff bugs<br>4 . 解决冲突的时候如果想要看图形界面可以用git log –graph<br>5 . 删除文件可以用rm file<br>6 . clone指定分支 git clone -b [branch-name] git@github.com:mcfly001/electron.git<br>7 . 删除远程 git remote rm origin<br>8 . 查看分支(本地和远程) git branch -a<br>9 . git远程和本地的分支名字要保持一致。</p>
+<h3 id="git日常使用命令"><a href="#git日常使用命令" class="headerlink" title="git日常使用命令"></a>git日常使用命令</h3><p>git clone -b <branch> <remote_repo> //从远程克隆一份指定的分支，git clone -b 分支名字<br>git diff –cached //这个查看的是add了，但是没有commit的修改的内容。<br>git checkout -b “name”  //创建+切换分支<br>git branch -d “name”    //删除分支<br>git branch -r    //查看远程分支<br>git stash               //保存当前的工作状态<br>git remote -v           //查看远程的库<br>git remote add origin git@github.com:mcfly001/repositoryname.git //本地和github建立联系<br>git push origin “branchname” //将本地分支传递给远程<br>git push origin –d <branchname> //删除远程分支<br>git remote rm ‘name’ //删除远程库</branchname></remote_repo></branch></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
     </div>
 
 
