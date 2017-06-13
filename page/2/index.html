@@ -234,10 +234,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-html" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/html/" class="article-date">
+      <a href="/2017/04/04/git/" class="article-date">
       <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
 </a>
     </div>
@@ -251,7 +251,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/html/">history</a>
+      <a class="article-title" href="/2017/04/04/git/">git日常使用命令</a>
     </h1>
   
 
@@ -263,7 +263,20 @@
     
       
           
-        
+        <p>&emsp;&emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。</p>
+<h3 id="情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。"><a href="#情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。" class="headerlink" title="情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。"></a>情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。</h3><p>报错：Permission denied(publickey)<br>原因：是因为新生成的key不能添加到ssh上导致连接不上<br>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-agent</div><div class="line">ssh-add ~/.ssh/id_rsa</div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<h3 id="情景二-本地新建一个仓库，与远程关联，并且新建一份新分支"><a href="#情景二-本地新建一个仓库，与远程关联，并且新建一份新分支" class="headerlink" title="情景二:本地新建一个仓库，与远程关联，并且新建一份新分支"></a>情景二:本地新建一个仓库，与远程关联，并且新建一份新分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init //本地新建一个仓库</div><div class="line">git remote add origin git@github.com:mcfly001/test.git //本地和远程关联</div><div class="line">git branch bugs //新建分支</div><div class="line">git push origin bugs //推送该分支到远程仓库</div></pre></td></tr></table></figure>
+<h3 id="日常工作内容"><a href="#日常工作内容" class="headerlink" title="日常工作内容"></a>日常工作内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1 . 修改内容 git add .</div><div class="line">2 . git commit -m &quot;本次修改的内容&quot;</div><div class="line">3 . git checkout master //切换到主支(切换的时候一定要把所有内容都commit或者stash起来)</div><div class="line">4 . git merge bugs //合并bugs分支到主支,然后解决冲突（如果有冲突的话）</div><div class="line">5 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">6 . git pull origin master //从远端获取新代码，然后解决冲突（如果有冲突的话）</div><div class="line">7 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">8 . git push origin master //将本地的内容推送到远程主支</div></pre></td></tr></table></figure>
+<h3 id="情景四：想要返回之前的版本怎么办？"><a href="#情景四：想要返回之前的版本怎么办？" class="headerlink" title="情景四：想要返回之前的版本怎么办？"></a>情景四：想要返回之前的版本怎么办？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1 . 首先查看commit的版本 git log 然后选择想要返回的版本号。</div><div class="line">2 . 然后git reset --hard 上一步选择的版本号就恢复了</div><div class="line">3 当恢复到之前的版本了，但是这时候有想到最新的版本就可以用git reflog就能查看所有commit的记录，然后选择commit id，然后git reset --hard 相应的commit id</div></pre></td></tr></table></figure>
+<h3 id="情景五：如果想要删除本次修改的内容怎么办？"><a href="#情景五：如果想要删除本次修改的内容怎么办？" class="headerlink" title="情景五：如果想要删除本次修改的内容怎么办？"></a>情景五：如果想要删除本次修改的内容怎么办？</h3><p>1.本次修改还没git add 这时候可以用git checkout –file就可以了<br>2.本次已经add或者commit但是没有推送到远程 这时候可以返回之前的版本</p>
+<ul>
+<li>2.1如果是add没有commit，这时候git reflow 选择最新的版本的commit Id 然后git reset –hard xx</li>
+<li>2.2如果commit但是没有推送到远程，这时候可以用也是和上一个方法一样，但是选择的commit id应该是上一个的，而不是最新的</li>
+</ul>
+<h3 id="情景六：-git-pull的时候refusing-to-merge-unrelated-histories"><a href="#情景六：-git-pull的时候refusing-to-merge-unrelated-histories" class="headerlink" title="情景六： git pull的时候refusing to merge unrelated histories"></a>情景六： git pull的时候refusing to merge unrelated histories</h3><pre><code>git pull origin master --allow-unrelated-histories
+</code></pre><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>1 . 在使用git log的时候如果想要输出的结果在一行，可以添加后缀–pretty=oneline。命令为 git log –pretty=oneline<br>2 . git status 可以查看当前有没有内容需要还没有add，有没有内容还没commit，建议经常用<br>3 . git diff比较工作区和暂存区之间的差别也就是说没有add和add之后的区别，也可以用来比较2个分支之间的差别，假如当前分支为master，如果想要比较和bugs上的区别，可以用git diff bugs<br>4 . 解决冲突的时候如果想要看图形界面可以用git log –graph<br>5 . 删除文件可以用rm file<br>6 . clone指定分支 git clone -b [branch-name] git@github.com:mcfly001/electron.git<br>7 . 删除远程 git remote rm origin<br>8 . 查看分支(本地和远程) git branch -a<br>9 . git远程和本地的分支名字要保持一致。</p>
+<h3 id="git日常使用命令"><a href="#git日常使用命令" class="headerlink" title="git日常使用命令"></a>git日常使用命令</h3><p>git clone -b <branch> <remote_repo> //从远程克隆一份指定的分支，git clone -b 分支名字<br>git diff –cached //这个查看的是add了，但是没有commit的修改的内容。<br>git checkout -b “name”  //创建+切换分支<br>git branch -d “name”    //删除分支<br>git branch -r    //查看远程分支<br>git stash               //保存当前的工作状态<br>git remote -v           //查看远程的库<br>git remote add origin git@github.com:mcfly001/repositoryname.git //本地和github建立联系<br>git push origin “branchname” //将本地分支传递给远程<br>git push origin –d <branchname> //删除远程分支<br>git remote rm ‘name’ //删除远程库</branchname></remote_repo></branch></p>
+
       
       
     </div>
@@ -272,7 +285,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/html/">html</a>
+    <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
     </div>
 
 
@@ -621,10 +634,10 @@
 
 
   
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/正则表达式/" class="article-date">
+      <a href="/2017/04/04/html/" class="article-date">
       <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
 </a>
     </div>
@@ -638,7 +651,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/正则表达式/">常用正则表达式</a>
+      <a class="article-title" href="/2017/04/04/html/">history</a>
     </h1>
   
 
@@ -659,80 +672,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/regexp/">regexp</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/04/git/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/git/">git日常使用命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <p>&emsp;&emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。</p>
-<h3 id="情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。"><a href="#情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。" class="headerlink" title="情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。"></a>情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。</h3><p>报错：Permission denied(publickey)<br>原因：是因为新生成的key不能添加到ssh上导致连接不上<br>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-agent</div><div class="line">ssh-add ~/.ssh/id_rsa</div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<h3 id="情景二-本地新建一个仓库，与远程关联，并且新建一份新分支"><a href="#情景二-本地新建一个仓库，与远程关联，并且新建一份新分支" class="headerlink" title="情景二:本地新建一个仓库，与远程关联，并且新建一份新分支"></a>情景二:本地新建一个仓库，与远程关联，并且新建一份新分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init //本地新建一个仓库</div><div class="line">git remote add origin git@github.com:mcfly001/test.git //本地和远程关联</div><div class="line">git branch bugs //新建分支</div><div class="line">git push origin bugs //推送该分支到远程仓库</div></pre></td></tr></table></figure>
-<h3 id="日常工作内容"><a href="#日常工作内容" class="headerlink" title="日常工作内容"></a>日常工作内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1 . 修改内容 git add .</div><div class="line">2 . git commit -m &quot;本次修改的内容&quot;</div><div class="line">3 . git checkout master //切换到主支(切换的时候一定要把所有内容都commit或者stash起来)</div><div class="line">4 . git merge bugs //合并bugs分支到主支,然后解决冲突（如果有冲突的话）</div><div class="line">5 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">6 . git pull origin master //从远端获取新代码，然后解决冲突（如果有冲突的话）</div><div class="line">7 . 解决好冲突之后git add .        git commit -m &quot;修改的内容&quot;  如果无冲突省略本步骤</div><div class="line">8 . git push origin master //将本地的内容推送到远程主支</div></pre></td></tr></table></figure>
-<h3 id="情景四：想要返回之前的版本怎么办？"><a href="#情景四：想要返回之前的版本怎么办？" class="headerlink" title="情景四：想要返回之前的版本怎么办？"></a>情景四：想要返回之前的版本怎么办？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1 . 首先查看commit的版本 git log 然后选择想要返回的版本号。</div><div class="line">2 . 然后git reset --hard 上一步选择的版本号就恢复了</div><div class="line">3 当恢复到之前的版本了，但是这时候有想到最新的版本就可以用git reflog就能查看所有commit的记录，然后选择commit id，然后git reset --hard 相应的commit id</div></pre></td></tr></table></figure>
-<h3 id="情景五：如果想要删除本次修改的内容怎么办？"><a href="#情景五：如果想要删除本次修改的内容怎么办？" class="headerlink" title="情景五：如果想要删除本次修改的内容怎么办？"></a>情景五：如果想要删除本次修改的内容怎么办？</h3><p>1.本次修改还没git add 这时候可以用git checkout –file就可以了<br>2.本次已经add或者commit但是没有推送到远程 这时候可以返回之前的版本</p>
-<ul>
-<li>2.1如果是add没有commit，这时候git reflow 选择最新的版本的commit Id 然后git reset –hard xx</li>
-<li>2.2如果commit但是没有推送到远程，这时候可以用也是和上一个方法一样，但是选择的commit id应该是上一个的，而不是最新的</li>
-</ul>
-<h3 id="情景六：-git-pull的时候refusing-to-merge-unrelated-histories"><a href="#情景六：-git-pull的时候refusing-to-merge-unrelated-histories" class="headerlink" title="情景六： git pull的时候refusing to merge unrelated histories"></a>情景六： git pull的时候refusing to merge unrelated histories</h3><pre><code>git pull origin master --allow-unrelated-histories
-</code></pre><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>1 . 在使用git log的时候如果想要输出的结果在一行，可以添加后缀–pretty=oneline。命令为 git log –pretty=oneline<br>2 . git status 可以查看当前有没有内容需要还没有add，有没有内容还没commit，建议经常用<br>3 . git diff比较工作区和暂存区之间的差别也就是说没有add和add之后的区别，也可以用来比较2个分支之间的差别，假如当前分支为master，如果想要比较和bugs上的区别，可以用git diff bugs<br>4 . 解决冲突的时候如果想要看图形界面可以用git log –graph<br>5 . 删除文件可以用rm file<br>6 . clone指定分支 git clone -b [branch-name] git@github.com:mcfly001/electron.git<br>7 . 删除远程 git remote rm origin<br>8 . 查看分支(本地和远程) git branch -a<br>9 . git远程和本地的分支名字要保持一致。</p>
-<h3 id="git日常使用命令"><a href="#git日常使用命令" class="headerlink" title="git日常使用命令"></a>git日常使用命令</h3><p>git clone -b <branch> <remote_repo> //从远程克隆一份指定的分支，git clone -b 分支名字<br>git diff –cached //这个查看的是add了，但是没有commit的修改的内容。<br>git checkout -b “name”  //创建+切换分支<br>git branch -d “name”    //删除分支<br>git branch -r    //查看远程分支<br>git stash               //保存当前的工作状态<br>git remote -v           //查看远程的库<br>git remote add origin git@github.com:mcfly001/repositoryname.git //本地和github建立联系<br>git push origin “branchname” //将本地分支传递给远程<br>git push origin –d <branchname> //删除远程分支<br>git remote rm ‘name’ //删除远程库</branchname></remote_repo></branch></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
+    <a class="article-category-link" href="/categories/html/">html</a>
     </div>
 
 
@@ -799,6 +739,66 @@
       
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/build/">build</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/正则表达式/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/正则表达式/">常用正则表达式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/regexp/">regexp</a>
     </div>
 
 
