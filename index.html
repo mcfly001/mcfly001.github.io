@@ -760,6 +760,69 @@
 
 
   
+    <article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/07/vue基础/" class="article-date">
+      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/vue基础/">vue使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="关于render函数"><a href="#关于render函数" class="headerlink" title="关于render函数"></a>关于render函数</h3><p>createElement参数解析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个参数是一个标签如 div</span></div><div class="line"><span class="comment">//第二个参数是一些属性 如 attr on</span></div><div class="line"><span class="comment">//第三个参数是子阵队列 如果是文本比如this.$slot.default </span></div><div class="line"><span class="comment">//或者子内容还有标签如[createElement('a')]</span></div><div class="line">Vue.component(<span class="string">'anchored-heading'</span>,&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> createElement(</div><div class="line">      <span class="string">'h'</span>+<span class="keyword">this</span>.level,       <span class="comment">//标签</span></div><div class="line">      &#123;</div><div class="line">        <span class="attr">style</span>:&#123;</div><div class="line">          <span class="attr">color</span>:<span class="string">'red'</span>,      <span class="comment">//属性</span></div><div class="line">          fontSize:<span class="string">'14px'</span></div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="keyword">this</span>.$slots.default   <span class="comment">//里面的内容</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>1.流量活动修改<br>2.文档格式</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-vue-Api" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -797,69 +860,6 @@
 <p>Vue.set:设置对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">"张三"</span>&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">Vue.set(vm.obj,<span class="string">"age"</span>,<span class="number">23</span>)<span class="comment">//全局方式 最后obj=&#123;name:"张三","age":23&#125;</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.obj,<span class="string">'sale'</span>,<span class="string">"man"</span>)<span class="comment">//局部方式obj=&#123;name:"张三","sale":"man"&#125;</span></div></pre></td></tr></table></figure></p>
 <p>Vue.delete:删除对象属性</p>
 <h3 id="选项数据"><a href="#选项数据" class="headerlink" title="选项数据"></a>选项数据</h3><p>propsData:在创建实例等过程传递props，主要作用是方便测试</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/07/vue基础/" class="article-date">
-      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/vue基础/">vue使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="关于render函数"><a href="#关于render函数" class="headerlink" title="关于render函数"></a>关于render函数</h3><p>createElement参数解析</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个参数是一个标签如 div</span></div><div class="line"><span class="comment">//第二个参数是一些属性 如 attr on</span></div><div class="line"><span class="comment">//第三个参数是子阵队列 如果是文本比如this.$slot.default </span></div><div class="line"><span class="comment">//或者子内容还有标签如[createElement('a')]</span></div><div class="line">Vue.component(<span class="string">'anchored-heading'</span>,&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> createElement(</div><div class="line">      <span class="string">'h'</span>+<span class="keyword">this</span>.level,       <span class="comment">//标签</span></div><div class="line">      &#123;</div><div class="line">        <span class="attr">style</span>:&#123;</div><div class="line">          <span class="attr">color</span>:<span class="string">'red'</span>,      <span class="comment">//属性</span></div><div class="line">          fontSize:<span class="string">'14px'</span></div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="keyword">this</span>.$slots.default   <span class="comment">//里面的内容</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>1.流量活动修改<br>2.文档格式</p>
 
       
       
