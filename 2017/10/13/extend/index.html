@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用正则表达式 | 店小二不二的博客</title>
+  <title>extend 深度复制 | 店小二不二的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于个人的学习总结">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495let hasOwn = Object">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用正则表达式">
-<meta property="og:url" content="http://yongjian.space/2017/04/04/正则表达式/index.html">
+<meta property="og:title" content="extend 深度复制">
+<meta property="og:url" content="http://yongjian.space/2017/10/13/extend/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="用于个人的学习总结">
-<meta property="og:updated_time" content="2017-04-04T04:04:55.000Z">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495let hasOwn = Object">
+<meta property="og:updated_time" content="2017-10-13T15:36:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用正则表达式">
-<meta name="twitter:description" content="用于个人的学习总结">
+<meta name="twitter:title" content="extend 深度复制">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495let hasOwn = Object">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -230,11 +230,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-extend" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/正则表达式/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+      <a href="/2017/10/13/extend/" class="article-date">
+      <time datetime="2017-10-13T02:53:37.000Z" itemprop="datePublished">2017-10-13</time>
 </a>
     </div>
   
@@ -247,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常用正则表达式
+      extend 深度复制
     </h1>
   
 
@@ -256,7 +256,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/regexp/">regexp</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
     </div>
 
 
@@ -270,7 +270,7 @@
     
       
           
-        
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> hasOwn = <span class="built_in">Object</span>.prototype.hasOwnProperty</div><div class="line"></div><div class="line"><span class="keyword">let</span> toString = <span class="built_in">Object</span>.prototype.toString</div><div class="line"></div><div class="line"><span class="keyword">let</span> class2type = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> type = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> obj === <span class="literal">null</span> ? <span class="built_in">String</span>(obj) : class2type[ toString.call(obj) ] || <span class="string">'object'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> isWindow = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">'object'</span> &amp;&amp; <span class="string">'setInterval'</span> <span class="keyword">in</span> obj</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 判断是否是纯对象</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> isPlainObject = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!obj || type(obj) !== <span class="string">'object'</span> || obj.nodeType || isWindow(obj)) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (obj.constructor &amp;&amp; !hasOwn.call(obj, <span class="string">'constructor'</span>) &amp;&amp; !hasOwn.call(obj.constructor.prototype, <span class="string">'isPrototypeOf'</span>)) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> key</div><div class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;&#125;</div><div class="line">  <span class="keyword">return</span> key === <span class="literal">undefined</span> || hasOwn.call(obj, key)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 判断是否是纯函数</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> isFunction = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> type(obj) === <span class="string">'function'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 判断是否是纯数组</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> isArray = <span class="built_in">Array</span>.isArray || <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> type(obj) === <span class="string">'array'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 对象的深copy</div><div class="line"> * 参数1： 布尔值 可以省略 判断是否深度拷贝，默认false</div><div class="line"> * example extend(false, &#123;a: &#123;name: '张三'&#125;&#125;, &#123;b: &#123;name: '李四'&#125;&#125;)</div><div class="line"> */</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">extend</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> options</div><div class="line">  <span class="keyword">let</span> name</div><div class="line">  <span class="keyword">let</span> src</div><div class="line">  <span class="keyword">let</span> copy</div><div class="line">  <span class="keyword">let</span> copyIsArray</div><div class="line">  <span class="keyword">let</span> clone</div><div class="line">  <span class="keyword">let</span> target = <span class="built_in">arguments</span>[<span class="number">0</span>] || &#123;&#125;</div><div class="line">  <span class="keyword">let</span> i = <span class="number">1</span></div><div class="line">  <span class="keyword">let</span> length = <span class="built_in">arguments</span>.length</div><div class="line">  <span class="keyword">let</span> deep = <span class="literal">false</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> target === <span class="string">'boolean'</span>) &#123;</div><div class="line">    deep = target</div><div class="line">    target = <span class="built_in">arguments</span>[<span class="number">1</span>] || &#123;&#125;</div><div class="line">    i = <span class="number">2</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> target !== <span class="string">'object'</span> &amp;&amp; !isFunction(target)) &#123;</div><div class="line">    target = &#123;&#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span> (length === i) &#123;</div><div class="line">    target = <span class="keyword">this</span></div><div class="line">    --i</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span> (; i &lt; length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> ((options = <span class="built_in">arguments</span>[ i ]) !== <span class="literal">null</span>) &#123;</div><div class="line">      <span class="keyword">for</span> (name <span class="keyword">in</span> options) &#123;</div><div class="line">        src = target[name]</div><div class="line">        copy = options[name]</div><div class="line">        <span class="keyword">if</span> (target === copy) &#123;</div><div class="line">          <span class="keyword">continue</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (deep &amp;&amp; copy &amp;&amp; (isPlainObject(copy) || (copyIsArray = isArray(copy)))) &#123;</div><div class="line">          <span class="keyword">if</span> (copyIsArray) &#123;</div><div class="line">            copyIsArray = <span class="literal">false</span></div><div class="line">            clone = src &amp;&amp; isArray(src) ? src : []</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">            clone = src &amp;&amp; isPlainObject(src) ? src : &#123;&#125;</div><div class="line">          &#125;</div><div class="line">          target[name] = extend(deep, clone, copy)</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (copy !== <span class="literal">undefined</span>) &#123;</div><div class="line">          target[name] = copy</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> target</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
       
         <div class="page-reward">
@@ -324,13 +324,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/04/正则表达式/">常用正则表达式</a></p>
+        <p><span>本文标题:</span><a href="/2017/10/13/extend/">extend 深度复制</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2017年04月04日 - 10时53分</p>
-        <p><span>最后更新:</span>2017年04月04日 - 12时04分</p>
+        <p><span>发布时间:</span>2017年10月13日 - 10时53分</p>
+        <p><span>最后更新:</span>2017年10月13日 - 23时36分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/04/正则表达式/" title="常用正则表达式">http://yongjian.space/2017/04/04/正则表达式/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yongjian.space/2017/04/04/正则表达式/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/13/extend/" title="extend 深度复制">http://yongjian.space/2017/10/13/extend/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yongjian.space/2017/10/13/extend/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -343,18 +343,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/04/html/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          history
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/04/git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git日常使用命令</div>
+    <a href="/2017/06/29/webpack & gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack &amp; gulp制作脚手架</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -413,7 +404,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/04/正则表达式/" data-title="常用正则表达式" data-url="http://yongjian.space/2017/04/04/正则表达式/"></div>
+    <div class="ds-thread" data-thread-key="2017/10/13/extend/" data-title="extend 深度复制" data-url="http://yongjian.space/2017/10/13/extend/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -436,13 +427,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/04/html/" title="上一篇: history">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/04/04/git/" title="下一篇: git日常使用命令">
+            <a href="/2017/06/29/webpack & gulp/" title="下一篇: webpack &amp; gulp制作脚手架">
                 <i class="fa fa-angle-right"></i>
             </a>
         
