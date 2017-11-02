@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://yongjian.space/2017/04/04/构建工具/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
 <meta property="og:description" content="注意事项1 .  在使用webpack-dev-server的时候不要使用extract-text-webpack-plugin，它会把css独立成一个文件，这时候修改css就不能刷新浏览器，不能实时更新了。2 .  webpack在解析文件时候会通过3种路径寻找文件，一种是绝对路径，一种是相对路径，还有一种就是通过module，如果找到的是一个文件夹，就会查看该文件夹里面有没有package.j">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-05-06T00:39:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
@@ -349,15 +350,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/04/electron/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/04/flex布局/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          electron
+          flex布局
         
       </div>
     </a>
   
+  
+    <a href="/2017/04/04/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用正则表达式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -437,16 +443,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/04/electron/" title="上一篇: electron">
+            <a href="/2017/04/04/flex布局/" title="上一篇: flex布局">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/04/04/正则表达式/" title="下一篇: 常用正则表达式">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
