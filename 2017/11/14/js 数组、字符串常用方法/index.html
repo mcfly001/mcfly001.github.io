@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js数组、字符串常用方法 | 店小二不二的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数组push: 原数组尾部增加内容，会改变原数组123let arr = [1, 2, 3]arr.push(4)  console.log(arr)// arr [1, 2, 3, 4] pop: 原数组尾部删除一个元素，会改变原数组123let arr = [1, 2, 3]arr.pop() console.log(arr)// arr [1, 2, 3, 4] unshift: 数组开头增">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数组、字符串常用方法">
+<meta property="og:url" content="http://yongjian.space/2017/11/14/js 数组、字符串常用方法/index.html">
+<meta property="og:site_name" content="店小二不二的博客">
+<meta property="og:description" content="数组push: 原数组尾部增加内容，会改变原数组123let arr = [1, 2, 3]arr.push(4)  console.log(arr)// arr [1, 2, 3, 4] pop: 原数组尾部删除一个元素，会改变原数组123let arr = [1, 2, 3]arr.pop() console.log(arr)// arr [1, 2, 3, 4] unshift: 数组开头增">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-24T05:22:56.256Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js数组、字符串常用方法">
+<meta name="twitter:description" content="数组push: 原数组尾部增加内容，会改变原数组123let arr = [1, 2, 3]arr.push(4)  console.log(arr)// arr [1, 2, 3, 4] pop: 原数组尾部删除一个元素，会改变原数组123let arr = [1, 2, 3]arr.pop() console.log(arr)// arr [1, 2, 3, 4] unshift: 数组开头增">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.JPG" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">店小二不二</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/categories/html">html</a></li>
+                        
+                            <li><a href="/categories/css">css</a></li>
+                        
+                            <li><a href="/categories/javascript">javascript</a></li>
+                        
+                            <li><a href="/categories/build">构建工具</a></li>
+                        
+                            <li><a href="/categories/versioncontrol">版本控制器</a></li>
+                        
+                            <li><a href="/categories/regexp">正则表达式</a></li>
+                        
+                            <li><a href="/categories/other">其他</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/867269369@qq.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/mcfly001" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zyj.github.io/">http://zyj.github.io/</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">爱旅行、喜欢琢磨点有趣的小玩意</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">店小二不二</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.JPG" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">店小二不二</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/categories/html">html</a></li>
+                
+                    <li><a href="/categories/css">css</a></li>
+                
+                    <li><a href="/categories/javascript">javascript</a></li>
+                
+                    <li><a href="/categories/build">构建工具</a></li>
+                
+                    <li><a href="/categories/versioncontrol">版本控制器</a></li>
+                
+                    <li><a href="/categories/regexp">正则表达式</a></li>
+                
+                    <li><a href="/categories/other">其他</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail"  href="/867269369@qq.com" title="mail">mail</a>
+                    
+                        <a class="github"  href="https://github.com/mcfly001" title="github">github</a>
+                    
+                        <a class="zhihu"  href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo"  href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
+                    
+                        <a class="google"  href="#" title="google">google</a>
+                    
+                        <a class="twitter"  href="#" title="twitter">twitter</a>
+                    
+                        <a class="linkedin"  href="#" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-js 数组、字符串常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/14/js 数组、字符串常用方法/" class="article-date">
+      <time datetime="2017-11-14T10:09:13.000Z" itemprop="datePublished">2017-11-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js数组、字符串常用方法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+    
+      
+          
+        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="push-原数组尾部增加内容，会改变原数组"><a href="#push-原数组尾部增加内容，会改变原数组" class="headerlink" title="push: 原数组尾部增加内容，会改变原数组"></a>push: 原数组尾部增加内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.push(<span class="number">4</span>)  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3, 4]</span></div></pre></td></tr></table></figure>
+<h4 id="pop-原数组尾部删除一个元素，会改变原数组"><a href="#pop-原数组尾部删除一个元素，会改变原数组" class="headerlink" title="pop: 原数组尾部删除一个元素，会改变原数组"></a>pop: 原数组尾部删除一个元素，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.pop() </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3, 4]</span></div></pre></td></tr></table></figure>
+<h4 id="unshift-数组开头增加内容，会改变原数组"><a href="#unshift-数组开头增加内容，会改变原数组" class="headerlink" title="unshift: 数组开头增加内容，会改变原数组"></a>unshift: 数组开头增加内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.unshift(<span class="number">4</span>)  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [4, 1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="shift-数组开头删除内容，会改变原数组"><a href="#shift-数组开头删除内容，会改变原数组" class="headerlink" title="shift: 数组开头删除内容，会改变原数组"></a>shift: 数组开头删除内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.shift()  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="splice-x-y-z-从x索引开始清除长度为y，并用z替换，改变原来的数组"><a href="#splice-x-y-z-从x索引开始清除长度为y，并用z替换，改变原来的数组" class="headerlink" title="splice(x,y,z): 从x索引开始清除长度为y，并用z替换，改变原来的数组"></a>splice(x,y,z): 从x索引开始清除长度为y，并用z替换，改变原来的数组</h4><p>— 详解<br>—- 删除时，两个参数，第一个是开始位置，第二个是删除长度。<br>—- 插入时，三个参数，第一个是插入位置（在之前插入），第二个是0，第三个是插入的内容。<br>—- 替换时，三个参数，第一个是开始位置，第二个是删除长度，第三个是替换的内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.join(<span class="string">''</span>) <span class="comment">// 123</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure></p>
+<h4 id="reverse-将原数组倒置排序，改变原来的数组"><a href="#reverse-将原数组倒置排序，改变原来的数组" class="headerlink" title="reverse: 将原数组倒置排序，改变原来的数组"></a>reverse: 将原数组倒置排序，改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.reverse()</div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [3, 2, 1]</span></div></pre></td></tr></table></figure>
+<h4 id="toString-数组转化成字符串，不改变原来的数组"><a href="#toString-数组转化成字符串，不改变原来的数组" class="headerlink" title="toString: 数组转化成字符串，不改变原来的数组"></a>toString: 数组转化成字符串，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.toString()   <span class="comment">// 1,2,3</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="concat-拼接数组，不改变原来的数组"><a href="#concat-拼接数组，不改变原来的数组" class="headerlink" title="concat: 拼接数组，不改变原来的数组"></a>concat: 拼接数组，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.concat(<span class="number">4</span>) <span class="comment">// [1, 2, 3, 4]</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="join-分隔符，每一项都用分隔符分开，不改变原来的数组"><a href="#join-分隔符，每一项都用分隔符分开，不改变原来的数组" class="headerlink" title="join: 分隔符，每一项都用分隔符分开，不改变原来的数组"></a>join: 分隔符，每一项都用分隔符分开，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.join(<span class="string">''</span>) <span class="comment">// 123</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="charAt-返回字符串给定的位置"><a href="#charAt-返回字符串给定的位置" class="headerlink" title="charAt: 返回字符串给定的位置"></a>charAt: 返回字符串给定的位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abcdf'</span></div><div class="line"><span class="built_in">console</span>.log(arr.charAt(<span class="number">2</span>)) <span class="comment">// c</span></div></pre></td></tr></table></figure>
+<h4 id="concat-拼接2个字符串，-不改变原来的字符串"><a href="#concat-拼接2个字符串，-不改变原来的字符串" class="headerlink" title="concat: 拼接2个字符串， 不改变原来的字符串"></a>concat: 拼接2个字符串， 不改变原来的字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abc'</span></div><div class="line">arr.concat(<span class="string">'def'</span>) <span class="comment">// 'abcdef'</span></div><div class="line">arr <span class="comment">// ‘abc’</span></div></pre></td></tr></table></figure>
+<h4 id="substring-x，y-返回从x到y-1的字符串"><a href="#substring-x，y-返回从x到y-1的字符串" class="headerlink" title="substring(x，y): 返回从x到y-1的字符串"></a>substring(x，y): 返回从x到y-1的字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abcdefg'</span></div><div class="line">arr.substring(<span class="number">0</span>, <span class="number">3</span>) <span class="comment">// ‘abc’</span></div></pre></td></tr></table></figure>
+<h4 id="trim-去除两端的空格，-不改变原来的字符串串"><a href="#trim-去除两端的空格，-不改变原来的字符串串" class="headerlink" title="trim(): 去除两端的空格， 不改变原来的字符串串"></a>trim(): 去除两端的空格， 不改变原来的字符串串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'  abcdefg     '</span>;</div><div class="line">arr.trim() <span class="comment">// ‘abcdefg’</span></div></pre></td></tr></table></figure>
+<h4 id="toLowerCase，-toUpperCase-转换大小写，-不改变原来的字符串串"><a href="#toLowerCase，-toUpperCase-转换大小写，-不改变原来的字符串串" class="headerlink" title="toLowerCase， toUpperCase: 转换大小写， 不改变原来的字符串串"></a>toLowerCase， toUpperCase: 转换大小写， 不改变原来的字符串串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'Abcdefg'</span></div><div class="line">arr.toUpperCase() <span class="comment">// 'abcdefg'</span></div></pre></td></tr></table></figure>
+<h4 id="indexOf-lastIndexOf-确定索引位置"><a href="#indexOf-lastIndexOf-确定索引位置" class="headerlink" title="indexOf, lastIndexOf: 确定索引位置"></a>indexOf, lastIndexOf: 确定索引位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'Abcdefg'</span></div><div class="line">arr.toUpperCase() <span class="comment">// 'abcdefg'</span></div></pre></td></tr></table></figure>
+<h4 id="split-将字符串转换为数组"><a href="#split-将字符串转换为数组" class="headerlink" title="split: 将字符串转换为数组"></a>split: 将字符串转换为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'abcdefg'</span></div><div class="line">arr.split(<span class="string">''</span>) <span class="comment">// ["a", "b", "c", "d", "e", "f", "g"]</span></div></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.JPG" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.JPG" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.JPG");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
+        <p><span>发布时间:</span>2017年11月14日 - 18时09分</p>
+        <p><span>最后更新:</span>2017年11月24日 - 13时22分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/14/js 数组、字符串常用方法/" title="js数组、字符串常用方法">http://yongjian.space/2017/11/14/js 数组、字符串常用方法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yongjian.space/2017/11/14/js 数组、字符串常用方法/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/13/extend/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">extend 深度复制</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push-原数组尾部增加内容，会改变原数组"><span class="toc-number">1.1.</span> <span class="toc-text">push: 原数组尾部增加内容，会改变原数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pop-原数组尾部删除一个元素，会改变原数组"><span class="toc-number">1.2.</span> <span class="toc-text">pop: 原数组尾部删除一个元素，会改变原数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unshift-数组开头增加内容，会改变原数组"><span class="toc-number">1.3.</span> <span class="toc-text">unshift: 数组开头增加内容，会改变原数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shift-数组开头删除内容，会改变原数组"><span class="toc-number">1.4.</span> <span class="toc-text">shift: 数组开头删除内容，会改变原数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splice-x-y-z-从x索引开始清除长度为y，并用z替换，改变原来的数组"><span class="toc-number">1.5.</span> <span class="toc-text">splice(x,y,z): 从x索引开始清除长度为y，并用z替换，改变原来的数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse-将原数组倒置排序，改变原来的数组"><span class="toc-number">1.6.</span> <span class="toc-text">reverse: 将原数组倒置排序，改变原来的数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toString-数组转化成字符串，不改变原来的数组"><span class="toc-number">1.7.</span> <span class="toc-text">toString: 数组转化成字符串，不改变原来的数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concat-拼接数组，不改变原来的数组"><span class="toc-number">1.8.</span> <span class="toc-text">concat: 拼接数组，不改变原来的数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#join-分隔符，每一项都用分隔符分开，不改变原来的数组"><span class="toc-number">1.9.</span> <span class="toc-text">join: 分隔符，每一项都用分隔符分开，不改变原来的数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串"><span class="toc-number">2.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#charAt-返回字符串给定的位置"><span class="toc-number">2.1.</span> <span class="toc-text">charAt: 返回字符串给定的位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concat-拼接2个字符串，-不改变原来的字符串"><span class="toc-number">2.2.</span> <span class="toc-text">concat: 拼接2个字符串， 不改变原来的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#substring-x，y-返回从x到y-1的字符串"><span class="toc-number">2.3.</span> <span class="toc-text">substring(x，y): 返回从x到y-1的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#trim-去除两端的空格，-不改变原来的字符串串"><span class="toc-number">2.4.</span> <span class="toc-text">trim(): 去除两端的空格， 不改变原来的字符串串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toLowerCase，-toUpperCase-转换大小写，-不改变原来的字符串串"><span class="toc-number">2.5.</span> <span class="toc-text">toLowerCase， toUpperCase: 转换大小写， 不改变原来的字符串串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#indexOf-lastIndexOf-确定索引位置"><span class="toc-number">2.6.</span> <span class="toc-text">indexOf, lastIndexOf: 确定索引位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#split-将字符串转换为数组"><span class="toc-number">2.7.</span> <span class="toc-text">split: 将字符串转换为数组</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/11/14/js 数组、字符串常用方法/" data-title="js数组、字符串常用方法" data-url="http://yongjian.space/2017/11/14/js 数组、字符串常用方法/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/10/13/extend/" title="下一篇: extend 深度复制">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 店小二不二
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg.jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  </div>
+</body>
+</html>

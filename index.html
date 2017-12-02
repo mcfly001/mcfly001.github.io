@@ -235,6 +235,78 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js 数组、字符串常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/14/js 数组、字符串常用方法/" class="article-date">
+      <time datetime="2017-11-14T10:09:13.000Z" itemprop="datePublished">2017-11-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="push-原数组尾部增加内容，会改变原数组"><a href="#push-原数组尾部增加内容，会改变原数组" class="headerlink" title="push: 原数组尾部增加内容，会改变原数组"></a>push: 原数组尾部增加内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.push(<span class="number">4</span>)  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3, 4]</span></div></pre></td></tr></table></figure>
+<h4 id="pop-原数组尾部删除一个元素，会改变原数组"><a href="#pop-原数组尾部删除一个元素，会改变原数组" class="headerlink" title="pop: 原数组尾部删除一个元素，会改变原数组"></a>pop: 原数组尾部删除一个元素，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.pop() </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3, 4]</span></div></pre></td></tr></table></figure>
+<h4 id="unshift-数组开头增加内容，会改变原数组"><a href="#unshift-数组开头增加内容，会改变原数组" class="headerlink" title="unshift: 数组开头增加内容，会改变原数组"></a>unshift: 数组开头增加内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.unshift(<span class="number">4</span>)  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [4, 1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="shift-数组开头删除内容，会改变原数组"><a href="#shift-数组开头删除内容，会改变原数组" class="headerlink" title="shift: 数组开头删除内容，会改变原数组"></a>shift: 数组开头删除内容，会改变原数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.shift()  </div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="splice-x-y-z-从x索引开始清除长度为y，并用z替换，改变原来的数组"><a href="#splice-x-y-z-从x索引开始清除长度为y，并用z替换，改变原来的数组" class="headerlink" title="splice(x,y,z): 从x索引开始清除长度为y，并用z替换，改变原来的数组"></a>splice(x,y,z): 从x索引开始清除长度为y，并用z替换，改变原来的数组</h4><p>— 详解<br>—- 删除时，两个参数，第一个是开始位置，第二个是删除长度。<br>—- 插入时，三个参数，第一个是插入位置（在之前插入），第二个是0，第三个是插入的内容。<br>—- 替换时，三个参数，第一个是开始位置，第二个是删除长度，第三个是替换的内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.join(<span class="string">''</span>) <span class="comment">// 123</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure></p>
+<h4 id="reverse-将原数组倒置排序，改变原来的数组"><a href="#reverse-将原数组倒置排序，改变原来的数组" class="headerlink" title="reverse: 将原数组倒置排序，改变原来的数组"></a>reverse: 将原数组倒置排序，改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.reverse()</div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [3, 2, 1]</span></div></pre></td></tr></table></figure>
+<h4 id="toString-数组转化成字符串，不改变原来的数组"><a href="#toString-数组转化成字符串，不改变原来的数组" class="headerlink" title="toString: 数组转化成字符串，不改变原来的数组"></a>toString: 数组转化成字符串，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.toString()   <span class="comment">// 1,2,3</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="concat-拼接数组，不改变原来的数组"><a href="#concat-拼接数组，不改变原来的数组" class="headerlink" title="concat: 拼接数组，不改变原来的数组"></a>concat: 拼接数组，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.concat(<span class="number">4</span>) <span class="comment">// [1, 2, 3, 4]</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h4 id="join-分隔符，每一项都用分隔符分开，不改变原来的数组"><a href="#join-分隔符，每一项都用分隔符分开，不改变原来的数组" class="headerlink" title="join: 分隔符，每一项都用分隔符分开，不改变原来的数组"></a>join: 分隔符，每一项都用分隔符分开，不改变原来的数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr.join(<span class="string">''</span>) <span class="comment">// 123</span></div><div class="line"><span class="built_in">console</span>.log(arr)<span class="comment">// arr [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="charAt-返回字符串给定的位置"><a href="#charAt-返回字符串给定的位置" class="headerlink" title="charAt: 返回字符串给定的位置"></a>charAt: 返回字符串给定的位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abcdf'</span></div><div class="line"><span class="built_in">console</span>.log(arr.charAt(<span class="number">2</span>)) <span class="comment">// c</span></div></pre></td></tr></table></figure>
+<h4 id="concat-拼接2个字符串，-不改变原来的字符串"><a href="#concat-拼接2个字符串，-不改变原来的字符串" class="headerlink" title="concat: 拼接2个字符串， 不改变原来的字符串"></a>concat: 拼接2个字符串， 不改变原来的字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abc'</span></div><div class="line">arr.concat(<span class="string">'def'</span>) <span class="comment">// 'abcdef'</span></div><div class="line">arr <span class="comment">// ‘abc’</span></div></pre></td></tr></table></figure>
+<h4 id="substring-x，y-返回从x到y-1的字符串"><a href="#substring-x，y-返回从x到y-1的字符串" class="headerlink" title="substring(x，y): 返回从x到y-1的字符串"></a>substring(x，y): 返回从x到y-1的字符串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = <span class="string">'abcdefg'</span></div><div class="line">arr.substring(<span class="number">0</span>, <span class="number">3</span>) <span class="comment">// ‘abc’</span></div></pre></td></tr></table></figure>
+<h4 id="trim-去除两端的空格，-不改变原来的字符串串"><a href="#trim-去除两端的空格，-不改变原来的字符串串" class="headerlink" title="trim(): 去除两端的空格， 不改变原来的字符串串"></a>trim(): 去除两端的空格， 不改变原来的字符串串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'  abcdefg     '</span>;</div><div class="line">arr.trim() <span class="comment">// ‘abcdefg’</span></div></pre></td></tr></table></figure>
+<h4 id="toLowerCase，-toUpperCase-转换大小写，-不改变原来的字符串串"><a href="#toLowerCase，-toUpperCase-转换大小写，-不改变原来的字符串串" class="headerlink" title="toLowerCase， toUpperCase: 转换大小写， 不改变原来的字符串串"></a>toLowerCase， toUpperCase: 转换大小写， 不改变原来的字符串串</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'Abcdefg'</span></div><div class="line">arr.toUpperCase() <span class="comment">// 'abcdefg'</span></div></pre></td></tr></table></figure>
+<h4 id="indexOf-lastIndexOf-确定索引位置"><a href="#indexOf-lastIndexOf-确定索引位置" class="headerlink" title="indexOf, lastIndexOf: 确定索引位置"></a>indexOf, lastIndexOf: 确定索引位置</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'Abcdefg'</span></div><div class="line">arr.toUpperCase() <span class="comment">// 'abcdefg'</span></div></pre></td></tr></table></figure>
+<h4 id="split-将字符串转换为数组"><a href="#split-将字符串转换为数组" class="headerlink" title="split: 将字符串转换为数组"></a>split: 将字符串转换为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="string">'abcdefg'</span></div><div class="line">arr.split(<span class="string">''</span>) <span class="comment">// ["a", "b", "c", "d", "e", "f", "g"]</span></div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-extend" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -799,68 +871,6 @@
       
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/other/">other</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue基础" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/07/vue基础/" class="article-date">
-      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/vue基础/">vue使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="关于render函数"><a href="#关于render函数" class="headerlink" title="关于render函数"></a>关于render函数</h3><p>createElement参数解析</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个参数是一个标签如 div</span></div><div class="line"><span class="comment">//第二个参数是一些属性 如 attr on</span></div><div class="line"><span class="comment">//第三个参数是子阵队列 如果是文本比如this.$slot.default </span></div><div class="line"><span class="comment">//或者子内容还有标签如[createElement('a')]</span></div><div class="line">Vue.component(<span class="string">'anchored-heading'</span>,&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> createElement(</div><div class="line">      <span class="string">'h'</span>+<span class="keyword">this</span>.level,       <span class="comment">//标签</span></div><div class="line">      &#123;</div><div class="line">        <span class="attr">style</span>:&#123;</div><div class="line">          <span class="attr">color</span>:<span class="string">'red'</span>,      <span class="comment">//属性</span></div><div class="line">          fontSize:<span class="string">'14px'</span></div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="keyword">this</span>.$slots.default   <span class="comment">//里面的内容</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
     </div>
 
 
