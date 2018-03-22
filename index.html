@@ -235,6 +235,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-浏览器高度和宽度" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/22/浏览器高度和宽度/" class="article-date">
+      <time datetime="2018-03-22T08:53:37.000Z" itemprop="datePublished">2018-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/22/浏览器高度和宽度/">浏览器宽度和高度</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="不同浏览器都适用的获取文档所在窗口的当前宽度或高度"><a href="#不同浏览器都适用的获取文档所在窗口的当前宽度或高度" class="headerlink" title="不同浏览器都适用的获取文档所在窗口的当前宽度或高度"></a>不同浏览器都适用的获取文档所在窗口的当前宽度或高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var w = document.documentElement.clientWidth || document.body.clientWidth</div><div class="line"></div><div class="line">var h = document.documentElement.clientHeight || document.clientHeight</div></pre></td></tr></table></figure>
+<h3 id="获取网页内容高度或宽度"><a href="#获取网页内容高度或宽度" class="headerlink" title="获取网页内容高度或宽度"></a>获取网页内容高度或宽度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var w = document.documentElement.scrollWidth || document.body.scrollWidth</div><div class="line"></div><div class="line">var h = document.documentElement.scrollHeight || document.body.scrollHeight</div></pre></td></tr></table></figure>
+<h3 id="获取网页可见区域的宽度或高度"><a href="#获取网页可见区域的宽度或高度" class="headerlink" title="获取网页可见区域的宽度或高度"></a>获取网页可见区域的宽度或高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// offsetWidth = scrollWidth + 左右滚动条 + 左右边框</div><div class="line">// offsetHeihgt = scrollHeight + 上下滚动条 + 上下边框</div><div class="line"></div><div class="line">var w = document.documentElement.offsetWidth || document.body.offsetWidth</div><div class="line"></div><div class="line">var h = document.documentElement.offsetHeihgt || document.documentElement.offsetHeihgt</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/other/">other</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js 数组、字符串常用方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -892,74 +955,6 @@
 
 
   
-    <article id="post-vue-Api" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/07/vue-Api/" class="article-date">
-      <time datetime="2017-04-07T02:27:37.000Z" itemprop="datePublished">2017-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/vue-Api/">vue重要Api整理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p><font color="blank">silent</font>：禁用Vue.js的所有日志和警告<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.config.silent=<span class="literal">true</span>;</div></pre></td></tr></table></figure></p>
-<p>optionMergeStrategies:为选项定义自定义的合并策略，maxin<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option=<span class="function"><span class="keyword">function</span>(<span class="params">parent,child,vm</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> child+<span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile=Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>:<span class="number">1</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="全局Api"><a href="#全局Api" class="headerlink" title="全局Api"></a>全局Api</h3><p>extend:创建基础vue构造器的子类，使用时候data必需为函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Profile=Vue.extend(&#123;</div><div class="line">    <span class="attr">template</span>:<span class="string">"&lt;div&gt;test&lt;/div&gt;"</span>,</div><div class="line">    <span class="attr">data</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">firstname</span>:<span class="string">"张三"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">"#app"</span>);</div></pre></td></tr></table></figure>
-<p>nextTick:将回调推迟到下次dom更新循环之后执行，等修改完数组之后立刻执行这个方法，等待dom更新<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=<span class="keyword">new</span> Vue(&#123;</div><div class="line">        data()&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">name</span>:<span class="string">"王五"</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">Vue.name=<span class="string">"李四"</span>;</div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.name=<span class="string">"张三"</span>;</div><div class="line"><span class="keyword">this</span>.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>Vue.set:设置对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">"张三"</span>&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">Vue.set(vm.obj,<span class="string">"age"</span>,<span class="number">23</span>)<span class="comment">//全局方式 最后obj=&#123;name:"张三","age":23&#125;</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.obj,<span class="string">'sale'</span>,<span class="string">"man"</span>)<span class="comment">//局部方式obj=&#123;name:"张三","sale":"man"&#125;</span></div></pre></td></tr></table></figure></p>
-<p>Vue.delete:删除对象属性</p>
-<h3 id="选项数据"><a href="#选项数据" class="headerlink" title="选项数据"></a>选项数据</h3><p>propsData:在创建实例等过程传递props，主要作用是方便测试</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -970,7 +965,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 店小二不二
+                &copy; 2018 店小二不二
             </div>
         </div>
         
