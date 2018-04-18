@@ -8,17 +8,17 @@
   <meta name="description" content="生命周期getDefaultProps:对于每一个组件，这个方法只会被调用一次,可以在componentWillMount时候调用this.props.xx获取Mounting:已插入真实的DomUpdating:正在被重新渲染Unmounting:已移除真实Dom componentWillMount:被插入真实dom之前,对组件实例来说这个方法调用有且只有一次会被调用render:创建一个虚拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react基本用法">
-<meta property="og:url" content="http://yongjian.space/2017/04/11/react基本用法/index.html">
+<meta property="og:url" content="https://mcfly001.github.io/2017/04/11/react基本用法/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
 <meta property="og:description" content="生命周期getDefaultProps:对于每一个组件，这个方法只会被调用一次,可以在componentWillMount时候调用this.props.xx获取Mounting:已插入真实的DomUpdating:正在被重新渲染Unmounting:已移除真实Dom componentWillMount:被插入真实dom之前,对组件实例来说这个方法调用有且只有一次会被调用render:创建一个虚拟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yongjian.space/image/react/react-life.png">
-<meta property="og:image" content="http://yongjian.space/image/react/react-life2.png">
+<meta property="og:image" content="https://mcfly001.github.io/image/react/react-life.png">
+<meta property="og:image" content="https://mcfly001.github.io/image/react/react-life2.png">
 <meta property="og:updated_time" content="2017-07-03T03:03:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react基本用法">
 <meta name="twitter:description" content="生命周期getDefaultProps:对于每一个组件，这个方法只会被调用一次,可以在componentWillMount时候调用this.props.xx获取Mounting:已插入真实的DomUpdating:正在被重新渲染Unmounting:已移除真实Dom componentWillMount:被插入真实dom之前,对组件实例来说这个方法调用有且只有一次会被调用render:创建一个虚拟">
-<meta name="twitter:image" content="http://yongjian.space/image/react/react-life.png">
+<meta name="twitter:image" content="https://mcfly001.github.io/image/react/react-life.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -292,7 +292,7 @@
 </code></pre><h3 id="如果父组件和子组件getDefaultProps里面同时设定了同一个属性"><a href="#如果父组件和子组件getDefaultProps里面同时设定了同一个属性" class="headerlink" title="如果父组件和子组件getDefaultProps里面同时设定了同一个属性"></a>如果父组件和子组件getDefaultProps里面同时设定了同一个属性</h3><p>如果父组件和子组件的getDefaultProps共有一个属性，那么会取父组件里面该属性的值。</p>
 <h3 id="如果有mixin就会先执行mixin里面的方法，然后才会执行组件内的方法"><a href="#如果有mixin就会先执行mixin里面的方法，然后才会执行组件内的方法" class="headerlink" title="如果有mixin就会先执行mixin里面的方法，然后才会执行组件内的方法"></a>如果有mixin就会先执行mixin里面的方法，然后才会执行组件内的方法</h3><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
 <li>input 一定要添加 ／</li>
-<li>Input里面建议使用defaultValue，如果使用了value，但是没有添加onChange事件输入框里面的内容就不能被改变<br>3.React.addons.LInkedStateMixin    可以用来链接状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">getInitialState()&#123;</div><div class="line">  Return &#123;</div><div class="line">        message:’react is very good’</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render()&#123;</div><div class="line">    &lt;input type=“text” valueLink=&#123;this.linkState(“message”)&#125; /&gt;</div><div class="line">    &lt;span&gt;&#123;this.state.message&#125;&lt;/span&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>Input里面建议使用defaultValue，如果使用了value，但是没有添加onChange事件输入框里面的内容就不能被改变<br>3.React.addons.LInkedStateMixin    可以用来链接状态<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">getInitialState()&#123;</div><div class="line">  Return &#123;</div><div class="line">        message:’react is very good’</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render()&#123;</div><div class="line">    <span class="variable">&lt;input type=“text” valueLink=&#123;this.linkState(“message”)&#125; /&gt;</span></div><div class="line">    <span class="variable">&lt;span&gt;</span>&#123;this.<span class="keyword">state</span>.message&#125;&lt;/span&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>4 React.unmountComponentAtNode( document.getElementById(“app”) );//从组件中清除已经挂载的React组件。</p>
@@ -355,8 +355,8 @@
         <p><span>发布时间:</span>2017年04月11日 - 10时04分</p>
         <p><span>最后更新:</span>2017年07月03日 - 11时03分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/11/react基本用法/" title="react基本用法">http://yongjian.space/2017/04/11/react基本用法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yongjian.space/2017/04/11/react基本用法/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/11/react基本用法/" title="react基本用法">https://mcfly001.github.io/2017/04/11/react基本用法/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2017/04/11/react基本用法/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -439,7 +439,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/11/react基本用法/" data-title="react基本用法" data-url="http://yongjian.space/2017/04/11/react基本用法/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/11/react基本用法/" data-title="react基本用法" data-url="https://mcfly001.github.io/2017/04/11/react基本用法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -473,7 +473,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/浏览器高度和宽度/">浏览器宽度和高度</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/浏览器高度和宽度/">浏览器宽度和高度</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
