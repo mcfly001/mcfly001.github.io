@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git日常使用命令 | 店小二不二的博客</title>
+  <title>店小二不二的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。 情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。报错：Permission denied(publickey)原因：是因为新生成的key不能添加到ssh上导致连接不上解决方法：1">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git日常使用命令">
-<meta property="og:url" content="https://mcfly001.github.io/2017/04/04/git/index.html">
+  <meta name="description" content="用于个人的学习总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="店小二不二的博客">
+<meta property="og:url" content="https://mcfly001.github.io/page/3/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。 情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。报错：Permission denied(publickey)原因：是因为新生成的key不能添加到ssh上导致连接不上解决方法：1">
+<meta property="og:description" content="用于个人的学习总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.yongjian.space/image/git/1.png">
-<meta property="og:updated_time" content="2017-06-14T03:22:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git日常使用命令">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。 情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。报错：Permission denied(publickey)原因：是因为新生成的key不能添加到ssh上导致连接不上解决方法：1">
-<meta name="twitter:image" content="http://www.yongjian.space/image/git/1.png">
+<meta name="twitter:title" content="店小二不二的博客">
+<meta name="twitter:description" content="用于个人的学习总结">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -28,6 +25,9 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
   
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -40,8 +40,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: false,
-          isPost: true,
+          isHome: true,
+          isPost: false,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -233,7 +233,100 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/flex布局/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/flex布局/">flex布局</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <p>&emsp;&emsp;相比较传统布局，flex在处理元素垂直居中上会简单很多，而且在兼容性方面现在基本主流浏览器都已经兼容。所以如果你还在用float或者position布局，那么建议你尝试用一下flex，你会发现布局原来是那么简单的一件事情。</p>
+<p>&emsp;&emsp;flex其实就是一个容器，在其里面所有的子元素会自动生成为flex项目，下面就介绍一下flex容器的6个属性以及其子元素flex项目的6大属性</p>
+<h3 id="一：flex容器的6大属性"><a href="#一：flex容器的6大属性" class="headerlink" title="一：flex容器的6大属性"></a>一：flex容器的6大属性</h3><h4 id="flex-direction-row-row-reverse-column-column-reverse"><a href="#flex-direction-row-row-reverse-column-column-reverse" class="headerlink" title="flex-direction:row | row-reverse | column | column-reverse"></a>flex-direction:row | row-reverse | column | column-reverse</h4><font color="#ccc" size="2.5" face="黑体">该属性表示flex项目的主轴式横向还是纵向的，一共有4个属性值 </font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . row：主轴是水平方向，起点在左端。</font>
+
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . row-reverse：主轴为水平方向，起点在右端。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . column：主轴为垂直方向，起点在上沿。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 . column-reverse：主轴为垂直方向，起点在下沿。</font></p>
+<h4 id="flex-wrap-nowrap-wrap-wrap-reverse"><a href="#flex-wrap-nowrap-wrap-wrap-reverse" class="headerlink" title="flex-wrap:nowrap | wrap | wrap-reverse"></a>flex-wrap:nowrap | wrap | wrap-reverse</h4><font color="#ccc" size="2.5" face="黑体">这个属性用于定义flex项目是否在统一轴线上</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . nowrap:(默认)不换行</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . wrap：换行，第一行在上面</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . wrap-reverse：换行，第一行在最下面</font>
+
+<h4 id="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"><a href="#flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和" class="headerlink" title="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"></a>flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和</h4><h4 id="justify-content：flex-start-flex-end-center-space-between-space-around"><a href="#justify-content：flex-start-flex-end-center-space-between-space-around" class="headerlink" title="justify-content：flex-start | flex-end | center | space-between | space-around"></a>justify-content：flex-start | flex-end | center | space-between | space-around</h4><font color="#ccc" size="2.5" face="黑体">定义项目在主轴上对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:(默认)左对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：右对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：居中</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：两端对齐，项目之间的间隔相等</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体">space-around：每个项目两侧间隔相等，所以，项目之间的间隔比项目和边框的间隔大一倍</font>
+
+<h4 id="align-items：flex-start-flex-end-center-stretch-baseline"><a href="#align-items：flex-start-flex-end-center-stretch-baseline" class="headerlink" title="align-items：flex-start | flex-end | center | stretch | baseline"></a>align-items：flex-start | flex-end | center | stretch | baseline</h4><font color="#ccc" size="2.5" face="黑体">定义入股交叉轴只有一条的情况下，交叉轴的对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .baseline：项目第一行文字的基线对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h4 id="align-content：flex-start-flex-end-center-space-between-space-around-stretch"><a href="#align-content：flex-start-flex-end-center-space-between-space-around-stretch" class="headerlink" title="align-content：flex-start | flex-end | center | space-between | space-around | stretch"></a>align-content：flex-start | flex-end | center | space-between | space-around | stretch</h4><font color="#ccc" size="2.5" face="黑体">定义多根轴线的对齐方式，如果轴线只有一条该属性就无效</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：和交叉轴两端对齐，轴线之间的间距平均分布</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .space-around：每根轴线2侧的间距都相等，所以轴线之间的间距比轴线和边框的间距大一倍</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 6 .stretch：占满整个容器的高度</font>
+
+<h3 id="二：flex项目的6大属性"><a href="#二：flex项目的6大属性" class="headerlink" title="二：flex项目的6大属性"></a>二：flex项目的6大属性</h3><h4 id="order：0"><a href="#order：0" class="headerlink" title="order：0"></a>order：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的排列顺序，默认为0</font>
+
+<h4 id="flex-grow：0"><a href="#flex-grow：0" class="headerlink" title="flex-grow：0"></a>flex-grow：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的放大比例，默认为0，即如果存在剩余空间也不放大，如果1则表示等比例放大，如果有一个为2，则该项目占据剩余空间的大小是其他的2倍</font>
+
+<h4 id="flex-shrink：1"><a href="#flex-shrink：1" class="headerlink" title="flex-shrink：1"></a>flex-shrink：1</h4><font color="#ccc" size="2.5" face="黑体">定义项目的缩小比例，如果空间不足，该项目就会缩小</font>
+
+<h4 id="flex-basis："><a href="#flex-basis：" class="headerlink" title="flex-basis："></a>flex-basis：<length></length></h4><font color="#ccc" size="2.5" face="黑体">定义在分配多余空间之前，计算主轴是否有多余的剩余空间，也就是固定项目的大小了</font>
+
+<h4 id="flex：auto（1-1-auto）-none"><a href="#flex：auto（1-1-auto）-none" class="headerlink" title="flex：auto（1 1 auto） |  none"></a>flex：auto（1 1 auto） |  none</h4><font color="#ccc" size="2.5" face="黑体">flex-grow、flex-strink、flex-basis3个的总和。默认有2个快捷写法</font>
+
+<h4 id="align-self：auto-flex-start-flex-end-center-baseline-stretch"><a href="#align-self：auto-flex-start-flex-end-center-baseline-stretch" class="headerlink" title="align-self：auto | flex-start | flex-end | center | baseline | stretch"></a>align-self：auto | flex-start | flex-end | center | baseline | stretch</h4><font color="#ccc" size="2.5" face="黑体">允许单个项目和其他项目不一样的对齐方式，可以覆盖flex容器中的align-items属性。</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h3 id="三：实战布局"><a href="#三：实战布局" class="headerlink" title="三：实战布局"></a>三：实战布局</h3><h4 id="1-圣杯布局"><a href="#1-圣杯布局" class="headerlink" title="1:圣杯布局"></a>1:圣杯布局</h4><p>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">   <span class="attribute">padding</span>:<span class="number">0</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: column;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.header</span>&#123;</div><div class="line">   <span class="attribute">background</span>:red;</div><div class="line">   <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.main</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:yellow;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: row;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#2D93CA</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:black;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-flow</span>:row nowrap;</div><div class="line">   <span class="attribute">justify-content</span>: space-around;</div><div class="line">   <span class="attribute">align-items</span>:flex-start;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&gt;<span class="selector-tag">div</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#ddd</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.footer</span>&#123;</div><div class="line">   <span class="attribute">background</span>:blue;</div><div class="line">   <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>结果:<br><img src="http://yongjian.space/image/flex/1.png" alt="result"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>语法篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>实战篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</a><br>css兼容性查询：<a href="http://caniuse.com/#search=f%20le" target="_blank" rel="external">http://caniuse.com/#search=f%20le</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/04/04/git/" class="article-date">
@@ -249,27 +342,16 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      git日常使用命令
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/git/">git日常使用命令</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
-    </div>
-
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
     
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
     
       
           
@@ -302,198 +384,39 @@
 
       
       
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
-            <div class="shang_tit">
-              <p>纯属好玩</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.JPG" alt="扫码支持" title="扫一扫" />
-            </div>
-              <div class="pay_explain">扫码打赏，你说多少就多少</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.JPG" alt="支付宝" /></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-        </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.JPG");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
+    </div>
+    
+    <div class="article-info article-info-index">
       
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/04/git/">git日常使用命令</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2017年04月04日 - 10时53分</p>
-        <p><span>最后更新:</span>2017年06月14日 - 11时22分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/04/git/" title="git日常使用命令">https://mcfly001.github.io/2017/04/04/git/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2017/04/04/git/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2017/04/04/flex布局/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          flex布局
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。"><span class="toc-number">1.</span> <span class="toc-text">情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景二-一台电脑如何配置多个账号？"><span class="toc-number">2.</span> <span class="toc-text">情景二: 一台电脑如何配置多个账号？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景三-本地新建一个仓库，与远程关联，并且新建一份新分支"><span class="toc-number">3.</span> <span class="toc-text">情景三:本地新建一个仓库，与远程关联，并且新建一份新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景四：想要返回之前的版本怎么办？"><span class="toc-number">4.</span> <span class="toc-text">情景四：想要返回之前的版本怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景五：如果想要删除本次修改的内容怎么办？"><span class="toc-number">5.</span> <span class="toc-text">情景五：如果想要删除本次修改的内容怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景六：-git-pull的时候refusing-to-merge-unrelated-histories-这是因为直接git-init是没有读写，如果是git-clone就不会有这个问题。"><span class="toc-number">6.</span> <span class="toc-text">情景六： git pull的时候refusing to merge unrelated histories,这是因为直接git init是没有读写，如果是git clone就不会有这个问题。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景七：The-authenticity-of-host-‘github-com-192-30-252-128-’-can’t-be-established"><span class="toc-number">7.</span> <span class="toc-text">情景七：The authenticity of host ‘github.com (192.30.252.128)’ can’t be established.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#情景八：部分git全局配置"><span class="toc-number">8.</span> <span class="toc-text">情景八：部分git全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git日常使用命令"><span class="toc-number">9.</span> <span class="toc-text">git日常使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#增加和删除文件"><span class="toc-number">9.1.</span> <span class="toc-text">增加和删除文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码提交"><span class="toc-number">9.2.</span> <span class="toc-text">代码提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分支"><span class="toc-number">9.3.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标签"><span class="toc-number">9.4.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看信息"><span class="toc-number">9.5.</span> <span class="toc-text">查看信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程同步"><span class="toc-number">9.6.</span> <span class="toc-text">远程同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#撤销"><span class="toc-number">9.7.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日常使用"><span class="toc-number">9.8.</span> <span class="toc-text">日常使用</span></a></li></ol></li></ol>
-</div>
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
 
 
 
 
 
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/04/git/" data-title="git日常使用命令" data-url="https://mcfly001.github.io/2017/04/04/git/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"null"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
-
-    
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/04/04/flex布局/" title="上一篇: flex布局">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/阿里云mongodb 搭建/">阿里云搭建mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/服务器上搭建node环境/">阿里云搭建node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/浏览器高度和宽度/">浏览器宽度和高度</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
-        })
-    </script>
-
-
-
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">

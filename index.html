@@ -235,6 +235,137 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-阿里云mongodb 搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/12/阿里云mongodb 搭建/" class="article-date">
+      <time datetime="2018-09-12T04:53:37.000Z" itemprop="datePublished">2018-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/阿里云mongodb 搭建/">阿里云搭建mongodb</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="第一步：新建mongodb-org-3-4-repo文件"><a href="#第一步：新建mongodb-org-3-4-repo文件" class="headerlink" title="第一步：新建mongodb-org-3.4.repo文件"></a>第一步：新建mongodb-org-3.4.repo文件</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/mongodb-org-3.4.repo</div><div class="line"></div><div class="line">// 插入内容</div><div class="line"></div><div class="line">[mogodb-org]</div><div class="line"></div><div class="line">name=MongoDB Repository</div><div class="line"></div><div class="line">baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.4/x86_64/</div><div class="line"></div><div class="line">gpgcheck=0</div><div class="line"></div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<h3 id="第二步：安装mongodb"><a href="#第二步：安装mongodb" class="headerlink" title="第二步：安装mongodb"></a>第二步：安装mongodb</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y mongodb-org</div></pre></td></tr></table></figure>
+<h4 id="第三步：修改-etc-mongod-conf"><a href="#第三步：修改-etc-mongod-conf" class="headerlink" title="第三步：修改/etc/mongod.conf"></a>第三步：修改/etc/mongod.conf</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span> 改为 <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span> 服务器上绑定的地址只能是<span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span></div><div class="line">// 将port <span class="number">27017</span> 改为 <span class="number">3333</span></div></pre></td></tr></table></figure>
+<h3 id="第四步-重新启动mongodb"><a href="#第四步-重新启动mongodb" class="headerlink" title="第四步 重新启动mongodb"></a>第四步 重新启动mongodb</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">service mongod restart</span></div></pre></td></tr></table></figure>
+<h3 id="第五步-链接数据库"><a href="#第五步-链接数据库" class="headerlink" title="第五步 链接数据库"></a>第五步 链接数据库</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo <span class="comment">--host &lt;服务器ip&gt;:3333</span></div></pre></td></tr></table></figure>
+<h3 id="关闭数据库"><a href="#关闭数据库" class="headerlink" title="关闭数据库"></a>关闭数据库</h3><p>mongo<br>use admin<br>db.shutdownServer()</p>
+<h3 id="删除mongodb"><a href="#删除mongodb" class="headerlink" title="删除mongodb"></a>删除mongodb</h3><p>sudo yum erase $(rpm -qa | grep mongodb-org)<br>sudo rm -r /var/log/mongodb（日志）<br>sudo rm -r /var/lib/mongo（数据）</p>
+<h3 id="停止mongod服务"><a href="#停止mongod服务" class="headerlink" title="停止mongod服务"></a>停止mongod服务</h3><p>sudo service mongod stop</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/build/">build</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-服务器上搭建node环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/12/服务器上搭建node环境/" class="article-date">
+      <time datetime="2018-09-12T03:53:37.000Z" itemprop="datePublished">2018-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/服务器上搭建node环境/">阿里云搭建node环境</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> git</div></pre></td></tr></table></figure>
+<h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span> 首先安装构建工具所需要的依赖</div><div class="line">sudo yum update</div><div class="line">sudo yum groupinstall <span class="string">'Development Tools'</span></div><div class="line"></div><div class="line"><span class="regexp">//</span> 安装nvm</div><div class="line"></div><div class="line">curl方式：</div><div class="line"></div><div class="line">curl -o-https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.33.1/i</span>nstall.sh| bash</div><div class="line"></div><div class="line">wget方式：</div><div class="line"></div><div class="line">wget -qO- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.33.1/i</span>nstall.sh | bash</div><div class="line"></div><div class="line">⚠️ 安装完毕还是找不到nvm情况下执行以下命令</div><div class="line">source ~<span class="regexp">/.bashrc</span></div></pre></td></tr></table></figure>
+<h3 id="安装node、npm"><a href="#安装node、npm" class="headerlink" title="安装node、npm"></a>安装node、npm</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 查看<span class="keyword">node</span><span class="title">版本</span></div><div class="line">nvm ls-remote</div><div class="line">// 安装相应的版本</div><div class="line">nvm install <span class="keyword">node</span> <span class="title">&lt;版本号&gt;</span></div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/build/">build</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-浏览器高度和宽度" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -855,133 +986,9 @@
 
 
   
-    <article id="post-浏览器渲染优化" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/09/浏览器渲染优化/" class="article-date">
-      <time datetime="2017-04-09T03:53:37.000Z" itemprop="datePublished">2017-04-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <p>1:尽量多用class<br>2:先用display：none，把最终结果输出后在把none改成block<br>3:遇到能给图片设定高度和宽度的尽量提前设定，要不然每次都会重绘</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/other/">other</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-日常记录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/07/日常记录/" class="article-date">
-      <time datetime="2017-04-07T08:53:37.000Z" itemprop="datePublished">2017-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/日常记录/">日常记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="关于new的过程"><a href="#关于new的过程" class="headerlink" title="关于new的过程"></a>关于new的过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Father.prototype=&#123;</div><div class="line">    <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> son=<span class="keyword">new</span> Father(<span class="string">'张三'</span>);</div><div class="line"></div><div class="line"><span class="comment">//new 分为3个步骤</span></div><div class="line"><span class="comment">//var son=&#123;&#125;</span></div><div class="line"><span class="comment">//Father.apply(son,"张三")；</span></div><div class="line"><span class="comment">//son.__proto__=Father.prototype;</span></div></pre></td></tr></table></figure>
-<h3 id="关于apply和call的作用"><a href="#关于apply和call的作用" class="headerlink" title="关于apply和call的作用"></a>关于apply和call的作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//apply和call都是用来改变this的指向</span></div><div class="line"><span class="comment">//比如son2如果想要有一个getName的方法，但是不想重写可以用apply或者call的方法</span></div><div class="line"><span class="comment">//call和apply都会遍历一次函数，然后执行一次</span></div><div class="line"><span class="keyword">var</span> son2=&#123;<span class="attr">name</span>:<span class="string">"李四"</span>&#125;;</div><div class="line">son.getName.apply(son2);</div></pre></td></tr></table></figure>
-<h3 id="apply的第二个参数对象只要有length属性就可以了"><a href="#apply的第二个参数对象只要有length属性就可以了" class="headerlink" title="apply的第二个参数对象只要有length属性就可以了"></a>apply的第二个参数对象只要有length属性就可以了</h3><p>&emsp;&emsp;类数组的定义就是有length属性就可以了<br>&emsp;&emsp;&emsp; 1 . 类数组怎么变成数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayLike=&#123;</div><div class="line">    <span class="attr">length</span>:<span class="number">2</span>,</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLike)) <span class="comment">//false</span></div><div class="line"><span class="comment">//可以将带有length的对象转换为数组</span></div><div class="line"><span class="keyword">var</span> arrFunc1 = <span class="built_in">Array</span>.prototype.slice.call(arrayLike); </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrFunc1)) <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/other/">other</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

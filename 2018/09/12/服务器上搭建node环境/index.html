@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用正则表达式 | 店小二不二的博客</title>
+  <title>阿里云搭建node环境 | 店小二不二的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于个人的学习总结">
+  <meta name="description" content="安装git1yum install git 安装nvm12345678910111213141516// 首先安装构建工具所需要的依赖sudo yum updatesudo yum groupinstall &apos;Development Tools&apos;// 安装nvmcurl方式：curl -o-https://raw.githubusercontent.com/creationix/nvm/v0.33">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用正则表达式">
-<meta property="og:url" content="https://mcfly001.github.io/2017/04/04/正则表达式/index.html">
+<meta property="og:title" content="阿里云搭建node环境">
+<meta property="og:url" content="https://mcfly001.github.io/2018/09/12/服务器上搭建node环境/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="用于个人的学习总结">
+<meta property="og:description" content="安装git1yum install git 安装nvm12345678910111213141516// 首先安装构建工具所需要的依赖sudo yum updatesudo yum groupinstall &apos;Development Tools&apos;// 安装nvmcurl方式：curl -o-https://raw.githubusercontent.com/creationix/nvm/v0.33">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-04-04T04:04:55.000Z">
+<meta property="og:updated_time" content="2018-09-12T06:50:29.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用正则表达式">
-<meta name="twitter:description" content="用于个人的学习总结">
+<meta name="twitter:title" content="阿里云搭建node环境">
+<meta name="twitter:description" content="安装git1yum install git 安装nvm12345678910111213141516// 首先安装构建工具所需要的依赖sudo yum updatesudo yum groupinstall &apos;Development Tools&apos;// 安装nvmcurl方式：curl -o-https://raw.githubusercontent.com/creationix/nvm/v0.33">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -231,11 +231,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-服务器上搭建node环境" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/正则表达式/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+      <a href="/2018/09/12/服务器上搭建node环境/" class="article-date">
+      <time datetime="2018-09-12T03:53:37.000Z" itemprop="datePublished">2018-09-12</time>
 </a>
     </div>
   
@@ -248,7 +248,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常用正则表达式
+      阿里云搭建node环境
     </h1>
   
 
@@ -257,7 +257,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/regexp/">regexp</a>
+    <a class="article-category-link" href="/categories/build/">build</a>
     </div>
 
 
@@ -271,7 +271,10 @@
     
       
           
-        
+        <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> git</div></pre></td></tr></table></figure>
+<h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span> 首先安装构建工具所需要的依赖</div><div class="line">sudo yum update</div><div class="line">sudo yum groupinstall <span class="string">'Development Tools'</span></div><div class="line"></div><div class="line"><span class="regexp">//</span> 安装nvm</div><div class="line"></div><div class="line">curl方式：</div><div class="line"></div><div class="line">curl -o-https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.33.1/i</span>nstall.sh| bash</div><div class="line"></div><div class="line">wget方式：</div><div class="line"></div><div class="line">wget -qO- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.33.1/i</span>nstall.sh | bash</div><div class="line"></div><div class="line">⚠️ 安装完毕还是找不到nvm情况下执行以下命令</div><div class="line">source ~<span class="regexp">/.bashrc</span></div></pre></td></tr></table></figure>
+<h3 id="安装node、npm"><a href="#安装node、npm" class="headerlink" title="安装node、npm"></a>安装node、npm</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 查看<span class="keyword">node</span><span class="title">版本</span></div><div class="line">nvm ls-remote</div><div class="line">// 安装相应的版本</div><div class="line">nvm install <span class="keyword">node</span> <span class="title">&lt;版本号&gt;</span></div></pre></td></tr></table></figure>
+
       
       
         <div class="page-reward">
@@ -325,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/04/正则表达式/">常用正则表达式</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/12/服务器上搭建node环境/">阿里云搭建node环境</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2017年04月04日 - 10时53分</p>
-        <p><span>最后更新:</span>2017年04月04日 - 12时04分</p>
+        <p><span>发布时间:</span>2018年09月12日 - 11时53分</p>
+        <p><span>最后更新:</span>2018年09月12日 - 14时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/04/正则表达式/" title="常用正则表达式">https://mcfly001.github.io/2017/04/04/正则表达式/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2017/04/04/正则表达式/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/12/服务器上搭建node环境/" title="阿里云搭建node环境">https://mcfly001.github.io/2018/09/12/服务器上搭建node环境/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2018/09/12/服务器上搭建node环境/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -344,18 +347,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/04/构建工具/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/12/阿里云mongodb 搭建/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          webpack
+          阿里云搭建mongodb
         
       </div>
     </a>
   
   
-    <a href="/2017/04/04/electron/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">electron</div>
+    <a href="/2018/03/22/浏览器高度和宽度/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器宽度和高度</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -366,7 +369,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git"><span class="toc-number">1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装nvm"><span class="toc-number">2.</span> <span class="toc-text">安装nvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node、npm"><span class="toc-number">3.</span> <span class="toc-text">安装node、npm</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -414,7 +417,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/04/正则表达式/" data-title="常用正则表达式" data-url="https://mcfly001.github.io/2017/04/04/正则表达式/"></div>
+    <div class="ds-thread" data-thread-key="2018/09/12/服务器上搭建node环境/" data-title="阿里云搭建node环境" data-url="https://mcfly001.github.io/2018/09/12/服务器上搭建node环境/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -437,13 +440,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/04/构建工具/" title="上一篇: webpack">
+            <a href="/2018/09/12/阿里云mongodb 搭建/" title="上一篇: 阿里云搭建mongodb">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/04/04/electron/" title="下一篇: electron">
+            <a href="/2018/03/22/浏览器高度和宽度/" title="下一篇: 浏览器宽度和高度">
                 <i class="fa fa-angle-right"></i>
             </a>
         

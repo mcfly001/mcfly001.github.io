@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用正则表达式 | 店小二不二的博客</title>
+  <title>阿里云搭建mongodb | 店小二不二的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于个人的学习总结">
+  <meta name="description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用正则表达式">
-<meta property="og:url" content="https://mcfly001.github.io/2017/04/04/正则表达式/index.html">
+<meta property="og:title" content="阿里云搭建mongodb">
+<meta property="og:url" content="https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="用于个人的学习总结">
+<meta property="og:description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-04-04T04:04:55.000Z">
+<meta property="og:updated_time" content="2018-09-12T06:50:38.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用正则表达式">
-<meta name="twitter:description" content="用于个人的学习总结">
+<meta name="twitter:title" content="阿里云搭建mongodb">
+<meta name="twitter:description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -231,11 +231,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-阿里云mongodb 搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/正则表达式/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+      <a href="/2018/09/12/阿里云mongodb 搭建/" class="article-date">
+      <time datetime="2018-09-12T04:53:37.000Z" itemprop="datePublished">2018-09-12</time>
 </a>
     </div>
   
@@ -248,7 +248,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常用正则表达式
+      阿里云搭建mongodb
     </h1>
   
 
@@ -257,7 +257,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/regexp/">regexp</a>
+    <a class="article-category-link" href="/categories/build/">build</a>
     </div>
 
 
@@ -271,7 +271,15 @@
     
       
           
-        
+        <h3 id="第一步：新建mongodb-org-3-4-repo文件"><a href="#第一步：新建mongodb-org-3-4-repo文件" class="headerlink" title="第一步：新建mongodb-org-3.4.repo文件"></a>第一步：新建mongodb-org-3.4.repo文件</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/mongodb-org-3.4.repo</div><div class="line"></div><div class="line">// 插入内容</div><div class="line"></div><div class="line">[mogodb-org]</div><div class="line"></div><div class="line">name=MongoDB Repository</div><div class="line"></div><div class="line">baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.4/x86_64/</div><div class="line"></div><div class="line">gpgcheck=0</div><div class="line"></div><div class="line">enabled=1</div></pre></td></tr></table></figure>
+<h3 id="第二步：安装mongodb"><a href="#第二步：安装mongodb" class="headerlink" title="第二步：安装mongodb"></a>第二步：安装mongodb</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y mongodb-org</div></pre></td></tr></table></figure>
+<h4 id="第三步：修改-etc-mongod-conf"><a href="#第三步：修改-etc-mongod-conf" class="headerlink" title="第三步：修改/etc/mongod.conf"></a>第三步：修改/etc/mongod.conf</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span> 改为 <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span> 服务器上绑定的地址只能是<span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span></div><div class="line">// 将port <span class="number">27017</span> 改为 <span class="number">3333</span></div></pre></td></tr></table></figure>
+<h3 id="第四步-重新启动mongodb"><a href="#第四步-重新启动mongodb" class="headerlink" title="第四步 重新启动mongodb"></a>第四步 重新启动mongodb</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">service mongod restart</span></div></pre></td></tr></table></figure>
+<h3 id="第五步-链接数据库"><a href="#第五步-链接数据库" class="headerlink" title="第五步 链接数据库"></a>第五步 链接数据库</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo <span class="comment">--host &lt;服务器ip&gt;:3333</span></div></pre></td></tr></table></figure>
+<h3 id="关闭数据库"><a href="#关闭数据库" class="headerlink" title="关闭数据库"></a>关闭数据库</h3><p>mongo<br>use admin<br>db.shutdownServer()</p>
+<h3 id="删除mongodb"><a href="#删除mongodb" class="headerlink" title="删除mongodb"></a>删除mongodb</h3><p>sudo yum erase $(rpm -qa | grep mongodb-org)<br>sudo rm -r /var/log/mongodb（日志）<br>sudo rm -r /var/lib/mongo（数据）</p>
+<h3 id="停止mongod服务"><a href="#停止mongod服务" class="headerlink" title="停止mongod服务"></a>停止mongod服务</h3><p>sudo service mongod stop</p>
+
       
       
         <div class="page-reward">
@@ -325,13 +333,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/04/正则表达式/">常用正则表达式</a></p>
+        <p><span>本文标题:</span><a href="/2018/09/12/阿里云mongodb 搭建/">阿里云搭建mongodb</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2017年04月04日 - 10时53分</p>
-        <p><span>最后更新:</span>2017年04月04日 - 12时04分</p>
+        <p><span>发布时间:</span>2018年09月12日 - 12时53分</p>
+        <p><span>最后更新:</span>2018年09月12日 - 14时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/04/正则表达式/" title="常用正则表达式">https://mcfly001.github.io/2017/04/04/正则表达式/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2017/04/04/正则表达式/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/12/阿里云mongodb 搭建/" title="阿里云搭建mongodb">https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -344,18 +352,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/04/构建工具/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          webpack
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/04/electron/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">electron</div>
+    <a href="/2018/09/12/服务器上搭建node环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿里云搭建node环境</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -366,7 +365,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：新建mongodb-org-3-4-repo文件"><span class="toc-number">1.</span> <span class="toc-text">第一步：新建mongodb-org-3.4.repo文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：安装mongodb"><span class="toc-number">2.</span> <span class="toc-text">第二步：安装mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：修改-etc-mongod-conf"><span class="toc-number">2.1.</span> <span class="toc-text">第三步：修改/etc/mongod.conf</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-重新启动mongodb"><span class="toc-number">3.</span> <span class="toc-text">第四步 重新启动mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-链接数据库"><span class="toc-number">4.</span> <span class="toc-text">第五步 链接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭数据库"><span class="toc-number">5.</span> <span class="toc-text">关闭数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除mongodb"><span class="toc-number">6.</span> <span class="toc-text">删除mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止mongod服务"><span class="toc-number">7.</span> <span class="toc-text">停止mongod服务</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -414,7 +413,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/04/正则表达式/" data-title="常用正则表达式" data-url="https://mcfly001.github.io/2017/04/04/正则表达式/"></div>
+    <div class="ds-thread" data-thread-key="2018/09/12/阿里云mongodb 搭建/" data-title="阿里云搭建mongodb" data-url="https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -437,13 +436,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/04/构建工具/" title="上一篇: webpack">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/04/04/electron/" title="下一篇: electron">
+            <a href="/2018/09/12/服务器上搭建node环境/" title="下一篇: 阿里云搭建node环境">
                 <i class="fa fa-angle-right"></i>
             </a>
         
