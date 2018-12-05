@@ -235,97 +235,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/04/flex布局/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/flex布局/">flex布局</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <p>&emsp;&emsp;相比较传统布局，flex在处理元素垂直居中上会简单很多，而且在兼容性方面现在基本主流浏览器都已经兼容。所以如果你还在用float或者position布局，那么建议你尝试用一下flex，你会发现布局原来是那么简单的一件事情。</p>
-<p>&emsp;&emsp;flex其实就是一个容器，在其里面所有的子元素会自动生成为flex项目，下面就介绍一下flex容器的6个属性以及其子元素flex项目的6大属性</p>
-<h3 id="一：flex容器的6大属性"><a href="#一：flex容器的6大属性" class="headerlink" title="一：flex容器的6大属性"></a>一：flex容器的6大属性</h3><h4 id="flex-direction-row-row-reverse-column-column-reverse"><a href="#flex-direction-row-row-reverse-column-column-reverse" class="headerlink" title="flex-direction:row | row-reverse | column | column-reverse"></a>flex-direction:row | row-reverse | column | column-reverse</h4><font color="#ccc" size="2.5" face="黑体">该属性表示flex项目的主轴式横向还是纵向的，一共有4个属性值 </font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . row：主轴是水平方向，起点在左端。</font>
-
-<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . row-reverse：主轴为水平方向，起点在右端。</font></p>
-<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . column：主轴为垂直方向，起点在上沿。</font></p>
-<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 . column-reverse：主轴为垂直方向，起点在下沿。</font></p>
-<h4 id="flex-wrap-nowrap-wrap-wrap-reverse"><a href="#flex-wrap-nowrap-wrap-wrap-reverse" class="headerlink" title="flex-wrap:nowrap | wrap | wrap-reverse"></a>flex-wrap:nowrap | wrap | wrap-reverse</h4><font color="#ccc" size="2.5" face="黑体">这个属性用于定义flex项目是否在统一轴线上</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . nowrap:(默认)不换行</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . wrap：换行，第一行在上面</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . wrap-reverse：换行，第一行在最下面</font>
-
-<h4 id="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"><a href="#flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和" class="headerlink" title="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"></a>flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和</h4><h4 id="justify-content：flex-start-flex-end-center-space-between-space-around"><a href="#justify-content：flex-start-flex-end-center-space-between-space-around" class="headerlink" title="justify-content：flex-start | flex-end | center | space-between | space-around"></a>justify-content：flex-start | flex-end | center | space-between | space-around</h4><font color="#ccc" size="2.5" face="黑体">定义项目在主轴上对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:(默认)左对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：右对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：居中</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：两端对齐，项目之间的间隔相等</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体">space-around：每个项目两侧间隔相等，所以，项目之间的间隔比项目和边框的间隔大一倍</font>
-
-<h4 id="align-items：flex-start-flex-end-center-stretch-baseline"><a href="#align-items：flex-start-flex-end-center-stretch-baseline" class="headerlink" title="align-items：flex-start | flex-end | center | stretch | baseline"></a>align-items：flex-start | flex-end | center | stretch | baseline</h4><font color="#ccc" size="2.5" face="黑体">定义入股交叉轴只有一条的情况下，交叉轴的对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .baseline：项目第一行文字的基线对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
-
-<h4 id="align-content：flex-start-flex-end-center-space-between-space-around-stretch"><a href="#align-content：flex-start-flex-end-center-space-between-space-around-stretch" class="headerlink" title="align-content：flex-start | flex-end | center | space-between | space-around | stretch"></a>align-content：flex-start | flex-end | center | space-between | space-around | stretch</h4><font color="#ccc" size="2.5" face="黑体">定义多根轴线的对齐方式，如果轴线只有一条该属性就无效</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：和交叉轴两端对齐，轴线之间的间距平均分布</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .space-around：每根轴线2侧的间距都相等，所以轴线之间的间距比轴线和边框的间距大一倍</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 6 .stretch：占满整个容器的高度</font>
-
-<h3 id="二：flex项目的6大属性"><a href="#二：flex项目的6大属性" class="headerlink" title="二：flex项目的6大属性"></a>二：flex项目的6大属性</h3><h4 id="order：0"><a href="#order：0" class="headerlink" title="order：0"></a>order：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的排列顺序，默认为0</font>
-
-<h4 id="flex-grow：0"><a href="#flex-grow：0" class="headerlink" title="flex-grow：0"></a>flex-grow：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的放大比例，默认为0，即如果存在剩余空间也不放大，如果1则表示等比例放大，如果有一个为2，则该项目占据剩余空间的大小是其他的2倍</font>
-
-<h4 id="flex-shrink：1"><a href="#flex-shrink：1" class="headerlink" title="flex-shrink：1"></a>flex-shrink：1</h4><font color="#ccc" size="2.5" face="黑体">定义项目的缩小比例，如果空间不足，该项目就会缩小</font>
-
-<h4 id="flex-basis："><a href="#flex-basis：" class="headerlink" title="flex-basis："></a>flex-basis：<length></length></h4><font color="#ccc" size="2.5" face="黑体">定义在分配多余空间之前，计算主轴是否有多余的剩余空间，也就是固定项目的大小了</font>
-
-<h4 id="flex：auto（1-1-auto）-none"><a href="#flex：auto（1-1-auto）-none" class="headerlink" title="flex：auto（1 1 auto） |  none"></a>flex：auto（1 1 auto） |  none</h4><font color="#ccc" size="2.5" face="黑体">flex-grow、flex-strink、flex-basis3个的总和。默认有2个快捷写法</font>
-
-<h4 id="align-self：auto-flex-start-flex-end-center-baseline-stretch"><a href="#align-self：auto-flex-start-flex-end-center-baseline-stretch" class="headerlink" title="align-self：auto | flex-start | flex-end | center | baseline | stretch"></a>align-self：auto | flex-start | flex-end | center | baseline | stretch</h4><font color="#ccc" size="2.5" face="黑体">允许单个项目和其他项目不一样的对齐方式，可以覆盖flex容器中的align-items属性。</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
-
-<h3 id="三：实战布局"><a href="#三：实战布局" class="headerlink" title="三：实战布局"></a>三：实战布局</h3><h4 id="1-圣杯布局"><a href="#1-圣杯布局" class="headerlink" title="1:圣杯布局"></a>1:圣杯布局</h4><p>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">   <span class="attribute">padding</span>:<span class="number">0</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: column;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.header</span>&#123;</div><div class="line">   <span class="attribute">background</span>:red;</div><div class="line">   <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.main</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:yellow;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: row;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#2D93CA</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:black;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-flow</span>:row nowrap;</div><div class="line">   <span class="attribute">justify-content</span>: space-around;</div><div class="line">   <span class="attribute">align-items</span>:flex-start;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&gt;<span class="selector-tag">div</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#ddd</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.footer</span>&#123;</div><div class="line">   <span class="attribute">background</span>:blue;</div><div class="line">   <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>结果:<br><img src="http://yongjian.space/image/flex/1.png" alt="result"></p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>语法篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>实战篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</a><br>css兼容性查询：<a href="http://caniuse.com/#search=f%20le" target="_blank" rel="external">http://caniuse.com/#search=f%20le</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/css/">css</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -358,7 +267,7 @@
         <p>&emsp;&emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。</p>
 <h3 id="情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。"><a href="#情景一：将ssh的公钥添加到github上面之后可以发现git-clone失败。" class="headerlink" title="情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。"></a>情景一：将ssh的公钥添加到github上面之后可以发现git clone失败。</h3><p>报错：Permission denied(publickey)<br>原因：是因为新生成的key不能添加到ssh上导致连接不上<br>解决方法：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-agent</div><div class="line">ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
 <h3 id="情景二-一台电脑如何配置多个账号？"><a href="#情景二-一台电脑如何配置多个账号？" class="headerlink" title="情景二: 一台电脑如何配置多个账号？"></a>情景二: 一台电脑如何配置多个账号？</h3><p>首先解除全局用户名和邮箱设置，可以用下面命令，也可以直接在~/.gitconfig里面手动删除<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">unset</span><span class="literal">-</span><span class="comment">all</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span><span class="string">.</span><span class="comment">name</span></div><div class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">unset</span><span class="literal">-</span><span class="comment">all</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span><span class="string">.</span><span class="comment">email</span></div></pre></td></tr></table></figure></p>
-<p>生成多个ssh key，然后把公钥添加到相应的账号里面<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"867269369@qq.com"</span>   -f ~<span class="regexp">/.ssh/i</span>d_rsa_myself <span class="regexp">//</span>默认首选ssh key</div><div class="line">ssh-keygen -t rsa -C <span class="string">"266923@qq.com"</span> -f ~<span class="regexp">/.ssh/i</span>d_rsa_xiami  <span class="regexp">//</span>第二个ssh key</div></pre></td></tr></table></figure></p>
+<p>生成多个ssh key，然后把公钥添加到相应的账号里面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"867269369@qq.com"</span>   -f ~<span class="regexp">/.ssh/i</span>d_rsa_myself <span class="comment">//默认首选ssh key</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"266923@qq.com"</span> -f ~<span class="regexp">/.ssh/i</span>d_rsa_xiami  <span class="comment">//第二个ssh key</span></div></pre></td></tr></table></figure></p>
 <p>在~/.ssh 里面新建一个config文件，然后进行配置<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="string">//</span>这里的sub是我自己设置的一个快捷命令用于打开sublime</div><div class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span> &amp;&amp; touch config &amp;&amp; sub config</div><div class="line">配置内容为：</div><div class="line"><span class="comment"># gitlab</span></div><div class="line">    Host gitlab.com                     <span class="string">//</span>主机地址</div><div class="line">    HostName gitlab.com                 <span class="string">//</span>主机名</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~<span class="string">/.ssh/id_rsa</span>          <span class="string">//</span>刚才生成的钥匙对</div><div class="line">    User 266923                         <span class="string">//</span>用户名</div><div class="line"></div><div class="line"><span class="comment"># github</span></div><div class="line">    Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~<span class="string">/.ssh/id_rsa_myselfgithub</span></div><div class="line">    User 郑泳健</div></pre></td></tr></table></figure></p>
 <h3 id="情景三-本地新建一个仓库，与远程关联，并且新建一份新分支"><a href="#情景三-本地新建一个仓库，与远程关联，并且新建一份新分支" class="headerlink" title="情景三:本地新建一个仓库，与远程关联，并且新建一份新分支"></a>情景三:本地新建一个仓库，与远程关联，并且新建一份新分支</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git init <span class="comment">//本地新建一个仓库</span></div><div class="line">git remote add origin git@github<span class="selector-class">.com</span>:mcfly001/test<span class="selector-class">.git</span> <span class="comment">//本地和远程关联</span></div><div class="line">git branch bugs <span class="comment">//新建分支</span></div><div class="line">git push origin bugs <span class="comment">//推送该分支到远程仓库</span></div></pre></td></tr></table></figure>
 <h3 id="情景四：想要返回之前的版本怎么办？"><a href="#情景四：想要返回之前的版本怎么办？" class="headerlink" title="情景四：想要返回之前的版本怎么办？"></a>情景四：想要返回之前的版本怎么办？</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">1 </span>. 首先查看commit的版本 git <span class="keyword">log</span> 然后选择想要返回的版本号。</div><div class="line"><span class="symbol">2 </span>. 然后git <span class="keyword">reset</span> --hard 上一步选择的版本号就恢复了</div><div class="line"><span class="symbol">3 </span>当恢复到之前的版本了，但是这时候有想到最新的版本就可以用git reflog就能查看所有commit的记录，然后选择commit id，然后git <span class="keyword">reset</span> --hard 相应的commit id</div></pre></td></tr></table></figure>
@@ -391,6 +300,132 @@
       
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/versioncontrol/">versioncontrol</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-构建工具" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/构建工具/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/构建工具/">webpack</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1 .  在使用webpack-dev-server的时候不要使用extract-text-webpack-plugin，它会把css独立成一个文件，这时候修改css就不能刷新浏览器，不能实时更新了。<br>2 .  webpack在解析文件时候会通过3种路径寻找文件，一种是绝对路径，一种是相对路径，还有一种就是通过module，如果找到的是一个文件夹，就会查看该文件夹里面有没有package.json文件，如果有就依照其配置，如果没有就会按照resolve.mainFiles配置选项制定的文件名进行匹配。</p>
+<h3 id="各个关键词"><a href="#各个关键词" class="headerlink" title="各个关键词"></a>各个关键词</h3><p>extry: 单个入口语法，webpack从这个文件开始读取信息,可以传一个数组，会生成多个独立分离的依赖图表。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">exports</span>: <span class="string">'./app/index.js'</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>output: 控制webpack如何向硬盘写入编译文件，虽然extry可以有多个，但是output只能有一个<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.js'</span>, <span class="comment">//输出的名称，这里不能定义绝对路径</span></div><div class="line">    path: <span class="string">'/build'</span>, <span class="comment">//输出的目录，绝对路径由这里定义</span></div><div class="line">    chunkFilename: &#123; <span class="comment">//非入口的chunk的文件名</span></div><div class="line">      id: <span class="string">''</span>,</div><div class="line">      <span class="attr">name</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">hash</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">chunkhash</span>: <span class="string">''</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">crossOriginLoading</span>: <span class="string">''</span>, <span class="comment">//false: 禁止跨域 anonymous： 启用跨域发送不带credential的请求 use-credential 启用跨域加载</span></div><div class="line">    devtoolLineToLine: <span class="literal">false</span>, <span class="comment">//是否启用制定模块行到行映射模式。</span></div><div class="line">    sourceMapFilename: [file].map, <span class="comment">//javascript文件的sourcmap的文件名，他们在output.path目录中</span></div><div class="line">    libraryTarget: <span class="string">'var'</span> <span class="comment">//导出格式</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>loaders: loader用于对模块的源代码进行转换，可以在require或者import模块时预处理文件，类似于gulp中的task<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过webpack-config.js配置</span></div><div class="line"><span class="built_in">module</span>.export=&#123;</div><div class="line">  <span class="attr">module</span>:&#123;</div><div class="line">    <span class="attr">rule</span>:[</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">use</span>: <span class="string">'css-loader'</span></div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//通过require配置</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'style-loader!css-loader?modules!./style.css'</span>)</div><div class="line"></div><div class="line"><span class="comment">//通过cli配置</span></div><div class="line">webpack --<span class="built_in">module</span>-bindn jade-loader --<span class="built_in">module</span>-bind <span class="string">'css=style-loader!css-loader'</span></div></pre></td></tr></table></figure></p>
+<h3 id="插件plugins：webpack插件是一个具有apply属性的javascript对象"><a href="#插件plugins：webpack插件是一个具有apply属性的javascript对象" class="headerlink" title="插件plugins：webpack插件是一个具有apply属性的javascript对象"></a>插件plugins：webpack插件是一个具有apply属性的javascript对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.export=&#123;</div><div class="line">  <span class="attr">plugins</span>:[</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(), <span class="comment">//压缩</span></div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;<span class="attr">template</span>: <span class="string">'./app/index.html'</span>&#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">多个Target: 构建目标,适用于不同的环境,比如node环境、web环境等</div><div class="line"><span class="keyword">var</span> baseConfig = &#123;</div><div class="line">  <span class="attr">target</span>: <span class="string">'async-node'</span>,</div><div class="line">  <span class="attr">entry</span>: <span class="string">'./app/index.js'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> targets = [<span class="string">'web'</span>,<span class="string">'webworker'</span>,<span class="string">'node'</span>,<span class="string">'async-node'</span>,<span class="string">'node-wekit'</span>,<span class="string">'electron-main'</span>].map(<span class="function">(<span class="params">target</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> base = webpackMerge(baseConfig,&#123;</div><div class="line">    <span class="attr">target</span>:target,</div><div class="line">    <span class="attr">output</span>:&#123;</div><div class="line">      <span class="attr">path</span>: path.resolve(__dirname,<span class="string">'dist/'</span>+target),</div><div class="line">      <span class="attr">filename</span>: <span class="string">'[name].'</span>+target+<span class="string">'.js'</span></div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> base;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">module</span>.exports = targets;</div></pre></td></tr></table></figure>
+<h3 id="常用loader"><a href="#常用loader" class="headerlink" title="常用loader"></a>常用loader</h3>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/build/">build</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-line-height和vertical-align的关系" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/line-height和vertical-align的关系/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
     </div>
 
 

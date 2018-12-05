@@ -235,6 +235,101 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webHook 实现热部署" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/05/webHook 实现热部署/" class="article-date">
+      <time datetime="2018-12-05T14:27:37.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/webHook 实现热部署/">通过webHooks 实现热部署</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>配置好github上的webhooks后，每次在本地执行git push到github上的时候，github会自动发送一个post请求到服务器，</li>
+<li>服务器上接收到这个信号，执行写好的shell脚本，shell脚本的内容第一步cd到目标目录，然后执行git pull / npm install等操作</li>
+<li>因为要在服务器上执行一系列git命令，所以需要在服务器上事先生成密钥，将公钥放到github上</li>
+</ul>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><h4 id="配置webHook"><a href="#配置webHook" class="headerlink" title="配置webHook"></a>配置webHook</h4><ul>
+<li>在github上新建一个仓库，选择setting –&gt; 选择webhooks –&gt; add webhook –&gt; 配置好github上的webhooks<br><img src="http://baidu.com/pic/doge.png" alt="第一步"><br><img src="http://baidu.com/pic/doge.png" alt="第二步"><br><img src="http://baidu.com/pic/doge.png" alt="第三步"></li>
+</ul>
+<h4 id="接收github的请求（写在服务器端-需要安装github-webhook-handler模块）"><a href="#接收github的请求（写在服务器端-需要安装github-webhook-handler模块）" class="headerlink" title="接收github的请求（写在服务器端, 需要安装github-webhook-handler模块）"></a>接收github的请求（写在服务器端, 需要安装github-webhook-handler模块）</h4><ul>
+<li><p>第一步：编写监听端口，监听后执行第二步中的shell </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</div><div class="line"><span class="keyword">var</span> createHandler = <span class="built_in">require</span>(<span class="string">'github-webhook-handler'</span>)</div><div class="line"><span class="comment">// secret 保持和 GitHub 后台设置的一致</span></div><div class="line"><span class="keyword">var</span> handler = createHandler(&#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">secret</span>: <span class="string">'wechat'</span> &#125;)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run_cmd</span>(<span class="params">cmd, args, callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line">  <span class="keyword">var</span> child = spawn(cmd, args);</div><div class="line">  <span class="keyword">var</span> resp = <span class="string">""</span>;</div><div class="line"></div><div class="line">  child.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">buffer</span>) </span>&#123; resp += buffer.toString(); &#125;);</div><div class="line">  child.stdout.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; callback (resp) &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  handler(req, res, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">    res.statusCode = <span class="number">404</span></div><div class="line">    res.end(<span class="string">'no such location'</span>)</div><div class="line">  &#125;)</div><div class="line">&#125;).listen(<span class="number">7777</span>)</div><div class="line"></div><div class="line">handler.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(<span class="string">'Error:'</span>, err.message)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">handler.on(<span class="string">'push'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Received a push event for %s to %s'</span>,</div><div class="line">    event.payload.repository.name,</div><div class="line">    event.payload.ref);</div><div class="line">    run_cmd(<span class="string">'sh'</span>, [<span class="string">'./deploy.sh'</span>,event.payload.repository.name], <span class="function"><span class="keyword">function</span>(<span class="params">text</span>)</span>&#123; <span class="built_in">console</span>.log(text) &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：在同级目录下编写shell脚本，命名为deploy.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">WEB_PATH=<span class="string">'/root/zyj/'</span><span class="variable">$1</span>   //你要pull到服务器的的地址 <span class="variable">$1</span> 就是你github的仓库名称</div><div class="line">WEB_USER=<span class="string">'root'</span></div><div class="line">WEB_USERGROUP=<span class="string">'root'</span></div><div class="line"></div><div class="line"><span class="built_in">echo</span> <span class="string">"Start deployment"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$1</span></div><div class="line"><span class="built_in">cd</span> <span class="variable">$WEB_PATH</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"pulling source code..."</span></div><div class="line">git reset --hard origin/master</div><div class="line">git clean <span class="_">-f</span></div><div class="line">git pull origin master</div><div class="line">npm install</div><div class="line">git checkout master</div><div class="line"><span class="built_in">echo</span> <span class="string">"changing permissions..."</span></div><div class="line">chown -R <span class="variable">$WEB_USER</span>:<span class="variable">$WEB_USERGROUP</span> <span class="variable">$WEB_PATH</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"Finished."</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="在服务器上生成密钥，并在相应pull目录和github仓库建立联系"><a href="#在服务器上生成密钥，并在相应pull目录和github仓库建立联系" class="headerlink" title="在服务器上生成密钥，并在相应pull目录和github仓库建立联系"></a>在服务器上生成密钥，并在相应pull目录和github仓库建立联系</h3><ul>
+<li><p>服务器上安装git</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> git</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成git密钥</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t raa -C ‘邮箱地址’ -f ~<span class="regexp">/.ssh/i</span>d_rsa</div></pre></td></tr></table></figure>
+</li>
+<li><p>将公钥放在github上</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">//</span> 找到<span class="string">.pub</span>文件</div><div class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>测试ssh</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 出现Permission denied(publickey)执行下一步</span></div><div class="line">ssh -T git@second<span class="selector-class">.github</span><span class="selector-class">.com</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa</div><div class="line">// 再次执行ssh -T git@second.github.com</div></pre></td></tr></table></figure>
+<ul>
+<li>到相应目录下关联github,保证在该目录下能够git pull成功<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/root/</span>zyj/demo</div><div class="line">git init</div><div class="line">git remote add origin git<span class="meta">@github</span>.<span class="string">com:</span>账号/仓库名.git</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="最后执行node"><a href="#最后执行node" class="headerlink" title="最后执行node"></a>最后执行node</h3><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">pm2</span> <span class="comment">start</span> <span class="comment">index</span><span class="string">.</span><span class="comment">js</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">name</span> <span class="comment">webhook</span><span class="literal">-</span><span class="comment">test</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-阿里云mongodb 搭建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -421,7 +516,7 @@
 <li>offsetHeihgt = scrollHeight + 上下滚动条 + 上下边框</li>
 </ul>
 <h3 id="获取元素相对父元素的位置"><a href="#获取元素相对父元素的位置" class="headerlink" title="获取元素相对父元素的位置"></a>获取元素相对父元素的位置</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> l = box<span class="selector-class">.offsetLeft</span></div><div class="line"></div><div class="line"><span class="selector-tag">var</span> t = box<span class="selector-class">.offsetTop</span></div><div class="line"></div><div class="line"><span class="selector-tag">var</span> parent = box<span class="selector-class">.offsetParent</span> <span class="comment">// 返回父元素</span></div></pre></td></tr></table></figure>
-<h3 id="获取元素到body或者html的距离"><a href="#获取元素到body或者html的距离" class="headerlink" title="获取元素到body或者html的距离"></a>获取元素到body或者html的距离</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span><span class="params">(element)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> actualLeft = element.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualLeft += current.offsetLeft;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualLeft;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span><span class="params">(element)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> actualTop = element.offsetTop;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualTop += current. offsetTop;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="获取元素到body或者html的距离"><a href="#获取元素到body或者html的距离" class="headerlink" title="获取元素到body或者html的距离"></a>获取元素到body或者html的距离</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> actualLeft = element.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualLeft += current.offsetLeft;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualLeft;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> actualTop = element.offsetTop;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualTop += current. offsetTop;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
       
@@ -878,83 +973,6 @@
       
           
         <h3 id="用例1"><a href="#用例1" class="headerlink" title="用例1"></a>用例1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const http=require('http');</div><div class="line">const hostname='127.0.0.1';</div><div class="line">const port=3000;</div><div class="line">const obj=&#123;</div><div class="line">  name:"张三"</div><div class="line">&#125;</div><div class="line">const server=http.creatServer((req,res)=&gt;&#123;</div><div class="line">    res.statusCode=200;</div><div class="line">    res.setHeader("Content-Type",'text/plain;'text/plain; charset=utf-8');</div><div class="line">    res.end(obj.name);</div><div class="line">&#125;)</div><div class="line">server.listen(port,hostname,()=&gt;&#123;</div><div class="line">    console.log(`服务器运行在 http://$&#123;hostname&#125;:$&#123;port&#125;/`);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-es6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/10/es6/" class="article-date">
-      <time datetime="2017-04-10T01:00:37.000Z" itemprop="datePublished">2017-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/es6/">Es6基础</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h2 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a><font size="6">let和const</font></h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>1 . let 命令<br>&emsp;<font size="2.5">1.1 let和var2个用法类似，但是申明的变量只在let命令所在的代码块有效</font><br>&emsp;<font size="2.5">1.2 let在for循环里面是一个局部变量，不存在变量提升。但是这里有一个例外就是函数，如果声明的是函数还是会变量提升的。</font><br>&emsp;<font size="2.5">1.3 只要块级作用域存在let，它申明的变量就绑定这个区域，不受外面的影响。如果在申明之前使用就会报错，<br>语法上将这就是”暂时性死区”。这样设计就是让大家养成习惯，变量一定要在声明后使用参考案例3</font><br>&emsp;<font size="2.5">1.4 let不允许在相同作用域内，声明同一个变量。</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="keyword">let</span> a=<span class="number">1</span>;</div><div class="line">   <span class="keyword">var</span> b=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">a <span class="comment">// a is not defined;</span></div><div class="line">b <span class="comment">// 2</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[];</div><div class="line"><span class="keyword">var</span> b=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">   a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(i);</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">  b[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>]() <span class="comment">//10</span></div><div class="line">b[<span class="number">6</span>]() <span class="comment">//6</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp)</div><div class="line">  <span class="comment">/*let tmp;*/</span>  <span class="comment">//如果这里不注释，上一条语句就会报错。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> tmp = <span class="number">123</span>;</div><div class="line"><span class="keyword">let</span> tmp = <span class="number">2</span>   <span class="comment">//报错</span></div></pre></td></tr></table></figure>
-<p>2 . 块级作用域<br>&emsp;<font size="2.5">2.1 Es5里面只有全局作用域和函数作用域，没有块级作用域，会导致错误比如内层变量会覆盖外层变量</font><br>&emsp;<font size="2.5">2.2 会造成内存泄露，比如for循环里面i声明之后就一直存在于内存中，不会被销毁，造成泄露。</font><br>&emsp;<font size="2.5">2.3 es5规定行数只能在顶级作用域和函数作用域中声明，不能在块级作用域下声明，但是es6，可以在块级作用域下声明变量，但是类似于let，在该作用域外不可引用。这个规则在浏览器外适用，但是浏览器可以不遵循这个规则</font><br>&emsp;<font size="2.5">2.4 es6允许在块级作用域内声明函数，函数声明类似于var，会被提升到全局作用域或者函数作用域的头部，同时函数声明也会被提升到所在块级作用域的头部</font><br>&emsp;<font size="2.5">2.5 一般情况下块级作用域是没有返回值的，现在有议案，是在块级作用域之前加上do，使它变成do表达式，这样块级作用域就可以有返回值了。</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp);</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="keyword">var</span> tmp = <span class="string">'hello world'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">f(); <span class="comment">// undefined  f()函数相当于先var tmp变量提升了。</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> n = <span class="number">5</span>;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> n = <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 5</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//如果把let改成var结果就是10；因为这是同一个作用域即函数作用域</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">5</span>;</div><div class="line">&#125;</div><div class="line">f();</div><div class="line">a <span class="comment">//1 这里a的值没变化的原因因为是2个作用域，一个是全局，一个是函数</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//错误，es5中不能在块级作用域下声明函数，但是实际还是能够运行的。</span></div></pre></td></tr></table></figure>
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>1 . 基本用法<br>&emsp;<font size="2.5">1.1 声明一个只读的常量，一旦声明，这个值就不能被改变。</font><br>&emsp;<font size="2.5">1.2 const声明的时候必需要赋值，不赋值就会报错。</font><br>&emsp;<font size="2.5">1.3 const和let一样声明的常量不能提升，同样存在暂时性死区，只能在声明的位置后面使用。</font><br>&emsp;<font size="2.5">1.4 const声明的是常量的时候，值在栈里面，固定不变了，但是如果是引用类型的，变量是一个内存地址，const只能保证指针是固定的，至于它指向的数据结构就不能控制了。</font><br>&emsp;<font size="2.5">1.5 如果想要冻结对象，可以使用Object.freeze,这样就不能对对象赋值了。</font><br>&emsp;<font size="2.5">1.6 声明变量一共有6种形式，var function let const class import</font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Pi=<span class="number">3.1415</span>;</div><div class="line">Pi <span class="comment">//3.1415</span></div><div class="line">Pi=<span class="number">4</span>; <span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(MAX); <span class="comment">// ReferenceError 因为不存在提升</span></div><div class="line">  <span class="keyword">const</span> MAX = <span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = &#123;&#125;;</div><div class="line">foo.prop = <span class="number">123</span>; <span class="comment">// 为 foo 添加一个属性，可以成功</span></div><div class="line">foo.prop <span class="comment">// 123</span></div><div class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></div><div class="line">foo = &#123;&#125;; <span class="comment">// TypeError: "foo" is read-only</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line">foo.prop = <span class="number">123</span>;</div><div class="line">foo <span class="comment">//&#123;&#125;,被冻结了</span></div></pre></td></tr></table></figure>
-<h3 id="顶级对象的属性和全局对象-global和window"><a href="#顶级对象的属性和全局对象-global和window" class="headerlink" title="顶级对象的属性和全局对象 global和window"></a>顶级对象的属性和全局对象 global和window</h3><p>&emsp;<font size="2.5">1.1 Es5顶层对象的属性和全局变量是等价的，Es6开始var和function命令声明的全局变量依然是顶层对象的属性，但是let、const、class声明的全局变量不属于顶层对象的属性</font><br>&emsp;<font size="2.5">1.2 在浏览器中顶层对象是window，而node、web work的顶层对象是global，浏览器和web worker中self指向顶层对象，但是node没有self。</font><br>&emsp;<font size="2.5">1.3 函数里面的this，如果是单纯当作函数运行，this指向的是顶层对象，但是在严格模式下this返回的是undefined</font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.a <span class="comment">//1</span></div><div class="line"><span class="keyword">let</span> b=<span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.b <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
-<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a><font size="6">变量的解构赋值</font></h2><p>箭头函数this指向不一样，es5如果在函数内部写函数的情况下，内部的函数中this指向的是window或者undefined，但是es6中this指向的是外面的那个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">birth</span>: <span class="number">1990</span>,</div><div class="line">    <span class="attr">getAge</span>: <span class="function"><span class="keyword">function</span> (<span class="params">year</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = <span class="keyword">this</span>.birth; <span class="comment">// 1990</span></div><div class="line">        <span class="keyword">var</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</div><div class="line">          <span class="keyword">return</span> y - <span class="keyword">this</span>.birth; </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> fn.call(&#123;<span class="attr">birth</span>:<span class="number">2000</span>&#125;, year);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  <span class="built_in">console</span>.log(obj.getAge(<span class="number">2015</span>)); <span class="comment">// 25*/</span></div></pre></td></tr></table></figure></p>
-<p>方法写在constructor里面和外面的区别<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</div><div class="line">  speak()&#123;</div><div class="line">    alert(<span class="string">"a"</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father2</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>()&#123;</div><div class="line">    <span class="keyword">this</span>.speak=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">      alert(<span class="string">"b"</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//区别就是如果写在constructor就相当于写在构造器里面，如果不写在constructor就相当于写在类的原型上面。</span></div></pre></td></tr></table></figure></p>
 
       
       

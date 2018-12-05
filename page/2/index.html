@@ -235,6 +235,83 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-es6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/10/es6/" class="article-date">
+      <time datetime="2017-04-10T01:00:37.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/es6/">Es6基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h2 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a><font size="6">let和const</font></h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>1 . let 命令<br>&emsp;<font size="2.5">1.1 let和var2个用法类似，但是申明的变量只在let命令所在的代码块有效</font><br>&emsp;<font size="2.5">1.2 let在for循环里面是一个局部变量，不存在变量提升。但是这里有一个例外就是函数，如果声明的是函数还是会变量提升的。</font><br>&emsp;<font size="2.5">1.3 只要块级作用域存在let，它申明的变量就绑定这个区域，不受外面的影响。如果在申明之前使用就会报错，<br>语法上将这就是”暂时性死区”。这样设计就是让大家养成习惯，变量一定要在声明后使用参考案例3</font><br>&emsp;<font size="2.5">1.4 let不允许在相同作用域内，声明同一个变量。</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="keyword">let</span> a=<span class="number">1</span>;</div><div class="line">   <span class="keyword">var</span> b=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">a <span class="comment">// a is not defined;</span></div><div class="line">b <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[];</div><div class="line"><span class="keyword">var</span> b=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">   a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(i);</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">  b[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>]() <span class="comment">//10</span></div><div class="line">b[<span class="number">6</span>]() <span class="comment">//6</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp)</div><div class="line">  <span class="comment">/*let tmp;*/</span>  <span class="comment">//如果这里不注释，上一条语句就会报错。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> tmp = <span class="number">123</span>;</div><div class="line"><span class="keyword">let</span> tmp = <span class="number">2</span>   <span class="comment">//报错</span></div></pre></td></tr></table></figure>
+<p>2 . 块级作用域<br>&emsp;<font size="2.5">2.1 Es5里面只有全局作用域和函数作用域，没有块级作用域，会导致错误比如内层变量会覆盖外层变量</font><br>&emsp;<font size="2.5">2.2 会造成内存泄露，比如for循环里面i声明之后就一直存在于内存中，不会被销毁，造成泄露。</font><br>&emsp;<font size="2.5">2.3 es5规定行数只能在顶级作用域和函数作用域中声明，不能在块级作用域下声明，但是es6，可以在块级作用域下声明变量，但是类似于let，在该作用域外不可引用。这个规则在浏览器外适用，但是浏览器可以不遵循这个规则</font><br>&emsp;<font size="2.5">2.4 es6允许在块级作用域内声明函数，函数声明类似于var，会被提升到全局作用域或者函数作用域的头部，同时函数声明也会被提升到所在块级作用域的头部</font><br>&emsp;<font size="2.5">2.5 一般情况下块级作用域是没有返回值的，现在有议案，是在块级作用域之前加上do，使它变成do表达式，这样块级作用域就可以有返回值了。</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp);</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="keyword">var</span> tmp = <span class="string">'hello world'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">f(); <span class="comment">// undefined  f()函数相当于先var tmp变量提升了。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> n = <span class="number">5</span>;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> n = <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 5</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//如果把let改成var结果就是10；因为这是同一个作用域即函数作用域</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">5</span>;</div><div class="line">&#125;</div><div class="line">f();</div><div class="line">a <span class="comment">//1 这里a的值没变化的原因因为是2个作用域，一个是全局，一个是函数</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//错误，es5中不能在块级作用域下声明函数，但是实际还是能够运行的。</span></div></pre></td></tr></table></figure>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>1 . 基本用法<br>&emsp;<font size="2.5">1.1 声明一个只读的常量，一旦声明，这个值就不能被改变。</font><br>&emsp;<font size="2.5">1.2 const声明的时候必需要赋值，不赋值就会报错。</font><br>&emsp;<font size="2.5">1.3 const和let一样声明的常量不能提升，同样存在暂时性死区，只能在声明的位置后面使用。</font><br>&emsp;<font size="2.5">1.4 const声明的是常量的时候，值在栈里面，固定不变了，但是如果是引用类型的，变量是一个内存地址，const只能保证指针是固定的，至于它指向的数据结构就不能控制了。</font><br>&emsp;<font size="2.5">1.5 如果想要冻结对象，可以使用Object.freeze,这样就不能对对象赋值了。</font><br>&emsp;<font size="2.5">1.6 声明变量一共有6种形式，var function let const class import</font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Pi=<span class="number">3.1415</span>;</div><div class="line">Pi <span class="comment">//3.1415</span></div><div class="line">Pi=<span class="number">4</span>; <span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(MAX); <span class="comment">// ReferenceError 因为不存在提升</span></div><div class="line">  <span class="keyword">const</span> MAX = <span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = &#123;&#125;;</div><div class="line">foo.prop = <span class="number">123</span>; <span class="comment">// 为 foo 添加一个属性，可以成功</span></div><div class="line">foo.prop <span class="comment">// 123</span></div><div class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></div><div class="line">foo = &#123;&#125;; <span class="comment">// TypeError: "foo" is read-only</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line">foo.prop = <span class="number">123</span>;</div><div class="line">foo <span class="comment">//&#123;&#125;,被冻结了</span></div></pre></td></tr></table></figure>
+<h3 id="顶级对象的属性和全局对象-global和window"><a href="#顶级对象的属性和全局对象-global和window" class="headerlink" title="顶级对象的属性和全局对象 global和window"></a>顶级对象的属性和全局对象 global和window</h3><p>&emsp;<font size="2.5">1.1 Es5顶层对象的属性和全局变量是等价的，Es6开始var和function命令声明的全局变量依然是顶层对象的属性，但是let、const、class声明的全局变量不属于顶层对象的属性</font><br>&emsp;<font size="2.5">1.2 在浏览器中顶层对象是window，而node、web work的顶层对象是global，浏览器和web worker中self指向顶层对象，但是node没有self。</font><br>&emsp;<font size="2.5">1.3 函数里面的this，如果是单纯当作函数运行，this指向的是顶层对象，但是在严格模式下this返回的是undefined</font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.a <span class="comment">//1</span></div><div class="line"><span class="keyword">let</span> b=<span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.b <span class="comment">//undefined</span></div></pre></td></tr></table></figure></p>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a><font size="6">变量的解构赋值</font></h2><p>箭头函数this指向不一样，es5如果在函数内部写函数的情况下，内部的函数中this指向的是window或者undefined，但是es6中this指向的是外面的那个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="attr">birth</span>: <span class="number">1990</span>,</div><div class="line">    <span class="attr">getAge</span>: <span class="function"><span class="keyword">function</span> (<span class="params">year</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> b = <span class="keyword">this</span>.birth; <span class="comment">// 1990</span></div><div class="line">        <span class="keyword">var</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</div><div class="line">          <span class="keyword">return</span> y - <span class="keyword">this</span>.birth; </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> fn.call(&#123;<span class="attr">birth</span>:<span class="number">2000</span>&#125;, year);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">  <span class="built_in">console</span>.log(obj.getAge(<span class="number">2015</span>)); <span class="comment">// 25*/</span></div></pre></td></tr></table></figure></p>
+<p>方法写在constructor里面和外面的区别<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</div><div class="line">  speak()&#123;</div><div class="line">    alert(<span class="string">"a"</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father2</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>()&#123;</div><div class="line">    <span class="keyword">this</span>.speak=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">      alert(<span class="string">"b"</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//区别就是如果写在constructor就相当于写在构造器里面，如果不写在constructor就相当于写在类的原型上面。</span></div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-浏览器渲染优化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -489,192 +566,6 @@
 
 
   
-    <article id="post-html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/04/html/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/html/">history</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/html/">html</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-构建工具" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/04/构建工具/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/构建工具/">webpack</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1 .  在使用webpack-dev-server的时候不要使用extract-text-webpack-plugin，它会把css独立成一个文件，这时候修改css就不能刷新浏览器，不能实时更新了。<br>2 .  webpack在解析文件时候会通过3种路径寻找文件，一种是绝对路径，一种是相对路径，还有一种就是通过module，如果找到的是一个文件夹，就会查看该文件夹里面有没有package.json文件，如果有就依照其配置，如果没有就会按照resolve.mainFiles配置选项制定的文件名进行匹配。</p>
-<h3 id="各个关键词"><a href="#各个关键词" class="headerlink" title="各个关键词"></a>各个关键词</h3><p>extry: 单个入口语法，webpack从这个文件开始读取信息,可以传一个数组，会生成多个独立分离的依赖图表。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">exports</span>: <span class="string">'./app/index.js'</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>output: 控制webpack如何向硬盘写入编译文件，虽然extry可以有多个，但是output只能有一个<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.js'</span>, <span class="comment">//输出的名称，这里不能定义绝对路径</span></div><div class="line">    path: <span class="string">'/build'</span>, <span class="comment">//输出的目录，绝对路径由这里定义</span></div><div class="line">    chunkFilename: &#123; <span class="comment">//非入口的chunk的文件名</span></div><div class="line">      id: <span class="string">''</span>,</div><div class="line">      <span class="attr">name</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">hash</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">chunkhash</span>: <span class="string">''</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">crossOriginLoading</span>: <span class="string">''</span>, <span class="comment">//false: 禁止跨域 anonymous： 启用跨域发送不带credential的请求 use-credential 启用跨域加载</span></div><div class="line">    devtoolLineToLine: <span class="literal">false</span>, <span class="comment">//是否启用制定模块行到行映射模式。</span></div><div class="line">    sourceMapFilename: [file].map, <span class="comment">//javascript文件的sourcmap的文件名，他们在output.path目录中</span></div><div class="line">    libraryTarget: <span class="string">'var'</span> <span class="comment">//导出格式</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>loaders: loader用于对模块的源代码进行转换，可以在require或者import模块时预处理文件，类似于gulp中的task<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过webpack-config.js配置</span></div><div class="line"><span class="built_in">module</span>.export=&#123;</div><div class="line">  <span class="attr">module</span>:&#123;</div><div class="line">    <span class="attr">rule</span>:[</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line">        <span class="attr">use</span>: <span class="string">'css-loader'</span></div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//通过require配置</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'style-loader!css-loader?modules!./style.css'</span>)</div><div class="line"></div><div class="line"><span class="comment">//通过cli配置</span></div><div class="line">webpack --<span class="built_in">module</span>-bindn jade-loader --<span class="built_in">module</span>-bind <span class="string">'css=style-loader!css-loader'</span></div></pre></td></tr></table></figure></p>
-<h3 id="插件plugins：webpack插件是一个具有apply属性的javascript对象"><a href="#插件plugins：webpack插件是一个具有apply属性的javascript对象" class="headerlink" title="插件plugins：webpack插件是一个具有apply属性的javascript对象"></a>插件plugins：webpack插件是一个具有apply属性的javascript对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.export=&#123;</div><div class="line">  <span class="attr">plugins</span>:[</div><div class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(), <span class="comment">//压缩</span></div><div class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;<span class="attr">template</span>: <span class="string">'./app/index.html'</span>&#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">多个Target: 构建目标,适用于不同的环境,比如node环境、web环境等</div><div class="line"><span class="keyword">var</span> baseConfig = &#123;</div><div class="line">  <span class="attr">target</span>: <span class="string">'async-node'</span>,</div><div class="line">  <span class="attr">entry</span>: <span class="string">'./app/index.js'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> targets = [<span class="string">'web'</span>,<span class="string">'webworker'</span>,<span class="string">'node'</span>,<span class="string">'async-node'</span>,<span class="string">'node-wekit'</span>,<span class="string">'electron-main'</span>].map(<span class="function">(<span class="params">target</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> base = webpackMerge(baseConfig,&#123;</div><div class="line">    <span class="attr">target</span>:target,</div><div class="line">    <span class="attr">output</span>:&#123;</div><div class="line">      <span class="attr">path</span>: path.resolve(__dirname,<span class="string">'dist/'</span>+target),</div><div class="line">      <span class="attr">filename</span>: <span class="string">'[name].'</span>+target+<span class="string">'.js'</span></div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> base;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">module</span>.exports = targets;</div></pre></td></tr></table></figure>
-<h3 id="常用loader"><a href="#常用loader" class="headerlink" title="常用loader"></a>常用loader</h3>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/build/">build</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/04/正则表达式/" class="article-date">
-      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/正则表达式/">常用正则表达式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/regexp/">regexp</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-electron" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -738,10 +629,10 @@
 
 
   
-    <article id="post-line-height和vertical-align的关系" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/04/line-height和vertical-align的关系/" class="article-date">
+      <a href="/2017/04/04/html/" class="article-date">
       <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
 </a>
     </div>
@@ -755,7 +646,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a>
+      <a class="article-title" href="/2017/04/04/html/">history</a>
     </h1>
   
 
@@ -776,7 +667,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/css/">css</a>
+    <a class="article-category-link" href="/categories/html/">html</a>
     </div>
 
 
@@ -953,6 +844,157 @@
       
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/other/">other</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/flex布局/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/flex布局/">flex布局</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <p>&emsp;&emsp;相比较传统布局，flex在处理元素垂直居中上会简单很多，而且在兼容性方面现在基本主流浏览器都已经兼容。所以如果你还在用float或者position布局，那么建议你尝试用一下flex，你会发现布局原来是那么简单的一件事情。</p>
+<p>&emsp;&emsp;flex其实就是一个容器，在其里面所有的子元素会自动生成为flex项目，下面就介绍一下flex容器的6个属性以及其子元素flex项目的6大属性</p>
+<h3 id="一：flex容器的6大属性"><a href="#一：flex容器的6大属性" class="headerlink" title="一：flex容器的6大属性"></a>一：flex容器的6大属性</h3><h4 id="flex-direction-row-row-reverse-column-column-reverse"><a href="#flex-direction-row-row-reverse-column-column-reverse" class="headerlink" title="flex-direction:row | row-reverse | column | column-reverse"></a>flex-direction:row | row-reverse | column | column-reverse</h4><font color="#ccc" size="2.5" face="黑体">该属性表示flex项目的主轴式横向还是纵向的，一共有4个属性值 </font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . row：主轴是水平方向，起点在左端。</font>
+
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . row-reverse：主轴为水平方向，起点在右端。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . column：主轴为垂直方向，起点在上沿。</font></p>
+<p>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 . column-reverse：主轴为垂直方向，起点在下沿。</font></p>
+<h4 id="flex-wrap-nowrap-wrap-wrap-reverse"><a href="#flex-wrap-nowrap-wrap-wrap-reverse" class="headerlink" title="flex-wrap:nowrap | wrap | wrap-reverse"></a>flex-wrap:nowrap | wrap | wrap-reverse</h4><font color="#ccc" size="2.5" face="黑体">这个属性用于定义flex项目是否在统一轴线上</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 . nowrap:(默认)不换行</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 . wrap：换行，第一行在上面</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 . wrap-reverse：换行，第一行在最下面</font>
+
+<h4 id="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"><a href="#flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和" class="headerlink" title="flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和"></a>flex-flow：这个属性就是flex-direction属性和flex-wrap属性的总和</h4><h4 id="justify-content：flex-start-flex-end-center-space-between-space-around"><a href="#justify-content：flex-start-flex-end-center-space-between-space-around" class="headerlink" title="justify-content：flex-start | flex-end | center | space-between | space-around"></a>justify-content：flex-start | flex-end | center | space-between | space-around</h4><font color="#ccc" size="2.5" face="黑体">定义项目在主轴上对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:(默认)左对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：右对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：居中</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：两端对齐，项目之间的间隔相等</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体">space-around：每个项目两侧间隔相等，所以，项目之间的间隔比项目和边框的间隔大一倍</font>
+
+<h4 id="align-items：flex-start-flex-end-center-stretch-baseline"><a href="#align-items：flex-start-flex-end-center-stretch-baseline" class="headerlink" title="align-items：flex-start | flex-end | center | stretch | baseline"></a>align-items：flex-start | flex-end | center | stretch | baseline</h4><font color="#ccc" size="2.5" face="黑体">定义入股交叉轴只有一条的情况下，交叉轴的对齐方式</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .baseline：项目第一行文字的基线对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h4 id="align-content：flex-start-flex-end-center-space-between-space-around-stretch"><a href="#align-content：flex-start-flex-end-center-space-between-space-around-stretch" class="headerlink" title="align-content：flex-start | flex-end | center | space-between | space-around | stretch"></a>align-content：flex-start | flex-end | center | space-between | space-around | stretch</h4><font color="#ccc" size="2.5" face="黑体">定义多根轴线的对齐方式，如果轴线只有一条该属性就无效</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1 .flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .center：交叉轴中点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 4 .space-between：和交叉轴两端对齐，轴线之间的间距平均分布</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 5 .space-around：每根轴线2侧的间距都相等，所以轴线之间的间距比轴线和边框的间距大一倍</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 6 .stretch：占满整个容器的高度</font>
+
+<h3 id="二：flex项目的6大属性"><a href="#二：flex项目的6大属性" class="headerlink" title="二：flex项目的6大属性"></a>二：flex项目的6大属性</h3><h4 id="order：0"><a href="#order：0" class="headerlink" title="order：0"></a>order：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的排列顺序，默认为0</font>
+
+<h4 id="flex-grow：0"><a href="#flex-grow：0" class="headerlink" title="flex-grow：0"></a>flex-grow：0</h4><font color="#ccc" size="2.5" face="黑体">定义项目的放大比例，默认为0，即如果存在剩余空间也不放大，如果1则表示等比例放大，如果有一个为2，则该项目占据剩余空间的大小是其他的2倍</font>
+
+<h4 id="flex-shrink：1"><a href="#flex-shrink：1" class="headerlink" title="flex-shrink：1"></a>flex-shrink：1</h4><font color="#ccc" size="2.5" face="黑体">定义项目的缩小比例，如果空间不足，该项目就会缩小</font>
+
+<h4 id="flex-basis："><a href="#flex-basis：" class="headerlink" title="flex-basis："></a>flex-basis：<length></length></h4><font color="#ccc" size="2.5" face="黑体">定义在分配多余空间之前，计算主轴是否有多余的剩余空间，也就是固定项目的大小了</font>
+
+<h4 id="flex：auto（1-1-auto）-none"><a href="#flex：auto（1-1-auto）-none" class="headerlink" title="flex：auto（1 1 auto） |  none"></a>flex：auto（1 1 auto） |  none</h4><font color="#ccc" size="2.5" face="黑体">flex-grow、flex-strink、flex-basis3个的总和。默认有2个快捷写法</font>
+
+<h4 id="align-self：auto-flex-start-flex-end-center-baseline-stretch"><a href="#align-self：auto-flex-start-flex-end-center-baseline-stretch" class="headerlink" title="align-self：auto | flex-start | flex-end | center | baseline | stretch"></a>align-self：auto | flex-start | flex-end | center | baseline | stretch</h4><font color="#ccc" size="2.5" face="黑体">允许单个项目和其他项目不一样的对齐方式，可以覆盖flex容器中的align-items属性。</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 1. flex-start:交叉轴起点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 2 .flex-end：交叉轴终点对齐</font><br>&emsp;&emsp;<font color="#ccc" size="2" face="黑体"> 3 .stretch：如果项目没有设置高度或者设置为auto，将占满整个容器的高度</font>
+
+<h3 id="三：实战布局"><a href="#三：实战布局" class="headerlink" title="三：实战布局"></a>三：实战布局</h3><h4 id="1-圣杯布局"><a href="#1-圣杯布局" class="headerlink" title="1:圣杯布局"></a>1:圣杯布局</h4><p>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1/3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">   <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">   <span class="attribute">padding</span>:<span class="number">0</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">   <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-tag">body</span>&#123;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: column;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.header</span>&#123;</div><div class="line">   <span class="attribute">background</span>:red;</div><div class="line">   <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.main</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:yellow;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-direction</span>: row;</div><div class="line">   <span class="attribute">flex-wrap</span>: nowrap;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.left</span>&#123;</div><div class="line">   <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#2D93CA</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:black;</div><div class="line">   <span class="attribute">display</span>: flex;</div><div class="line">   <span class="attribute">flex-flow</span>:row nowrap;</div><div class="line">   <span class="attribute">justify-content</span>: space-around;</div><div class="line">   <span class="attribute">align-items</span>:flex-start;</div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.right</span>&gt;<span class="selector-tag">div</span>&#123;</div><div class="line">   <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">   <span class="attribute">background</span>:<span class="number">#ddd</span></div><div class="line"> &#125;</div><div class="line"> <span class="selector-class">.footer</span>&#123;</div><div class="line">   <span class="attribute">background</span>:blue;</div><div class="line">   <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>结果:<br><img src="http://yongjian.space/image/flex/1.png" alt="result"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>语法篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a><br>实战篇：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</a><br>css兼容性查询：<a href="http://caniuse.com/#search=f%20le" target="_blank" rel="external">http://caniuse.com/#search=f%20le</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/04/正则表达式/" class="article-date">
+      <time datetime="2017-04-04T02:53:37.000Z" itemprop="datePublished">2017-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/04/正则表达式/">常用正则表达式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/regexp/">regexp</a>
     </div>
 
 
