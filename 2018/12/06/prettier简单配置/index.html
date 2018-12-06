@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>日常记录 | 店小二不二的博客</title>
+  <title>prettier配置 | 店小二不二的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于new的过程1234567891011121314function Father(name)&amp;#123;    this.name=name;&amp;#125;Father.prototype=&amp;#123;    getName:function()&amp;#123;        console.log(this.name)    &amp;#125;&amp;#125;var son=new Father(&apos;张三&apos;)">
+  <meta name="description" content="安装插件1npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev 配置内容1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950// package.json&quot;pretti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日常记录">
-<meta property="og:url" content="https://mcfly001.github.io/2017/04/07/日常记录/index.html">
+<meta property="og:title" content="prettier配置">
+<meta property="og:url" content="https://mcfly001.github.io/2018/12/06/prettier简单配置/index.html">
 <meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="关于new的过程1234567891011121314function Father(name)&amp;#123;    this.name=name;&amp;#125;Father.prototype=&amp;#123;    getName:function()&amp;#123;        console.log(this.name)    &amp;#125;&amp;#125;var son=new Father(&apos;张三&apos;)">
+<meta property="og:description" content="安装插件1npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev 配置内容1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950// package.json&quot;pretti">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-04-07T09:21:51.000Z">
+<meta property="og:updated_time" content="2018-12-06T10:52:14.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日常记录">
-<meta name="twitter:description" content="关于new的过程1234567891011121314function Father(name)&amp;#123;    this.name=name;&amp;#125;Father.prototype=&amp;#123;    getName:function()&amp;#123;        console.log(this.name)    &amp;#125;&amp;#125;var son=new Father(&apos;张三&apos;)">
+<meta name="twitter:title" content="prettier配置">
+<meta name="twitter:description" content="安装插件1npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev 配置内容1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950// package.json&quot;pretti">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -231,11 +231,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-日常记录" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-prettier简单配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/07/日常记录/" class="article-date">
-      <time datetime="2017-04-07T08:53:37.000Z" itemprop="datePublished">2017-04-07</time>
+      <a href="/2018/12/06/prettier简单配置/" class="article-date">
+      <time datetime="2018-12-06T10:38:37.000Z" itemprop="datePublished">2018-12-06</time>
 </a>
     </div>
   
@@ -248,7 +248,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      日常记录
+      prettier配置
     </h1>
   
 
@@ -257,7 +257,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/other/">other</a>
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
     </div>
 
 
@@ -271,9 +271,11 @@
     
       
           
-        <h3 id="关于new的过程"><a href="#关于new的过程" class="headerlink" title="关于new的过程"></a>关于new的过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Father.prototype=&#123;</div><div class="line">    <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> son=<span class="keyword">new</span> Father(<span class="string">'张三'</span>);</div><div class="line"></div><div class="line"><span class="comment">//new 分为3个步骤</span></div><div class="line"><span class="comment">//var son=&#123;&#125;</span></div><div class="line"><span class="comment">//Father.apply(son,"张三")；</span></div><div class="line"><span class="comment">//son.__proto__=Father.prototype;</span></div></pre></td></tr></table></figure>
-<h3 id="关于apply和call的作用"><a href="#关于apply和call的作用" class="headerlink" title="关于apply和call的作用"></a>关于apply和call的作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//apply和call都是用来改变this的指向</span></div><div class="line"><span class="comment">//比如son2如果想要有一个getName的方法，但是不想重写可以用apply或者call的方法</span></div><div class="line"><span class="comment">//call和apply都会遍历一次函数，然后执行一次</span></div><div class="line"><span class="keyword">var</span> son2=&#123;<span class="attr">name</span>:<span class="string">"李四"</span>&#125;;</div><div class="line">son.getName.apply(son2);</div></pre></td></tr></table></figure>
-<h3 id="apply的第二个参数对象只要有length属性就可以了"><a href="#apply的第二个参数对象只要有length属性就可以了" class="headerlink" title="apply的第二个参数对象只要有length属性就可以了"></a>apply的第二个参数对象只要有length属性就可以了</h3><p>&emsp;&emsp;类数组的定义就是有length属性就可以了<br>&emsp;&emsp;&emsp; 1 . 类数组怎么变成数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayLike=&#123;</div><div class="line">    <span class="attr">length</span>:<span class="number">2</span>,</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLike)) <span class="comment">//false</span></div><div class="line"><span class="comment">//可以将带有length的对象转换为数组</span></div><div class="line"><span class="keyword">var</span> arrFunc1 = <span class="built_in">Array</span>.prototype.slice.call(arrayLike); </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrFunc1)) <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+        <h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev</div></pre></td></tr></table></figure>
+<h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// package.json</span></div><div class="line"><span class="string">"prettier"</span>: &#123;</div><div class="line">  <span class="string">"singleQuote"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"semi"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// .eslintrc.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">root</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">parserOptions</span>: &#123;</div><div class="line">    <span class="attr">parser</span>: <span class="string">'babel-eslint'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">env</span>: &#123;</div><div class="line">    <span class="attr">browser</span>: <span class="literal">true</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">extends</span>: [</div><div class="line">    <span class="comment">// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention</span></div><div class="line">    <span class="comment">// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.</span></div><div class="line">    <span class="string">'plugin:vue/essential'</span>, </div><div class="line">    <span class="comment">// https://github.com/standard/standard/blob/master/docs/RULES-en.md</span></div><div class="line">    <span class="string">'standard'</span>,</div><div class="line">    <span class="string">'prettier'</span>  <span class="comment">//配置1</span></div><div class="line">  ],</div><div class="line">  <span class="comment">// required to lint *.vue files</span></div><div class="line">  plugins: [</div><div class="line">    <span class="string">'vue'</span>,</div><div class="line">    <span class="string">'prettier'</span>  <span class="comment">//配置2</span></div><div class="line">  ],</div><div class="line">  <span class="comment">// add your custom rules here</span></div><div class="line">  rules: &#123;</div><div class="line">    <span class="comment">// allow async-await</span></div><div class="line">    <span class="string">'generator-star-spacing'</span>: <span class="string">'off'</span>,</div><div class="line">    <span class="string">'prettier/prettier'</span>: <span class="string">'error'</span>,  <span class="comment">//配置3</span></div><div class="line">    <span class="comment">// allow debugger during development</span></div><div class="line">    <span class="string">'no-debugger'</span>: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'error'</span> : <span class="string">'off'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// webpack.base.conf.js</span></div><div class="line"><span class="keyword">const</span> createLintingRule = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">test</span>: <span class="regexp">/\.(js|vue)$/</span>,</div><div class="line">  <span class="attr">loader</span>: <span class="string">'eslint-loader'</span>,</div><div class="line">  <span class="attr">enforce</span>: <span class="string">'pre'</span>,</div><div class="line">  <span class="attr">include</span>: [resolve(<span class="string">'src'</span>), resolve(<span class="string">'test'</span>)],</div><div class="line">  <span class="attr">options</span>: &#123;</div><div class="line">    <span class="attr">formatter</span>: <span class="built_in">require</span>(<span class="string">'eslint-friendly-formatter'</span>),</div><div class="line">    <span class="attr">emitWarning</span>: !config.dev.showEslintErrorsInOverlay,</div><div class="line">    <span class="attr">fix</span>: <span class="literal">true</span> <span class="comment">// 配置成true</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://segmentfault.com/a/1190000015315545" target="_blank" rel="external">https://segmentfault.com/a/1190000015315545</a></li>
+</ul>
 
       
       
@@ -328,13 +330,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/07/日常记录/">日常记录</a></p>
+        <p><span>本文标题:</span><a href="/2018/12/06/prettier简单配置/">prettier配置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2017年04月07日 - 16时53分</p>
-        <p><span>最后更新:</span>2017年04月07日 - 17时21分</p>
+        <p><span>发布时间:</span>2018年12月06日 - 18时38分</p>
+        <p><span>最后更新:</span>2018年12月06日 - 18时52分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/07/日常记录/" title="日常记录">https://mcfly001.github.io/2017/04/07/日常记录/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2017/04/07/日常记录/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/06/prettier简单配置/" title="prettier配置">https://mcfly001.github.io/2018/12/06/prettier简单配置/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2018/12/06/prettier简单配置/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -347,18 +349,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/09/浏览器渲染优化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浏览器渲染优化
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/07/vue-Api/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue重要Api整理</div>
+    <a href="/2018/12/05/webHook 实现热部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过webHooks 实现热部署</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -369,7 +362,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于new的过程"><span class="toc-number">1.</span> <span class="toc-text">关于new的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于apply和call的作用"><span class="toc-number">2.</span> <span class="toc-text">关于apply和call的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply的第二个参数对象只要有length属性就可以了"><span class="toc-number">3.</span> <span class="toc-text">apply的第二个参数对象只要有length属性就可以了</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装插件"><span class="toc-number">1.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置内容"><span class="toc-number">2.</span> <span class="toc-text">配置内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -417,7 +410,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/07/日常记录/" data-title="日常记录" data-url="https://mcfly001.github.io/2017/04/07/日常记录/"></div>
+    <div class="ds-thread" data-thread-key="2018/12/06/prettier简单配置/" data-title="prettier配置" data-url="https://mcfly001.github.io/2018/12/06/prettier简单配置/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -440,13 +433,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/09/浏览器渲染优化/" title="上一篇: 浏览器渲染优化">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/04/07/vue-Api/" title="下一篇: vue重要Api整理">
+            <a href="/2018/12/05/webHook 实现热部署/" title="下一篇: 通过webHooks 实现热部署">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -235,6 +235,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-prettier简单配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/06/prettier简单配置/" class="article-date">
+      <time datetime="2018-12-06T10:38:37.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/06/prettier简单配置/">prettier配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody"  style="display: none">
+    
+      
+          
+        <h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev</div></pre></td></tr></table></figure>
+<h3 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// package.json</span></div><div class="line"><span class="string">"prettier"</span>: &#123;</div><div class="line">  <span class="string">"singleQuote"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"semi"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// .eslintrc.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">root</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">parserOptions</span>: &#123;</div><div class="line">    <span class="attr">parser</span>: <span class="string">'babel-eslint'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">env</span>: &#123;</div><div class="line">    <span class="attr">browser</span>: <span class="literal">true</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">extends</span>: [</div><div class="line">    <span class="comment">// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention</span></div><div class="line">    <span class="comment">// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.</span></div><div class="line">    <span class="string">'plugin:vue/essential'</span>, </div><div class="line">    <span class="comment">// https://github.com/standard/standard/blob/master/docs/RULES-en.md</span></div><div class="line">    <span class="string">'standard'</span>,</div><div class="line">    <span class="string">'prettier'</span>  <span class="comment">//配置1</span></div><div class="line">  ],</div><div class="line">  <span class="comment">// required to lint *.vue files</span></div><div class="line">  plugins: [</div><div class="line">    <span class="string">'vue'</span>,</div><div class="line">    <span class="string">'prettier'</span>  <span class="comment">//配置2</span></div><div class="line">  ],</div><div class="line">  <span class="comment">// add your custom rules here</span></div><div class="line">  rules: &#123;</div><div class="line">    <span class="comment">// allow async-await</span></div><div class="line">    <span class="string">'generator-star-spacing'</span>: <span class="string">'off'</span>,</div><div class="line">    <span class="string">'prettier/prettier'</span>: <span class="string">'error'</span>,  <span class="comment">//配置3</span></div><div class="line">    <span class="comment">// allow debugger during development</span></div><div class="line">    <span class="string">'no-debugger'</span>: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'error'</span> : <span class="string">'off'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// webpack.base.conf.js</span></div><div class="line"><span class="keyword">const</span> createLintingRule = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">test</span>: <span class="regexp">/\.(js|vue)$/</span>,</div><div class="line">  <span class="attr">loader</span>: <span class="string">'eslint-loader'</span>,</div><div class="line">  <span class="attr">enforce</span>: <span class="string">'pre'</span>,</div><div class="line">  <span class="attr">include</span>: [resolve(<span class="string">'src'</span>), resolve(<span class="string">'test'</span>)],</div><div class="line">  <span class="attr">options</span>: &#123;</div><div class="line">    <span class="attr">formatter</span>: <span class="built_in">require</span>(<span class="string">'eslint-friendly-formatter'</span>),</div><div class="line">    <span class="attr">emitWarning</span>: !config.dev.showEslintErrorsInOverlay,</div><div class="line">    <span class="attr">fix</span>: <span class="literal">true</span> <span class="comment">// 配置成true</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://segmentfault.com/a/1190000015315545" target="_blank" rel="external">https://segmentfault.com/a/1190000015315545</a></li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
+    </div>
+
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-webHook 实现热部署" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -288,7 +353,7 @@
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> git</div></pre></td></tr></table></figure>
 </li>
 <li><p>生成git密钥</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t raa -C ‘邮箱地址’ -f ~<span class="regexp">/.ssh/i</span>d_rsa</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t raa -C ‘邮箱地址’ -f ~<span class="regexp">/.ssh/i</span>d_rsa</div></pre></td></tr></table></figure>
 </li>
 <li><p>将公钥放在github上</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">//</span> 找到<span class="string">.pub</span>文件</div><div class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></div></pre></td></tr></table></figure>
@@ -371,7 +436,7 @@
 <h3 id="第二步：安装mongodb"><a href="#第二步：安装mongodb" class="headerlink" title="第二步：安装mongodb"></a>第二步：安装mongodb</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y mongodb-org</div></pre></td></tr></table></figure>
 <h4 id="第三步：修改-etc-mongod-conf"><a href="#第三步：修改-etc-mongod-conf" class="headerlink" title="第三步：修改/etc/mongod.conf"></a>第三步：修改/etc/mongod.conf</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span> 改为 <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span> 服务器上绑定的地址只能是<span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span></div><div class="line">// 将port <span class="number">27017</span> 改为 <span class="number">3333</span></div></pre></td></tr></table></figure>
 <h3 id="第四步-重新启动mongodb"><a href="#第四步-重新启动mongodb" class="headerlink" title="第四步 重新启动mongodb"></a>第四步 重新启动mongodb</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">service mongod restart</span></div></pre></td></tr></table></figure>
-<h3 id="第五步-链接数据库"><a href="#第五步-链接数据库" class="headerlink" title="第五步 链接数据库"></a>第五步 链接数据库</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo --host <span class="tag">&lt;<span class="name">服务器ip</span>&gt;</span>:3333</div></pre></td></tr></table></figure>
+<h3 id="第五步-链接数据库"><a href="#第五步-链接数据库" class="headerlink" title="第五步 链接数据库"></a>第五步 链接数据库</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo <span class="comment">--host &lt;服务器ip&gt;:3333</span></div></pre></td></tr></table></figure>
 <h3 id="关闭数据库"><a href="#关闭数据库" class="headerlink" title="关闭数据库"></a>关闭数据库</h3><p>mongo<br>use admin<br>db.shutdownServer()</p>
 <h3 id="删除mongodb"><a href="#删除mongodb" class="headerlink" title="删除mongodb"></a>删除mongodb</h3><p>sudo yum erase $(rpm -qa | grep mongodb-org)<br>sudo rm -r /var/log/mongodb（日志）<br>sudo rm -r /var/lib/mongo（数据）</p>
 <h3 id="停止mongod服务"><a href="#停止mongod服务" class="headerlink" title="停止mongod服务"></a>停止mongod服务</h3><p>sudo service mongod stop</p>
@@ -524,7 +589,7 @@
 <li>offsetHeihgt = scrollHeight + 上下滚动条 + 上下边框</li>
 </ul>
 <h3 id="获取元素相对父元素的位置"><a href="#获取元素相对父元素的位置" class="headerlink" title="获取元素相对父元素的位置"></a>获取元素相对父元素的位置</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> l = box<span class="selector-class">.offsetLeft</span></div><div class="line"></div><div class="line"><span class="selector-tag">var</span> t = box<span class="selector-class">.offsetTop</span></div><div class="line"></div><div class="line"><span class="selector-tag">var</span> parent = box<span class="selector-class">.offsetParent</span> <span class="comment">// 返回父元素</span></div></pre></td></tr></table></figure>
-<h3 id="获取元素到body或者html的距离"><a href="#获取元素到body或者html的距离" class="headerlink" title="获取元素到body或者html的距离"></a>获取元素到body或者html的距离</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> actualLeft = element.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualLeft += current.offsetLeft;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualLeft;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> actualTop = element.offsetTop;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualTop += current. offsetTop;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="获取元素到body或者html的距离"><a href="#获取元素到body或者html的距离" class="headerlink" title="获取元素到body或者html的距离"></a>获取元素到body或者html的距离</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span><span class="params">(element)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> actualLeft = element.offsetLeft;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualLeft += current.offsetLeft;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualLeft;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span><span class="params">(element)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> actualTop = element.offsetTop;</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent;</div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</div><div class="line">        actualTop += current. offsetTop;</div><div class="line">        current = current.offsetParent;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> actualTop;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
       
@@ -920,67 +985,6 @@
 </li>
 </ol>
 <p>4 React.unmountComponentAtNode( document.getElementById(“app”) );//从组件中清除已经挂载的React组件。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JAVASCRIPT/">JAVASCRIPT</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-nodejs用例" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/11/nodejs用例/" class="article-date">
-      <time datetime="2017-04-11T01:41:35.000Z" itemprop="datePublished">2017-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/nodejs用例/">nodejs用例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody"  style="display: none">
-    
-      
-          
-        <h3 id="用例1"><a href="#用例1" class="headerlink" title="用例1"></a>用例1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const http=require('http');</div><div class="line">const hostname='127.0.0.1';</div><div class="line">const port=3000;</div><div class="line">const obj=&#123;</div><div class="line">  name:"张三"</div><div class="line">&#125;</div><div class="line">const server=http.creatServer((req,res)=&gt;&#123;</div><div class="line">    res.statusCode=200;</div><div class="line">    res.setHeader("Content-Type",'text/plain;'text/plain; charset=utf-8');</div><div class="line">    res.end(obj.name);</div><div class="line">&#125;)</div><div class="line">server.listen(port,hostname,()=&gt;&#123;</div><div class="line">    console.log(`服务器运行在 http://$&#123;hostname&#125;:$&#123;port&#125;/`);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
       
