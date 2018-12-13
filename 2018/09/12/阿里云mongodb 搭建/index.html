@@ -1,276 +1,193 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  <title>阿里云搭建mongodb | 店小二不二的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="阿里云搭建mongodb">
-<meta property="og:url" content="https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/index.html">
-<meta property="og:site_name" content="店小二不二的博客">
-<meta property="og:description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-12T06:50:38.463Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云搭建mongodb">
-<meta name="twitter:description" content="第一步：新建mongodb-org-3.4.repo文件12345678910111213vi /etc/yum.repos.d/mongodb-org-3.4.repo// 插入内容[mogodb-org]name=MongoDB Repositorybaseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/">
-  
-  
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="豆豉的博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mcfly001.github.io">
+    <!--SEO-->
+
+<meta name="description" content="用于个人的学习总结"/>
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>阿里云搭建mongodb | 豆豉的博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
+
+
     <link rel="icon" href="/img/favicon.png">
-  
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
 </head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/head.JPG" class="js-avatar">
-            
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='豆豉'>
+            <img src="/img/head.JPG" alt="logo头像" class="img-responsive center-block">
         </a>
-
-        <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">店小二不二</a></h1>
-        </hgroup>
-
-        
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mcfly001.github.io">豆豉的博客</a>
                 </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
                         
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
                         
-                        <li>友情链接</li>
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/html"><i class="fa "></i>html</a>
+                            </li>
                         
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/css"><i class="fa "></i>css</a>
+                            </li>
                         
-                        <li>关于我</li>
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/javascript"><i class="fa "></i>javascript</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/build"><i class="fa "></i>构建工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/git"><i class="fa "></i>版本控制器</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/regexp"><i class="fa "></i>正则表达式</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/other"><i class="fa "></i>其他</a>
+                            </li>
                         
                     </ul>
                 </div>
             </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/categories/html">html</a></li>
-                        
-                            <li><a href="/categories/css">css</a></li>
-                        
-                            <li><a href="/categories/javascript">javascript</a></li>
-                        
-                            <li><a href="/categories/build">构建工具</a></li>
-                        
-                            <li><a href="/categories/versioncontrol">版本控制器</a></li>
-                        
-                            <li><a href="/categories/regexp">正则表达式</a></li>
-                        
-                            <li><a href="/categories/other">其他</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl mail" target="_blank" href="/867269369@qq.com" title="mail">mail</a>
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/mcfly001" title="github">github</a>
-                            
-                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
-                            
-                                <a class="fl weibo" target="_blank" href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
-                            
-                                <a class="fl google" target="_blank" href="#" title="google">google</a>
-                            
-                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
-                            
-                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zyj.github.io/">http://zyj.github.io/</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part3">
-                
-                    <div id="js-aboutme">爱旅行、喜欢琢磨点有趣的小玩意</div>
-                </section>
-                
-            </div>
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">店小二不二</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.JPG" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">店小二不二</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/categories/html">html</a></li>
-                
-                    <li><a href="/categories/css">css</a></li>
-                
-                    <li><a href="/categories/javascript">javascript</a></li>
-                
-                    <li><a href="/categories/build">构建工具</a></li>
-                
-                    <li><a href="/categories/versioncontrol">版本控制器</a></li>
-                
-                    <li><a href="/categories/regexp">正则表达式</a></li>
-                
-                    <li><a href="/categories/other">其他</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="mail"  href="/867269369@qq.com" title="mail">mail</a>
-                    
-                        <a class="github"  href="https://github.com/mcfly001" title="github">github</a>
-                    
-                        <a class="zhihu"  href="https://www.zhihu.com/people/qunxing7/activities" title="zhihu">zhihu</a>
-                    
-                        <a class="weibo"  href="http://weibo.com/3273899860/profile" title="weibo">weibo</a>
-                    
-                        <a class="google"  href="#" title="google">google</a>
-                    
-                        <a class="twitter"  href="#" title="twitter">twitter</a>
-                    
-                        <a class="linkedin"  href="#" title="linkedin">linkedin</a>
-                    
-                </div>
-            </nav>
-        </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-阿里云mongodb 搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/12/阿里云mongodb 搭建/" class="article-date">
-      <time datetime="2018-09-12T04:53:37.000Z" itemprop="datePublished">2018-09-12</time>
-</a>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="阿里云搭建mongodb">
+            
+	            阿里云搭建mongodb
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/build">
+            build
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/12</span>
+        </span>
+        
+    
+</div>
+
+            
+            
     </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      阿里云搭建mongodb
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/build/">build</a>
-    </div>
-
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-    
-      
-          
+    <div class="post-body post-content">
         <h3 id="第一步：新建mongodb-org-3-4-repo文件"><a href="#第一步：新建mongodb-org-3-4-repo文件" class="headerlink" title="第一步：新建mongodb-org-3.4.repo文件"></a>第一步：新建mongodb-org-3.4.repo文件</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/mongodb-org-3.4.repo</div><div class="line"></div><div class="line">// 插入内容</div><div class="line"></div><div class="line">[mogodb-org]</div><div class="line"></div><div class="line">name=MongoDB Repository</div><div class="line"></div><div class="line">baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.4/x86_64/</div><div class="line"></div><div class="line">gpgcheck=0</div><div class="line"></div><div class="line">enabled=1</div></pre></td></tr></table></figure>
 <h3 id="第二步：安装mongodb"><a href="#第二步：安装mongodb" class="headerlink" title="第二步：安装mongodb"></a>第二步：安装mongodb</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y mongodb-org</div></pre></td></tr></table></figure>
 <h4 id="第三步：修改-etc-mongod-conf"><a href="#第三步：修改-etc-mongod-conf" class="headerlink" title="第三步：修改/etc/mongod.conf"></a>第三步：修改/etc/mongod.conf</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 将<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span> 改为 <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span> 服务器上绑定的地址只能是<span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span></div><div class="line">// 将port <span class="number">27017</span> 改为 <span class="number">3333</span></div></pre></td></tr></table></figure>
@@ -280,253 +197,126 @@
 <h3 id="删除mongodb"><a href="#删除mongodb" class="headerlink" title="删除mongodb"></a>删除mongodb</h3><p>sudo yum erase $(rpm -qa | grep mongodb-org)<br>sudo rm -r /var/log/mongodb（日志）<br>sudo rm -r /var/lib/mongo（数据）</p>
 <h3 id="停止mongod服务"><a href="#停止mongod服务" class="headerlink" title="停止mongod服务"></a>停止mongod服务</h3><p>sudo service mongod stop</p>
 
-      
-      
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
-            <div class="shang_tit">
-              <p>纯属好玩</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.JPG" alt="扫码支持" title="扫一扫" />
-            </div>
-              <div class="pay_explain">扫码打赏，你说多少就多少</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.JPG" alt="支付宝" /></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
         </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.JPG");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
-      
+        <div>
+            
+        </div>
     </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/09/12/阿里云mongodb 搭建/">阿里云搭建mongodb</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 店小二不二 的个人博客">店小二不二</a></p>
-        <p><span>发布时间:</span>2018年09月12日 - 12时53分</p>
-        <p><span>最后更新:</span>2018年09月12日 - 14时50分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/09/12/阿里云mongodb 搭建/" title="阿里云搭建mongodb">https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/　　作者: 店小二不二" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2018/12/05/webHook 实现热部署/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          通过webHooks 实现热部署
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/09/12/服务器上搭建node环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">阿里云搭建node环境</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：新建mongodb-org-3-4-repo文件"><span class="toc-number">1.</span> <span class="toc-text">第一步：新建mongodb-org-3.4.repo文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：安装mongodb"><span class="toc-number">2.</span> <span class="toc-text">第二步：安装mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：修改-etc-mongod-conf"><span class="toc-number">2.1.</span> <span class="toc-text">第三步：修改/etc/mongod.conf</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-重新启动mongodb"><span class="toc-number">3.</span> <span class="toc-text">第四步 重新启动mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-链接数据库"><span class="toc-number">4.</span> <span class="toc-text">第五步 链接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭数据库"><span class="toc-number">5.</span> <span class="toc-text">关闭数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除mongodb"><span class="toc-number">6.</span> <span class="toc-text">删除mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止mongod服务"><span class="toc-number">7.</span> <span class="toc-text">停止mongod服务</span></a></li></ol>
-</div>
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
-
-
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
-
+<div class="article-nav prev-next-wrap clearfix">
     
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2018/09/12/阿里云mongodb 搭建/" data-title="阿里云搭建mongodb" data-url="https://mcfly001.github.io/2018/09/12/阿里云mongodb 搭建/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"null"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
+        <a href="/2018/12/05/webHook 实现热部署/" class="pre-post btn btn-default" title='通过webHooks 实现热部署'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">通过webHooks 实现热部署</span>
+        </a>
+    
+    
+        <a href="/2018/09/12/服务器上搭建node环境/" class="next-post btn btn-default" title='阿里云搭建node环境'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">阿里云搭建node环境</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
 </div>
 
+
+    <div id="comments">
+        
     
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
 
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2018/12/05/webHook 实现热部署/" title="上一篇: 通过webHooks 实现热部署">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2018/09/12/服务器上搭建node环境/" title="下一篇: 阿里云搭建node环境">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/06/prettier简单配置/">prettier配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/05/webHook 实现热部署/">通过webHooks 实现热部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/阿里云mongodb 搭建/">阿里云搭建mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/12/服务器上搭建node环境/">阿里云搭建node环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/浏览器高度和宽度/">浏览器宽度和高度</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/extend/">extend 深度复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/webpack & gulp/">webpack & gulp制作脚手架</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/redux基础/">redux基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/react基本用法/">react基本用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/nodejs用例/">nodejs用例</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/es6/">Es6基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/浏览器渲染优化/">浏览器渲染优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/日常记录/">日常记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue-Api/">vue重要Api整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/07/vue基础/">vue使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/line-height和vertical-align的关系/">line-height和vertical-align的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/markdown/">markdown语法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/electron/">electron</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/正则表达式/">常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/构建工具/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/html/">history</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/flex布局/">flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/git/">git日常使用命令</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
         })
     </script>
 
 
+    </div>
 
-    <script>
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
         
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2018 店小二不二
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步：新建mongodb-org-3-4-repo文件"><span class="toc-text">第一步：新建mongodb-org-3.4.repo文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步：安装mongodb"><span class="toc-text">第二步：安装mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：修改-etc-mongod-conf"><span class="toc-text">第三步：修改/etc/mongod.conf</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-重新启动mongodb"><span class="toc-text">第四步 重新启动mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-链接数据库"><span class="toc-text">第五步 链接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭数据库"><span class="toc-text">关闭数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除mongodb"><span class="toc-text">删除mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止mongod服务"><span class="toc-text">停止mongod服务</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
             </div>
         </div>
-        
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
     </div>
 </footer>
 
-    </div>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 24;
-            var backgroundimg = "url(/background/bg.jpg)";
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
 
 
 
 
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
 </div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-  </div>
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
 </body>
 </html>
