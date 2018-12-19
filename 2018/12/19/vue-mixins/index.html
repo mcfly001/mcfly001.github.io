@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>分类: git | 豆豉的博客</title>
+<title>vue mixins用法 | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -143,39 +143,116 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <h3>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="vue mixins用法">
+            
+	            vue mixins用法
+            
+        </h1>
+        <div class="post-meta">
     
-        git
     
-</h3>
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/JAVASCRIPT">
+            JAVASCRIPT
+        </a>
+    </span>
+    
 
-    <article class="post">
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
         
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2017/04/04/git/">git日常使用命令</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2017年04月04日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    &amp;emsp;&amp;emsp;git是一个分布式的版本控制器，学习它之前首先要对几个名词要有概念，本地库、远程库、工作区、暂存区。这里不做过多讲解，可自行百度，本文主要是讲的是git的一些日常。
-情景一：将ssh的公钥添加到github上面...
-                
-            </p>
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/12/19</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><ul>
+<li>遇到同名会进行浅合并</li>
+</ul>
+<h3 id="钩子（created-mounted）"><a href="#钩子（created-mounted）" class="headerlink" title="钩子（created, mounted）"></a>钩子（created, mounted）</h3><ul>
+<li>同名钩子都被混合，mixins的钩子先执行(如果有2个及以上的mixins,则按照注入到组件的顺序执行)，组件的钩子后执行</li>
+</ul>
+<h3 id="methods-components-directives"><a href="#methods-components-directives" class="headerlink" title="methods, components, directives"></a>methods, components, directives</h3><ul>
+<li>将合并为一个，如果key值冲突，取组件的键值</li>
+</ul>
+<h3 id="全局混入"><a href="#全局混入" class="headerlink" title="全局混入"></a>全局混入</h3><ul>
+<li>通过Vue.mixin({})去配置, 比如全局的方法，可以在这里面定义了，也可以通过Vue.prototype.xx去定义</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
         </div>
-    </article>
- 
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/12/13/img-upload/" class="next-post btn btn-default" title='h5图片上传压缩坑点总结'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">h5图片上传压缩坑点总结</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
 
 
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
 
 
+    </div>
 
 
 
@@ -183,61 +260,14 @@
 
                 </main>
                 
-                    
-    <aside class="col-md-4 sidebar">
-        
-        
-        
-        
+                    <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
-      <h3 class="title">社交</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/mcfly001" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="git fa fa-git"></i>
-			    </a>
-            
-	            <a href="https://www.zhihu.com/people/qunxing7/activities" rel="external nofollow" title="知乎" target="_blank">
-			    	<i class="weixin fa fa-weixin"></i>
-			    </a>
-            
-        </div>
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#data"><span class="toc-text">data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#钩子（created-mounted）"><span class="toc-text">钩子（created, mounted）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#methods-components-directives"><span class="toc-text">methods, components, directives</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局混入"><span class="toc-text">全局混入</span></a></li></ol>
+        
     </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JAVASCRIPT/"><i class="fa" aria-hidden="true">JAVASCRIPT</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/"><i class="fa" aria-hidden="true">build</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/"><i class="fa" aria-hidden="true">css</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/"><i class="fa" aria-hidden="true">git</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/"><i class="fa" aria-hidden="true">javascript</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/"><i class="fa" aria-hidden="true">other</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/regexp/"><i class="fa" aria-hidden="true">regexp</i></a><span class="category-list-count">1</span></li></ul>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/"><i class="fa" aria-hidden="true">2018年12月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">2018年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">2018年03月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/"><i class="fa" aria-hidden="true">2017年11月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/"><i class="fa" aria-hidden="true">2017年10月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/"><i class="fa" aria-hidden="true">2017年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/"><i class="fa" aria-hidden="true">2017年04月</i></a><span class="archive-list-count">14</span></li></ul>
-    </div>
-
-
-        
-        
-
-        
-        
-    <div class="widget">
-        <h3 class="title">友链</h3>
-        <div class="content friends-link">
-        
-            <a href="https://hexo.io/zh-cn/" class="fa" target="_blank">Hexo官网</a>
-        
-        </div>
-    </div>
-
-
-        
-    </aside>
+</aside>
 
                 
             </div>
@@ -280,8 +310,6 @@
     </div>
 </div>
 
-
-	<script src="/js/search.js?rev=@@hash"></script>
 
 
 

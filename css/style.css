@@ -57,6 +57,7 @@ h2 {
 }
 h3 {
   font-size: 1.2em;
+  font-weight: bold;
 }
 h4 {
   font-size: 1em;
@@ -643,6 +644,8 @@ pre {
 }
 .post-content li {
   margin-bottom: 0.2em;
+  font-size: 16px;
+  line-height: 25px;
 }
 .post-content li ul {
   margin-top: 0;

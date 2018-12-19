@@ -44,6 +44,7 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
 <link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
 <link rel="stylesheet" href="/css/style.css?rev=@@hash">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
 
 
 
@@ -144,14 +145,71 @@
             <div class="row">
                 <main class="col-md-8 main-content ">
                     
-    <div class="carousel">
-        <a href="javascript:void()" target="_blank">
-            <img src="/./img/one_person.JPG" alt="">
-        </a>
+
+
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/12/19/vue-mixins/">vue mixins用法</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年12月19日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                data
+遇到同名会进行浅合并
+
+钩子（created, mounted）
+同名钩子都被混合，mixins的钩子先执行(如果有2个及以上的mixins,则按照注入到组件的顺序执行)，组件的钩子后执行
+
+methods, compone...
+            
+        </p>
     </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/JAVASCRIPT">
+            JAVASCRIPT
+        </a>
+    </span>
+    
 
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
 
+    
+</div>
 
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/12/19/vue-mixins/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
 
 
 <article class="post">
@@ -273,15 +331,15 @@
 <article class="post">
     
         <div class="post-media">
-            <a href="/2018/12/05/webHook 实现热部署/">
-                <img class="img-ajax" src="/img/loading.gif"  data-src="https://mcfly001.github.io/image/webhook/second.png"   alt="通过webHooks 实现热部署">
+            <a href="/2018/12/05/webHook/">
+                <img class="img-ajax" src="/img/loading.gif"  data-src="https://mcfly001.github.io/image/webhook/third.png"   alt="通过webHooks 实现热部署">
             </a>
         </div>
     
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2018/12/05/webHook 实现热部署/">通过webHooks 实现热部署</a>
+                <a href="/2018/12/05/webHook/">通过webHooks 实现热部署</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -328,7 +386,7 @@
             </div>
 
             <div class="post-permalink">
-                <a href="/2018/12/05/webHook 实现热部署/" class="btn btn-default">阅读全文</a>
+                <a href="/2018/12/05/webHook/" class="btn btn-default">阅读全文</a>
             </div>
         </footer>
     
@@ -514,7 +572,7 @@ outerWidth: 有兼容性问题，尽量少用，outerW...
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2017/11/14/js 数组、字符串常用方法/">js数组、字符串常用方法</a>
+                <a href="/2017/11/14/js数组、字符串常用方法/">js数组、字符串常用方法</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -560,7 +618,7 @@ pop: 原数组尾部删除一个元素，会改变原数...
             </div>
 
             <div class="post-permalink">
-                <a href="/2017/11/14/js 数组、字符串常用方法/" class="btn btn-default">阅读全文</a>
+                <a href="/2017/11/14/js数组、字符串常用方法/" class="btn btn-default">阅读全文</a>
             </div>
         </footer>
     
@@ -681,64 +739,6 @@ pop: 原数组尾部删除一个元素，会改变原数...
 </article>
 
 
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2017/04/14/redux基础/">redux基础</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2017年04月14日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                基本概念和API1 . store: 保存数据的地方，可以把它当作一个容器，整个应用只能有一个store，Redux提供了createStore函数来生成store。
-12import &amp;#123; createStore &amp;#125...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2017/04/14/redux基础/" class="btn btn-default">阅读全文</a>
-            </div>
-        </footer>
-    
-</article>
-
-
 
 
     <nav class="pagination" role="navigation">
@@ -777,7 +777,7 @@ pop: 原数组尾部删除一个元素，会改变原数...
         
     <div class="widget">
         <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JAVASCRIPT/"><i class="fa" aria-hidden="true">JAVASCRIPT</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/"><i class="fa" aria-hidden="true">build</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/"><i class="fa" aria-hidden="true">css</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/"><i class="fa" aria-hidden="true">git</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/"><i class="fa" aria-hidden="true">html</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/"><i class="fa" aria-hidden="true">javascript</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/"><i class="fa" aria-hidden="true">other</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/regexp/"><i class="fa" aria-hidden="true">regexp</i></a><span class="category-list-count">1</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JAVASCRIPT/"><i class="fa" aria-hidden="true">JAVASCRIPT</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/build/"><i class="fa" aria-hidden="true">build</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/"><i class="fa" aria-hidden="true">css</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/"><i class="fa" aria-hidden="true">git</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/"><i class="fa" aria-hidden="true">javascript</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/other/"><i class="fa" aria-hidden="true">other</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/regexp/"><i class="fa" aria-hidden="true">regexp</i></a><span class="category-list-count">1</span></li></ul>
     </div>
 
 
@@ -785,7 +785,7 @@ pop: 原数组尾部删除一个元素，会改变原数...
         
     <div class="widget">
         <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/"><i class="fa" aria-hidden="true">2018年12月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">2018年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">2018年03月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/"><i class="fa" aria-hidden="true">2017年11月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/"><i class="fa" aria-hidden="true">2017年10月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/"><i class="fa" aria-hidden="true">2017年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/"><i class="fa" aria-hidden="true">2017年04月</i></a><span class="archive-list-count">16</span></li></ul>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/"><i class="fa" aria-hidden="true">2018年12月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">2018年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">2018年03月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/"><i class="fa" aria-hidden="true">2017年11月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/"><i class="fa" aria-hidden="true">2017年10月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/"><i class="fa" aria-hidden="true">2017年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/"><i class="fa" aria-hidden="true">2017年04月</i></a><span class="archive-list-count">14</span></li></ul>
     </div>
 
 

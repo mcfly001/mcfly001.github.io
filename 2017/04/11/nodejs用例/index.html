@@ -44,6 +44,7 @@
 <link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
 <link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
 <link rel="stylesheet" href="/css/style.css?rev=@@hash">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
 
 
 
@@ -186,14 +187,13 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>611</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>617</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
         <h3 id="用例1"><a href="#用例1" class="headerlink" title="用例1"></a>用例1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const http=require('http');</div><div class="line">const hostname='127.0.0.1';</div><div class="line">const port=3000;</div><div class="line">const obj=&#123;</div><div class="line">  name:"张三"</div><div class="line">&#125;</div><div class="line">const server=http.creatServer((req,res)=&gt;&#123;</div><div class="line">    res.statusCode=200;</div><div class="line">    res.setHeader("Content-Type",'text/plain;'text/plain; charset=utf-8');</div><div class="line">    res.end(obj.name);</div><div class="line">&#125;)</div><div class="line">server.listen(port,hostname,()=&gt;&#123;</div><div class="line">    console.log(`服务器运行在 http://$&#123;hostname&#125;:$&#123;port&#125;/`);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
     </div>
     
     <div class="post-footer">
