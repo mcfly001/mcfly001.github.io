@@ -107,7 +107,11 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/html"><i class="fa "></i>html</a>
+                                <a href="/categories/vue"><i class="fa "></i>vue</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/react"><i class="fa "></i>react</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -194,8 +198,8 @@
     
     <div class="post-body post-content">
         <h3 id="electron常用设置"><a href="#electron常用设置" class="headerlink" title="electron常用设置"></a>electron常用设置</h3><p>1 . 设置为不可拖拽</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">-webkit-app-region</span>:no-drag</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2 . 远程事件从浏览器中关闭应用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> electron=<span class="built_in">require</span>(<span class="string">"elcetron"</span>);</div><div class="line"><span class="keyword">var</span> ipc=electron.ipcMain <span class="comment">//这个是订阅者on事件</span></div><div class="line"><span class="keyword">var</span> ipc=element.ipcRenderer <span class="comment">//这个是事件发布者，相当于emit</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">-webkit-app-region</span>: no-drag</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2 . 远程事件从浏览器中关闭应用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> electron = <span class="built_in">require</span>(<span class="string">"elcetron"</span>);</div><div class="line"><span class="keyword">var</span> ipc = electron.ipcMain <span class="comment">//这个是订阅者on事件</span></div><div class="line"><span class="keyword">var</span> ipc = element.ipcRenderer <span class="comment">//这个是事件发布者，相当于emit</span></div></pre></td></tr></table></figure></p>
 
     </div>
     

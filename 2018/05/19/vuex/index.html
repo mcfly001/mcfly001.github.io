@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>vue重要Api整理 | 豆豉的博客</title>
+<title>vuex注意事项 | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -151,9 +151,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="vue重要Api整理">
+        <h1 id="vuex注意事项">
             
-	            vue重要Api整理
+	            vuex注意事项
             
         </h1>
         <div class="post-meta">
@@ -182,7 +182,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/04/07</span>
+            <span class="date-meta">2018/05/19</span>
         </span>
         
     
@@ -190,22 +190,17 @@
 
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>621</strong>天之前发表，文中内容可能已经过时。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p><font color="blank">silent</font>：禁用Vue.js的所有日志和警告<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.config.silent=<span class="literal">true</span>;</div></pre></td></tr></table></figure></p>
-<p>optionMergeStrategies:为选项定义自定义的合并策略，maxin<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.config.optionMergeStrategies._my_option=<span class="function"><span class="keyword">function</span>(<span class="params">parent,child,vm</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> child+<span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> Profile=Vue.extend(&#123;</div><div class="line">  <span class="attr">_my_option</span>:<span class="number">1</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="全局Api"><a href="#全局Api" class="headerlink" title="全局Api"></a>全局Api</h3><p>extend:创建基础vue构造器的子类，使用时候data必需为函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Profile=Vue.extend(&#123;</div><div class="line">    <span class="attr">template</span>:<span class="string">"&lt;div&gt;test&lt;/div&gt;"</span>,</div><div class="line">    <span class="attr">data</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">firstname</span>:<span class="string">"张三"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">new</span> Profile().$mount(<span class="string">"#app"</span>);</div></pre></td></tr></table></figure>
-<p>nextTick:将回调推迟到下次dom更新循环之后执行，等修改完数组之后立刻执行这个方法，等待dom更新<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=<span class="keyword">new</span> Vue(&#123;</div><div class="line">        data()&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">name</span>:<span class="string">"王五"</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">Vue.name=<span class="string">"李四"</span>;</div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.name=<span class="string">"张三"</span>;</div><div class="line"><span class="keyword">this</span>.nextTick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>Vue.set:设置对象的属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">obj</span>:&#123;<span class="attr">name</span>:<span class="string">"张三"</span>&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">Vue.set(vm.obj,<span class="string">"age"</span>,<span class="number">23</span>)<span class="comment">//全局方式 最后obj=&#123;name:"张三","age":23&#125;</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.obj,<span class="string">'sale'</span>,<span class="string">"man"</span>)<span class="comment">//局部方式obj=&#123;name:"张三","sale":"man"&#125;</span></div></pre></td></tr></table></figure></p>
-<p>Vue.delete:删除对象属性</p>
-<h3 id="选项数据"><a href="#选项数据" class="headerlink" title="选项数据"></a>选项数据</h3><p>propsData:在创建实例等过程传递props，主要作用是方便测试</p>
-
+        <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><p>页面刷新的时候store清空,可以使用vuex-persistedstate</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 简单配置如下</span></div><div class="line"><span class="keyword">const</span> vuexPersisted = <span class="keyword">new</span> createPersistedState(&#123;</div><div class="line">  <span class="attr">key</span>: <span class="string">'myVuex'</span>,</div><div class="line">  <span class="attr">storage</span>: <span class="built_in">window</span>.localStorage,</div><div class="line">  <span class="attr">reducer</span>: <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</div><div class="line">    <span class="comment">// num: state.num</span></div><div class="line">  &#125;),</div><div class="line">  <span class="attr">filter</span>: <span class="function"><span class="params">mutation</span> =&gt;</span> (</div><div class="line">    <span class="string">'ADD'</span> === mutation.type</div><div class="line">  )</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>路由动态加载store时候主要注意动态加载的模块的state需要是一个function，要不然会注销该模块的时候会发现注销不了</p>
+</li>
+</ul>
+<h3 id="如何写插件"><a href="#如何写插件" class="headerlink" title="如何写插件"></a>如何写插件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> myPlugin = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 当 store 初始化后调用</span></div><div class="line">  store.subscribe(<span class="function">(<span class="params">mutation, state</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 每次 mutation 之后调用</span></div><div class="line">    <span class="comment">// mutation 的格式为 &#123; type, payload &#125;</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [myPlugin]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -222,15 +217,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/04/07/vue基础/" class="pre-post btn btn-default" title='vue使用'>
+        <a href="/2018/09/12/服务器上搭建node环境/" class="pre-post btn btn-default" title='阿里云搭建node环境'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">vue使用</span>
+            <span class="hidden-xs">阿里云搭建node环境</span>
         </a>
     
     
-        <a href="/2017/04/04/正则表达式/" class="next-post btn btn-default" title='常用正则表达式'>
+        <a href="/2018/03/22/浏览器高度和宽度/" class="next-post btn btn-default" title='浏览器宽度和高度'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">常用正则表达式</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">浏览器宽度和高度</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -273,7 +268,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局配置"><span class="toc-text">全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局Api"><span class="toc-text">全局Api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选项数据"><span class="toc-text">选项数据</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何写插件"><span class="toc-text">如何写插件</span></a></li></ol>
         
     </div>
 </aside>

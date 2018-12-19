@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>归档：2017/10 | 豆豉的博客</title>
+<title>分类: vue | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -148,267 +148,137 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <div id="main">
-     <div class="timebox">
-          <div class="timeline">
-              <ul>
+                    <h3>
+    
+        vue
+    
+</h3>
+
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/12/19/vue-mixins/">vue mixins用法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年12月19日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
                 
+                    data
+遇到同名会进行浅合并
+
+钩子（created, mounted）
+同名钩子都被混合，mixins的钩子先执行(如果有2个及以上的mixins,则按照注入到组件的顺序执行)，组件的钩子后执行
+
+methods, compone...
                 
-                    
-                    
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/09/20/vue通信/">vue 组件之间通信</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年09月20日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
                 
-                    
-                    
+                    props/$emitv-model
+语法糖，子组件通过this.$emit(‘input’, value)更新父组件v-model绑定的值
+
+sync
+语法糖，子组件通过this.$emit(‘update:xx’, value)更...
                 
-                    
-                    
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/05/19/vuex/">vuex注意事项</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年05月19日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
                 
-                    
-                    
+                    注意事项
+页面刷新的时候store清空,可以使用vuex-persistedstate
+1234567891011// 简单配置如下const vuexPersisted = new createPersistedState(&amp;#12...
                 
-                    
-                    
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2017/04/07/vue-Api/">vue重要Api整理</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2017年04月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
                 
-                    
-                    
+                    全局配置silent：禁用Vue.js的所有日志和警告1Vue.config.silent=true;
+optionMergeStrategies:为选项定义自定义的合并策略，maxin1234567Vue.config.option...
                 
-                    
-                    
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2017/04/07/vue基础/">vue使用</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2017年04月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
                 
-                    
-                    
+                    关于render函数createElement参数解析
+123456789101112131415161718//第一个参数是一个标签如 div//第二个参数是一些属性 如 attr on//第三个参数是子阵队列 如果是文本比如thi...
                 
-                    
-                    
-                
-                    
-                    
-                        
-                            
-                            <h2>2017</h2>
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              14<span>11月</span>
-                            </h3>
-                            <a href="/2017/11/14/js数组、字符串常用方法/" title="js数组、字符串常用方法" target="_blank">js数组、字符串常用方法</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="">
-                        
-                            <h3>
-                              13<span>10月</span>
-                            </h3>
-                            <a href="/2017/10/13/extend/" title="extend 深度复制" target="_blank">extend 深度复制</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              29<span>06月</span>
-                            </h3>
-                            <a href="/2017/06/29/webpack & gulp/" title="webpack & gulp制作脚手架" target="_blank">webpack & gulp制作脚手架</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              14<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/14/redux基础/" title="redux基础" target="_blank">redux基础</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              11<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/11/react基本用法/" title="react基本用法" target="_blank">react基本用法</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              11<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/11/nodejs用例/" title="nodejs用例" target="_blank">nodejs用例</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              10<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/10/es6/" title="Es6基础" target="_blank">Es6基础</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              09<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/09/浏览器渲染优化/" title="浏览器渲染优化" target="_blank">浏览器渲染优化</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              07<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/07/日常记录/" title="日常记录" target="_blank">日常记录</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              07<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/07/vue基础/" title="vue使用" target="_blank">vue使用</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              07<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/07/vue-Api/" title="vue重要Api整理" target="_blank">vue重要Api整理</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/正则表达式/" title="常用正则表达式" target="_blank">常用正则表达式</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/构建工具/" title="webpack" target="_blank">webpack</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/markdown/" title="markdown语法使用" target="_blank">markdown语法使用</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/git/" title="git日常使用命令" target="_blank">git日常使用命令</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/flex/" title="flex布局" target="_blank">flex布局</a>
-                        </li>
-                    
-                
-                    
-                    
-                        
-                        
-                          <li class="hide">
-                        
-                            <h3>
-                              04<span>04月</span>
-                            </h3>
-                            <a href="/2017/04/04/electron/" title="electron" target="_blank">electron</a>
-                        </li>
-                    
-                
-              </ul>
-          </div>
-    </div>
-</div>
+            </p>
+        </div>
+    </article>
+ 
+
+
+
+
+
+
 
 
 
