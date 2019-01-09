@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>浏览器渲染优化 | 豆豉的博客</title>
+<title>vue数组双向绑定的实现原理 | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -151,9 +151,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="浏览器渲染优化">
+        <h1 id="vue数组双向绑定的实现原理">
             
-	            浏览器渲染优化
+	            vue数组双向绑定的实现原理
             
         </h1>
         <div class="post-meta">
@@ -161,8 +161,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/other">
-            other
+        <a href="/categories/vue">
+            vue
         </a>
     </span>
     
@@ -182,7 +182,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/04/09</span>
+            <span class="date-meta">2018/06/17</span>
         </span>
         
     
@@ -190,14 +190,15 @@
 
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>640</strong>天之前发表，文中内容可能已经过时。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>1:尽量多用class<br>2:先用display：none，把最终结果输出后在把none改成block<br>3:遇到能给图片设定高度和宽度的尽量提前设定，要不然每次都会重绘</p>
+        <h3 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h3><ul>
+<li>新增一个缓存对象（arrayMethods），通过Object.defineProperty方法给该对象新增（push，pop，shift，splice等属性），这些属性的值通过apply的方式复制了Array.prototype上面对应的方法,然后调用修改视图层的方法。</li>
+<li>将数组的<strong>proto</strong>属性指向于arrayMethods</li>
+<li>这样做的好处是，当数组改变（比如push）的时候会调用arrayMethods上面push方法，在这个方法的实现上面其实做了2件事情，第一件给该数组新增值，第二件事情就是通知视图层去更新。这样就做到了双向绑定。</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 需要监听变化的数组</span></div><div class="line"><span class="keyword">let</span> arr = []</div><div class="line"><span class="comment">// 通过Object.create新增一个缓存对象arrayMethods</span></div><div class="line"><span class="keyword">const</span> arrayProto = <span class="built_in">Array</span>.prototype</div><div class="line"><span class="keyword">const</span> arrayMethods = <span class="built_in">Object</span>.create(arrayProto)</div><div class="line"><span class="comment">// Array.prototype的方法集合</span></div><div class="line"><span class="keyword">const</span> fnArr = [</div><div class="line">  <span class="string">'push'</span>,</div><div class="line">  <span class="string">'pop'</span>,</div><div class="line">  <span class="string">'shift'</span>,</div><div class="line">  <span class="string">'unshift'</span>,</div><div class="line">  <span class="string">'splice'</span>,</div><div class="line">  <span class="string">'sort'</span>,</div><div class="line">  <span class="string">'reverse'</span></div><div class="line">]</div><div class="line"></div><div class="line"><span class="comment">// 给arrayMethods添加fnArr的各个属性</span></div><div class="line">fnArr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(arrayMethods, item, &#123;</div><div class="line">        <span class="attr">value</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="comment">// 继承数组的方法</span></div><div class="line">            <span class="keyword">const</span> original = arrayProto[item]</div><div class="line">            <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</div><div class="line">            original.apply(<span class="keyword">this</span>, args)</div><div class="line">            <span class="comment">// 通知视图层去更新</span></div><div class="line">            <span class="keyword">const</span> ob = <span class="keyword">this</span>.__ob__</div><div class="line">		    ob.dep.notify()</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 将需要变化的数组的__proto__指向于arrayMethods</span></div><div class="line">arr.__proto__ = arrayMethods</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 对于不支持__proto__的浏览器，直接新增push、pop等属性，这些属性的值为arrayMethods上面对象的方法</span></div><div class="line">fnArr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(arr, item, &#123;</div><div class="line">    	<span class="attr">value</span>: arrayMethods[item]</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
     </div>
     
@@ -215,15 +216,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/04/10/es6/" class="pre-post btn btn-default" title='Es6基础'>
+        <a href="/2018/09/12/服务器上搭建node环境/" class="pre-post btn btn-default" title='阿里云搭建node环境'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Es6基础</span>
+            <span class="hidden-xs">阿里云搭建node环境</span>
         </a>
     
     
-        <a href="/2017/04/07/日常记录/" class="next-post btn btn-default" title='日常记录'>
+        <a href="/2018/05/19/vuex/" class="next-post btn btn-default" title='vuex注意事项'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">日常记录</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">vuex注意事项</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -266,7 +267,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <p>暂无目录</p>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理解析"><span class="toc-text">原理解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li></ol>
         
     </div>
 </aside>
