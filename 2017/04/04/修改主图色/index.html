@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>日常记录 | 豆豉的博客</title>
+<title>修改主图色 | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -151,9 +151,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="日常记录">
+        <h1 id="修改主图色">
             
-	            日常记录
+	            修改主图色
             
         </h1>
         <div class="post-meta">
@@ -161,8 +161,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/other">
-            other
+        <a href="/categories/css">
+            css
         </a>
     </span>
     
@@ -182,7 +182,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/04/07</span>
+            <span class="date-meta">2017/04/04</span>
         </span>
         
     
@@ -191,15 +191,29 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>1537</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>1541</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
-        <h3 id="关于new的过程"><a href="#关于new的过程" class="headerlink" title="关于new的过程"></a>关于new的过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Father.prototype=&#123;</div><div class="line">    <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> son=<span class="keyword">new</span> Father(<span class="string">'张三'</span>);</div><div class="line"></div><div class="line"><span class="comment">//new 分为3个步骤</span></div><div class="line"><span class="comment">//var son=&#123;&#125;</span></div><div class="line"><span class="comment">//Father.apply(son,"张三")；</span></div><div class="line"><span class="comment">//son.__proto__=Father.prototype;</span></div></pre></td></tr></table></figure>
-<h3 id="关于apply和call的作用"><a href="#关于apply和call的作用" class="headerlink" title="关于apply和call的作用"></a>关于apply和call的作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//apply和call都是用来改变this的指向</span></div><div class="line"><span class="comment">//比如son2如果想要有一个getName的方法，但是不想重写可以用apply或者call的方法</span></div><div class="line"><span class="comment">//call和apply都会遍历一次函数，然后执行一次</span></div><div class="line"><span class="keyword">var</span> son2=&#123;<span class="attr">name</span>:<span class="string">"李四"</span>&#125;;</div><div class="line">son.getName.apply(son2);</div></pre></td></tr></table></figure>
-<h3 id="apply的第二个参数对象只要有length属性就可以了"><a href="#apply的第二个参数对象只要有length属性就可以了" class="headerlink" title="apply的第二个参数对象只要有length属性就可以了"></a>apply的第二个参数对象只要有length属性就可以了</h3><p>&emsp;&emsp;类数组的定义就是有length属性就可以了<br>&emsp;&emsp;&emsp; 1 . 类数组怎么变成数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayLike=&#123;</div><div class="line">    <span class="attr">length</span>:<span class="number">2</span>,</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLike)) <span class="comment">//false</span></div><div class="line"><span class="comment">//可以将带有length的对象转换为数组</span></div><div class="line"><span class="keyword">var</span> arrFunc1 = <span class="built_in">Array</span>.prototype.slice.call(arrayLike); </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrFunc1)) <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+        <h3 id="基于less"><a href="#基于less" class="headerlink" title="基于less"></a>基于less</h3><ol>
+<li>引入less.js文件</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ol>
+<li>引入对应的less文件</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@primaryColor: red;</div><div class="line"></div><div class="line">.color&#123;</div><div class="line">    <span class="attr">color</span>: @primaryColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>通过less.modifyVars动态修改变量</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">less.modifyVars(&#123;</div><div class="line">    <span class="string">'@primaryColor'</span>: <span class="string">'blue'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li>webpack 配置如下</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">      <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</div><div class="line">      <span class="attr">loader</span>: <span class="string">'less-loader'</span>,</div><div class="line">      <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">javascriptEnabled</span>: <span class="literal">true</span> <span class="comment">// 需要配置这个</span></div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="通过setProperty的方式"><a href="#通过setProperty的方式" class="headerlink" title="通过setProperty的方式"></a>通过setProperty的方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">    --primaryColor: red;</div><div class="line">    --primaryBgColor: yellow;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.page&#123;</div><div class="line">    <span class="attr">color</span>: <span class="keyword">var</span>(--primaryColor);</div><div class="line">    background: <span class="keyword">var</span>(--primaryBgColor)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 修改主题的时候</span></div><div class="line"><span class="built_in">document</span>.body.style.setProperty(<span class="string">'--primaryColor'</span>, <span class="string">'blue'</span>)</div><div class="line"></div><div class="line"><span class="built_in">document</span>.body.style.setProperty(<span class="string">'--primaryBgColor'</span>, <span class="string">'red'</span>)</div></pre></td></tr></table></figure>
 
     </div>
     
@@ -217,15 +231,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/04/09/浏览器渲染优化/" class="pre-post btn btn-default" title='浏览器渲染优化'>
+        <a href="/2017/04/04/markdown/" class="pre-post btn btn-default" title='markdown语法使用'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">浏览器渲染优化</span>
+            <span class="hidden-xs">markdown语法使用</span>
         </a>
     
     
-        <a href="/2017/04/07/vue-Api/" class="next-post btn btn-default" title='vue重要Api整理'>
+        <a href="/2017/04/04/正则表达式/" class="next-post btn btn-default" title='常用正则表达式'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">vue重要Api整理</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">常用正则表达式</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -268,7 +282,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于new的过程"><span class="toc-text">关于new的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于apply和call的作用"><span class="toc-text">关于apply和call的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply的第二个参数对象只要有length属性就可以了"><span class="toc-text">apply的第二个参数对象只要有length属性就可以了</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于less"><span class="toc-text">基于less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过setProperty的方式"><span class="toc-text">通过setProperty的方式</span></a></li></ol>
         
     </div>
 </aside>

@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>日常记录 | 豆豉的博客</title>
+<title>docker + code-server运行web vscode | 豆豉的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="豆豉的博客" type="application/atom+xml">
@@ -151,9 +151,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="日常记录">
+        <h1 id="docker + code-server运行web vscode">
             
-	            日常记录
+	            docker + code-server运行web vscode
             
         </h1>
         <div class="post-meta">
@@ -161,8 +161,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/other">
-            other
+        <a href="/categories/javascript">
+            javascript
         </a>
     </span>
     
@@ -182,7 +182,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/04/07</span>
+            <span class="date-meta">2020/10/13</span>
         </span>
         
     
@@ -190,16 +190,49 @@
 
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>1537</strong>天之前发表，文中内容可能已经过时。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="关于new的过程"><a href="#关于new的过程" class="headerlink" title="关于new的过程"></a>关于new的过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=name;</div><div class="line">&#125;</div><div class="line">Father.prototype=&#123;</div><div class="line">    <span class="attr">getName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> son=<span class="keyword">new</span> Father(<span class="string">'张三'</span>);</div><div class="line"></div><div class="line"><span class="comment">//new 分为3个步骤</span></div><div class="line"><span class="comment">//var son=&#123;&#125;</span></div><div class="line"><span class="comment">//Father.apply(son,"张三")；</span></div><div class="line"><span class="comment">//son.__proto__=Father.prototype;</span></div></pre></td></tr></table></figure>
-<h3 id="关于apply和call的作用"><a href="#关于apply和call的作用" class="headerlink" title="关于apply和call的作用"></a>关于apply和call的作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//apply和call都是用来改变this的指向</span></div><div class="line"><span class="comment">//比如son2如果想要有一个getName的方法，但是不想重写可以用apply或者call的方法</span></div><div class="line"><span class="comment">//call和apply都会遍历一次函数，然后执行一次</span></div><div class="line"><span class="keyword">var</span> son2=&#123;<span class="attr">name</span>:<span class="string">"李四"</span>&#125;;</div><div class="line">son.getName.apply(son2);</div></pre></td></tr></table></figure>
-<h3 id="apply的第二个参数对象只要有length属性就可以了"><a href="#apply的第二个参数对象只要有length属性就可以了" class="headerlink" title="apply的第二个参数对象只要有length属性就可以了"></a>apply的第二个参数对象只要有length属性就可以了</h3><p>&emsp;&emsp;类数组的定义就是有length属性就可以了<br>&emsp;&emsp;&emsp; 1 . 类数组怎么变成数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayLike=&#123;</div><div class="line">    <span class="attr">length</span>:<span class="number">2</span>,</div><div class="line">    <span class="attr">name</span>:<span class="string">'张三'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrayLike)) <span class="comment">//false</span></div><div class="line"><span class="comment">//可以将带有length的对象转换为数组</span></div><div class="line"><span class="keyword">var</span> arrFunc1 = <span class="built_in">Array</span>.prototype.slice.call(arrayLike); </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(arrFunc1)) <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+        <h3 id="安装docker-desktop"><a href="#安装docker-desktop" class="headerlink" title="安装docker desktop"></a>安装docker desktop</h3><ul>
+<li><a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="external">安装地址</a></li>
+<li><p>确认是否安装成功</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 出现版本号就说明安装成功</span></div><div class="line">docker -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改docker镜像文件</p>
+<ul>
+<li><ul>
+<li>在访达里面选择前往文件夹，输入~/.docker</li>
+</ul>
+</li>
+<li><ul>
+<li>在打开的目录中找到daemon.json 文件，增加以下内容</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"registry-mirrors"</span>:[<span class="string">"https://docker.mirrors.ustc.edu.cn"</span>]</div></pre></td></tr></table></figure>
+</li>
+<li><ul>
+<li>验证镜像是否修改成功</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker info</div></pre></td></tr></table></figure>
+<p><img src="https://img.hicdn.cn/fed/images/20210123/bf9615b8dc3cf1536247014636563179_1116x1634.jpg" alt="image"></p>
+<h3 id="获取code-server-镜像"><a href="#获取code-server-镜像" class="headerlink" title="获取code-server 镜像"></a>获取code-server 镜像</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull code-server</div></pre></td></tr></table></figure>
+<h3 id="生成新的容器"><a href="#生成新的容器" class="headerlink" title="生成新的容器"></a>生成新的容器</h3><ul>
+<li>打开docker deskTop选择images，里面会有一个刚才pull到的code-server的镜像，点击run</li>
+<li>配置里面填好配置信息，比如下图<br><img src="https://img.hicdn.cn/fed/images/20210123/d56798dddfae1e2f0d37ece0187e0f1c_1626x1208.jpg" alt="image"></li>
+<li>在新建的容器中点击open in browser,这时候会打开chrome需要你填写密码</li>
+<li>进入新建的容器中,执行以下代码,复制密码在chrome中输入</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nano ~/.<span class="built_in">config</span>/code-server/<span class="built_in">config</span>.yaml</div></pre></td></tr></table></figure>
+<p><img src="https://img.hicdn.cn/fed/images/20210123/6039359d0df0beb8ba07b33540d6a4e0_782x258.jpg" alt="image"></p>
+<ul>
+<li>将chrome的url改为<a href="http://localhost:9999/?folder=/vscode" target="_blank" rel="external">http://localhost:9999/?folder=/vscode</a></li>
+<li>foler后面的地址就是之前在新建容器时候配置的服务端的文件目录名</li>
+<li>修改文件内容，会在本地的/Users/zyj/hipac下面的对应文件就会被同步修改</li>
+</ul>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p><img src="https://img.hicdn.cn/fed/images/20210123/18c4430a129d2b50953ff4c6c287ede1_3100x1712.jpg" alt="image"></p>
 
     </div>
     
@@ -217,15 +250,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/04/09/浏览器渲染优化/" class="pre-post btn btn-default" title='浏览器渲染优化'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">浏览器渲染优化</span>
-        </a>
     
-    
-        <a href="/2017/04/07/vue-Api/" class="next-post btn btn-default" title='vue重要Api整理'>
+        <a href="/2020/10/13/纯前端实现sku商品特性选择/" class="next-post btn btn-default" title='纯前端实现sku商品特性选择'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">vue重要Api整理</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">纯前端实现sku商品特性选择</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -268,7 +296,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于new的过程"><span class="toc-text">关于new的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于apply和call的作用"><span class="toc-text">关于apply和call的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply的第二个参数对象只要有length属性就可以了"><span class="toc-text">apply的第二个参数对象只要有length属性就可以了</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装docker-desktop"><span class="toc-text">安装docker desktop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取code-server-镜像"><span class="toc-text">获取code-server 镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成新的容器"><span class="toc-text">生成新的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终效果"><span class="toc-text">最终效果</span></a></li></ol>
         
     </div>
 </aside>
